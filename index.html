@@ -124,7 +124,7 @@ input,textarea,select{font:inherit;border:2px solid var(--line);border-radius:10
 .card .badge{position:absolute;top:-8px;right:10px;background:var(--accent);color:#1e1e22;font-family:var(--stencil);font-size:.66rem;letter-spacing:.06em;padding:2px 8px 0;border-radius:2px;transform:rotate(2deg);box-shadow:0 1px 2px rgba(0,0,0,.35)}
 .card ul{font-family:var(--hand);font-size:1.1rem;line-height:28px;margin:0 0 0 1.1em;padding:0}
 .card .method{white-space:pre-wrap;background:rgba(242,182,50,.16);border-radius:2px}
-.card .meta a{margin-left:10px}
+.card.lib .meta{flex-wrap:wrap;gap:2px 12px}.card .meta a{margin-left:10px;white-space:nowrap}
 .more{margin-top:12px}
 
 /* card catalog */
@@ -500,7 +500,7 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
     const list = S.shelves[curStation.id] || [];
     const lib = [...LIB.lessons.filter(l=>l.station===curStation.id).map(l=>({t:"Lesson",title:l.title,note:l.body,link:l.source&&l.source.url,date:l.date})),
                  ...LIB.recipes.filter(r=>r.station===curStation.id).map(r=>({t:"Recipe",title:r.title,note:r.notes,link:r.source&&r.source.url,date:r.date}))].sort(byNewest);
-    const libHtml = lib.map(it => `<article class="item"><h3><span class="tagw">${it.t}</span>${esc(it.title)}</h3>${it.note?`<p>${esc(it.note)}</p>`:""}<div class="meta"><span>From the workshop library · ${esc(fmtDate(it.date))}</span>${safeUrl(it.link)?`<a href="${esc(it.link)}" target="_blank" rel="noopener">Read the source</a>`:""}</div></article>`).join("");
+    const libHtml = lib.map(it => `<article class="item"><h3><span class="tagw">${it.t}</span> ${esc(it.title)}</h3>${it.note?`<p>${esc(it.note)}</p>`:""}<div class="meta"><span>From the workshop library · ${esc(fmtDate(it.date))}</span>${safeUrl(it.link)?`<a href="${esc(it.link)}" target="_blank" rel="noopener">Read the source</a>`:""}</div></article>`).join("");
     $("#stShelf").innerHTML = libHtml + (list.length ? list.map(it => `<article class="item"><h3>${esc(it.title)}</h3>${it.note?`<p>${esc(it.note)}</p>`:""}<div class="meta"><span>Added by <b style="color:${colorOf(it.by)}">${esc(nameOf(it.by))}</b></span>${safeUrl(it.link)?`<a href="${esc(it.link)}" target="_blank" rel="noopener">Open it</a>`:""}</div></article>`).join("")
       : lib.length ? "" : `<div class="slot">Nothing on this bench yet. Be the first to add something you learned about ${esc(curStation.name)}.</div>`);
   }
