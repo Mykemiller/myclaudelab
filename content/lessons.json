@@ -1,0 +1,41 @@
+{
+  "about": "Workshop lessons for the card catalog. Every visitor sees these. Newest entries go at the end; the page shows the newest first.",
+  "lessons": [
+    {
+      "id": "2026-11-17-projects",
+      "date": "2026-11-17",
+      "station": "projects",
+      "title": "Projects: a workbench that remembers",
+      "body": "A project is its own workspace in Claude, with its own chats and its own shelf of knowledge. You can upload documents, text, code or other files to that shelf, and Claude uses them as background for every chat in the project. You can also write project instructions, like asking for a friendlier tone or a particular point of view, so you don't have to repeat yourself each time. Everyone can make projects, even on a free account, which allows up to five.",
+      "tryIt": "Make a project called Homework Helper, upload this week's reading, and add one instruction: explain things step by step and ask me a question back.",
+      "source": {
+        "title": "What are projects? (Claude Help Center)",
+        "url": "https://support.claude.com/en/articles/9517075-what-are-projects"
+      }
+    },
+    {
+      "id": "2026-11-17-artifacts",
+      "date": "2026-11-17",
+      "station": "designs",
+      "title": "Artifacts: things you'd put in front of someone",
+      "body": "Anthropic describes an artifact as anything Claude makes for you that you'd put in front of someone: a document, a slide deck, a design, a dashboard or a small interactive tool. It opens beside your chat, where you can keep changing it by asking Claude, or edit some kinds directly, like typing in a doc. Everything you make is saved in the Artifacts tab in your sidebar, and it starts out private to you until you share it.",
+      "tryIt": "Ask Claude: make a one-page poster for our family game night, with the date, the snacks and the rules for choosing a game.",
+      "source": {
+        "title": "What are artifacts and how do I use them? (Claude Help Center)",
+        "url": "https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them"
+      }
+    },
+    {
+      "id": "2026-11-17-claude-md",
+      "date": "2026-11-17",
+      "station": "claudemd",
+      "title": "CLAUDE.md: the shop rules Claude reads first",
+      "body": "Each Claude Code session starts fresh, so a CLAUDE.md file is how you hand Claude the standing rules for a project. It is a plain Markdown file in the project folder that Claude reads at the start of every session. Typing /init asks Claude to look at your code and write a starter file for you, and /memory shows which files are loaded. Keep it short, under about 200 lines, and specific: 'Run npm test before committing' works much better than 'test your changes'.",
+      "tryIt": "Open a project in Claude Code, type /init, then read the file it writes and cross out anything that isn't really a rule.",
+      "source": {
+        "title": "How Claude remembers your project (Claude Code Docs)",
+        "url": "https://code.claude.com/docs/en/memory"
+      }
+    }
+  ]
+}
