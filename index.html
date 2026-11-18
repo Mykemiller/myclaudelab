@@ -120,6 +120,12 @@ input,textarea,select{font:inherit;border:2px solid var(--line);border-radius:10
 .card p{font-family:var(--hand);font-size:1.1rem;line-height:28px;margin:0}
 .card .meta{font-size:.8rem;color:#5a4a3a;display:flex;justify-content:space-between;margin-top:6px}
 .empty{font-family:var(--hand);font-size:1.2rem;color:var(--soft)}
+.card.lib{position:relative}
+.card .badge{position:absolute;top:-8px;right:10px;background:var(--accent);color:#1e1e22;font-family:var(--stencil);font-size:.66rem;letter-spacing:.06em;padding:2px 8px 0;border-radius:2px;transform:rotate(2deg);box-shadow:0 1px 2px rgba(0,0,0,.35)}
+.card ul{font-family:var(--hand);font-size:1.1rem;line-height:28px;margin:0 0 0 1.1em;padding:0}
+.card .method{white-space:pre-wrap;background:rgba(242,182,50,.16);border-radius:2px}
+.card.lib .meta{flex-wrap:wrap;gap:2px 12px}.card .meta a{margin-left:10px;white-space:nowrap}
+.more{margin-top:12px}
 
 /* card catalog */
 .catalog{--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='200'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.3' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16  0 0 0 0 0.08  0 0 0 0 0.02  1.5 0 0 0 -0.52'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");padding:18px;border-radius:6px;background:linear-gradient(rgba(255,255,255,.06),rgba(0,0,0,.2)),var(--grain),#6B3F1D;
@@ -141,12 +147,17 @@ input,textarea,select{font:inherit;border:2px solid var(--line);border-radius:10
 .holder .kind{position:absolute;top:-9px;right:-6px;font-family:var(--stencil);font-size:.62rem;letter-spacing:.06em;color:#fff;background:var(--k);padding:1px 6px 0;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.5)}
 .drawer.spare .card{color:#8a7a62;font-style:italic}
 .drawer.motion{--k:#B2456E}
-.holder .kind{white-space:nowrap}.drawer.yt{--k:#3A72AA}.drawer.academy{--k:#4D8653}
+.holder .kind{white-space:nowrap}.drawer.yt{--k:#3A72AA}.drawer.academy{--k:#4D8653}.drawer.lesson{--k:#C0661A}
+.holder .new{position:absolute;top:-9px;left:-6px;font-family:var(--hand);font-size:.85rem;color:#1e1e22;background:var(--accent);padding:0 6px;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.5);transform:rotate(-4deg)}
 .pull{width:46px;height:16px;border-radius:0 0 24px 24px;background:linear-gradient(180deg,#8C6A1E,#F3D98A 40%,#C9A24A);box-shadow:0 3px 4px rgba(0,0,0,.55),inset 0 3px 3px rgba(0,0,0,.35)}
 .tally{position:absolute;left:10px;bottom:6px;font-family:var(--hand);color:#FBF6E6;font-size:1rem;text-shadow:0 1px 2px rgba(0,0,0,.6)}
 .dest{position:absolute;right:10px;bottom:6px;font-size:.72rem;color:rgba(251,246,230,.85);text-shadow:0 1px 2px rgba(0,0,0,.6)}
 .request{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
 .request input{flex:1 1 220px;width:auto;background:#FBF6E6;color:#2b2016;border-color:#8C6A1E;font-family:var(--hand);font-size:1.1rem}
+.catalog .more .btn{background:#FBF6E6;color:#2b2016}
+.lesson-meta{font-size:.85rem;color:var(--soft);margin:0}
+.lesson-try{background:var(--surface-2);border-left:4px solid var(--accent);padding:8px 12px;border-radius:4px;margin:0}
+.item .tagw{background:var(--accent);color:#1e1e22;font-family:var(--stencil);font-size:.66rem;letter-spacing:.06em;padding:1px 6px 0;border-radius:2px;margin-right:6px;vertical-align:2px}
 .catalog .reqlist{font-family:var(--hand);color:#FBF6E6;font-size:1.05rem;margin:10px 0 0}
 
 /* garden */
@@ -315,6 +326,7 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
     <div class="wrap">
       <header><h2 class="label">The recipe box</h2><p>Prompts that worked, written down so anyone can cook them again.</p></header>
       <div class="recipes" id="recipeList"></div>
+      <p class="more" id="recipeMore" hidden><button class="btn ghost" id="recipeMoreBtn"></button></p>
       <p style="margin-top:14px"><button class="btn sun" id="addRecipe">Add a recipe card</button></p>
     </div>
   </section>
@@ -324,6 +336,7 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
       <header><h2 class="label">The card catalog</h2><p>Our YouTube Tip Treasure Chest, plus Claude Academy courses. Videos play right here; Academy drawers open in a new tab. Watch, then share one thing you learned to stamp your passport.</p></header>
       <div class="catalog">
         <div class="drawers" id="reelShelf"></div>
+        <p class="more" id="lessonMore" hidden><button class="btn" id="lessonMoreBtn"></button></p>
         <div class="request"><label class="sr" for="reqText">Request a lesson</label><input id="reqText" placeholder="I want a lesson on…"><button class="btn sun" id="reqBtn">Drop it in the suggestion slot</button></div>
         <p class="reqlist" id="reqList"></p>
       </div>
@@ -341,7 +354,7 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
     </div>
   </section>
 </main>
-<footer><div class="wrap">Made by our family with Claude. Everything here is saved in this browser for now.</div></footer>
+<footer><div class="wrap">Made by our family with Claude. Workshop lessons and recipe cards are shared with every visitor and a new batch arrives each day. What you add yourself is saved in this browser for now.</div></footer>
 
 <!-- station view -->
 <div class="station" id="station" role="dialog" aria-modal="true" aria-labelledby="stTitle">
@@ -414,6 +427,8 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
   <h3 id="stampTitle"></h3>
   <div class="row" style="justify-content:center"><button class="btn" data-close>Back to the workshop</button></div>
 </div></dialog>
+
+<dialog id="dlgLesson"><div class="dlg"><p class="lesson-meta" id="lessonMeta"></p><h3 id="lessonTitle"></h3><p id="lessonBody" style="margin:0"></p><p class="lesson-try" id="lessonTry"></p><p style="margin:0"><a id="lessonSrc" target="_blank" rel="noopener"></a></p><div class="row"><button class="btn ghost" id="lessonGo"></button><button class="btn" data-close>Close</button></div></div></dialog>
 
 <dialog id="dlgPlayer" class="player" aria-labelledby="plTitle"><div class="plwrap">
   <div class="screen"><div class="frame" id="plFrame"></div></div>
@@ -511,6 +526,21 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
     {id:"ac-limits", short:"What AI can and can’t do", title:"AI capabilities and limitations", url:"https://academy.claude.com/courses/ai-capabilities-and-limitations", stations:["claudemd"]},
     {id:"ac-skills", short:"Intro to agent skills", title:"Introduction to agent skills", url:"https://academy.claude.com/courses/introduction-to-agent-skills", stations:["skills"]}
   ];
+
+  // Workshop library: shared lessons and recipe cards every visitor sees (content/*.json, newest added daily).
+  const LIB = {lessons:[], recipes:[]};
+  const SHOW = 6; let showAllLessons=false, showAllRecipes=false;
+  const byNewest = (a,b) => String(b.date).localeCompare(String(a.date));
+  const fmtDate = d => { const t = new Date(d+"T12:00:00"); return isNaN(t) ? "" : t.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}); };
+  const isFresh = d => { const t = new Date(d+"T12:00:00"); return !isNaN(t) && (Date.now()-t) < 2*864e5; };
+  const stationName = id => (STATIONS.find(s=>s.id===id)||{}).name || "";
+  async function loadLibrary(){
+    const get = f => fetch(f,{cache:"no-cache"}).then(r => r.ok ? r.json() : {}).catch(() => ({}));
+    const [l, r] = await Promise.all([get("content/lessons.json"), get("content/recipes.json")]);
+    LIB.lessons = (Array.isArray(l.lessons) ? l.lessons : []).filter(x => x && x.id && x.title).sort(byNewest);
+    LIB.recipes = (Array.isArray(r.recipes) ? r.recipes : []).filter(x => x && x.id && x.title).sort(byNewest);
+    renderRecipes(); renderReels(); if (curStation) renderShelf();
+  }
 
   // Flash card decks: [front, back]. Backs may hold a little trusted markup.
   const DECKS = {
@@ -775,8 +805,11 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
   $("#station").addEventListener("touchend", e => { if (sx==null) return; const dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy; if (Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)*1.5) step(dx<0?1:-1); sx=null; });
   function renderShelf(){
     const list = S.shelves[curStation.id] || [];
-    $("#stShelf").innerHTML = list.length ? list.map(it => `<article class="item"><h3>${esc(it.title)}</h3>${it.note?`<p>${esc(it.note)}</p>`:""}<div class="meta"><span>Added by <b style="color:${colorOf(it.by)}">${esc(nameOf(it.by))}</b></span>${safeUrl(it.link)?`<a href="${esc(it.link)}" target="_blank" rel="noopener">Open it</a>`:""}</div></article>`).join("")
-      : `<div class="slot">Nothing on this bench yet. Be the first to add something you learned about ${esc(curStation.name)}.</div>`;
+    const lib = [...LIB.lessons.filter(l=>l.station===curStation.id).map(l=>({t:"Lesson",title:l.title,note:l.body,link:l.source&&l.source.url,date:l.date})),
+                 ...LIB.recipes.filter(r=>r.station===curStation.id).map(r=>({t:"Recipe",title:r.title,note:r.notes,link:r.source&&r.source.url,date:r.date}))].sort(byNewest);
+    const libHtml = lib.map(it => `<article class="item"><h3><span class="tagw">${it.t}</span> ${esc(it.title)}</h3>${it.note?`<p>${esc(it.note)}</p>`:""}<div class="meta"><span>From the workshop library · ${esc(fmtDate(it.date))}</span>${safeUrl(it.link)?`<a href="${esc(it.link)}" target="_blank" rel="noopener">Read the source</a>`:""}</div></article>`).join("");
+    $("#stShelf").innerHTML = libHtml + (list.length ? list.map(it => `<article class="item"><h3>${esc(it.title)}</h3>${it.note?`<p>${esc(it.note)}</p>`:""}<div class="meta"><span>Added by <b style="color:${colorOf(it.by)}">${esc(nameOf(it.by))}</b></span>${safeUrl(it.link)?`<a href="${esc(it.link)}" target="_blank" rel="noopener">Open it</a>`:""}</div></article>`).join("")
+      : lib.length ? "" : `<div class="slot">Nothing on this bench yet. Be the first to add something you learned about ${esc(curStation.name)}.</div>`);
   }
   $("#stAdd").onclick = () => needMember(() => {
     const f=$("#itemForm"), d=$("#dlgItem"); f.reset(); $("#itemTitle").textContent=`Add to ${curStation.name}`;
@@ -786,10 +819,20 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
   });
 
   // ---------- recipe box ----------
-  function renderRecipes(){
-    $("#recipeList").innerHTML = S.recipes.length ? S.recipes.map(r => `<article class="card"><h3>${esc(r.title)}</h3><p>${esc(r.method)}</p>${r.notes?`<p style="color:#B4436C">${esc(r.notes)}</p>`:""}<div class="meta"><span>Added by ${esc(nameOf(r.by))}</span><a href="https://claude.ai/new?q=${encodeURIComponent(r.method)}" target="_blank" rel="noopener">Cook it</a></div></article>`).join("")
-      : `<p class="empty">No cards yet. When a prompt works well, write it down here.</p>`;
+  function libRecipeCard(r){
+    const ing = Array.isArray(r.ingredients) && r.ingredients.length ? `<ul>${r.ingredients.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>` : "";
+    const src = r.source && safeUrl(r.source.url) ? `<a href="${esc(r.source.url)}" target="_blank" rel="noopener" title="${esc(r.source.title)}">Source</a>` : "";
+    return `<article class="card lib"><span class="badge">${isFresh(r.date)?"New today":"Workshop card"}</span><h3>${esc(r.title)}</h3>${ing}<p class="method">${esc(r.method)}</p>${r.notes?`<p style="color:#B4436C">${esc(r.notes)}</p>`:""}<div class="meta"><span>From the workshop · ${esc(fmtDate(r.date))}</span><span><a href="https://claude.ai/new?q=${encodeURIComponent(r.method||"")}" target="_blank" rel="noopener">Cook it</a>${src}</span></div></article>`;
   }
+  function renderRecipes(){
+    const lib = showAllRecipes ? LIB.recipes : LIB.recipes.slice(0,SHOW);
+    $("#recipeMore").hidden = LIB.recipes.length <= SHOW;
+    $("#recipeMoreBtn").textContent = showAllRecipes ? "Show fewer workshop cards" : `Show all ${LIB.recipes.length} workshop cards`;
+    const mine = S.recipes.length ? S.recipes.map(r => `<article class="card"><h3>${esc(r.title)}</h3><p>${esc(r.method)}</p>${r.notes?`<p style="color:#B4436C">${esc(r.notes)}</p>`:""}<div class="meta"><span>Added by ${esc(nameOf(r.by))}</span><a href="https://claude.ai/new?q=${encodeURIComponent(r.method)}" target="_blank" rel="noopener">Cook it</a></div></article>`).join("")
+      : "";
+    $("#recipeList").innerHTML = lib.map(libRecipeCard).join("") + mine || `<p class="empty">No cards yet. When a prompt works well, write it down here.</p>`;
+  }
+  $("#recipeMoreBtn").onclick = () => { showAllRecipes=!showAllRecipes; renderRecipes(); };
   $("#addRecipe").onclick = () => needMember(() => {
     const f=$("#recipeForm"), d=$("#dlgRecipe"); f.reset();
     d.onclose = () => { if (d.returnValue!=="ok") return; S.recipes.unshift({...Object.fromEntries(new FormData(f)), by:S.current, at:Date.now()}); save(); renderRecipes(); toast("Recipe card filed"); };
@@ -800,18 +843,41 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
   const ytThumb = id => `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
   const ALL_DRAWERS = () => [...VIDEOS.map(v=>({...v,kind:"yt"})), ...ACADEMY_DRAWERS.map(a=>({...a,kind:"academy"}))];
   function renderReels(){
-    $("#reelShelf").innerHTML = ALL_DRAWERS().map(r => { const n = Object.values(S.stubs).filter(l=>l.includes(r.id)).length; const st=STATIONS.find(s=>s.id===r.stations[0]);
+    const lessons = showAllLessons ? LIB.lessons : LIB.lessons.slice(0,SHOW);
+    $("#lessonMore").hidden = LIB.lessons.length <= SHOW;
+    $("#lessonMoreBtn").textContent = showAllLessons ? "Show fewer lessons" : `Open all ${LIB.lessons.length} lesson drawers`;
+    $("#reelShelf").innerHTML = lessons.map(l => { const st=stationName(l.station);
+      return `<button class="drawer lesson" data-lesson="${esc(l.id)}" aria-label="${esc(l.title)}, Lesson${st?`, ${esc(st)}`:""}"><span class="inside" aria-hidden="true"></span><span class="face"><span class="holder"><span class="kind">Lesson</span>${isFresh(l.date)?`<span class="new">new</span>`:""}<span class="card">${esc(l.title)}</span></span><span class="pull"></span><span class="tally">${esc(fmtDate(l.date))}</span>${st?`<span class="dest">→ ${esc(st)}</span>`:""}</span></button>`; }).join("")
+      + ALL_DRAWERS().map(r => { const n = Object.values(S.stubs).filter(l=>l.includes(r.id)).length; const st=STATIONS.find(s=>s.id===r.stations[0]);
       const kind = r.kind==="yt" ? "Video" : "Academy";
       return `<button class="drawer ${r.kind}" data-id="${r.id}" aria-label="${esc(r.title)}, ${kind}${r.len?", "+r.len:""}"><span class="inside" aria-hidden="true"></span><span class="face"><span class="holder"><span class="kind">${kind}${r.len?" · "+r.len:""}</span><span class="card">${esc(r.short)}</span></span><span class="pull"></span>${n?`<span class="tally">${"|".repeat(Math.min(n,5))}${n>5?"+":""}</span>`:""}<span class="dest">→ ${esc(st.name)}</span></span></button>`; }).join("")
       + Array.from({length:2},()=>`<button class="drawer spare" aria-label="Empty drawer: suggest a lesson"><span class="inside" aria-hidden="true"></span><span class="face"><span class="holder"><span class="card">Empty drawer: suggest a lesson</span></span><span class="pull"></span></span></button>`).join("");
     $("#reelShelf").querySelectorAll(".drawer.spare").forEach(b => b.onclick = () => $("#reqText").focus());
-    $("#reelShelf").querySelectorAll(".drawer:not(.spare)").forEach(b => b.onclick = () => {
+    $("#reelShelf").querySelectorAll(".drawer.lesson").forEach(b => b.onclick = () => {
+      $("#reelShelf").querySelectorAll(".drawer.open").forEach(d => d!==b && d.classList.remove("open"));
+      b.classList.add("open");
+      setTimeout(() => { openLesson(LIB.lessons.find(l=>l.id===b.dataset.lesson)); setTimeout(()=>b.classList.remove("open"), 900); }, reduce?0:520);
+    });
+    $("#reelShelf").querySelectorAll(".drawer:not(.spare):not(.lesson)").forEach(b => b.onclick = () => {
       $("#reelShelf").querySelectorAll(".drawer.open").forEach(d => d!==b && d.classList.remove("open"));
       b.classList.add("open");
       setTimeout(() => { openDrawer(ALL_DRAWERS().find(r=>r.id===b.dataset.id)); setTimeout(()=>b.classList.remove("open"), 900); }, reduce?0:480);
     });
     $("#reqList").textContent = S.requests.length ? "In the suggestion slot: " + S.requests.slice(0,5).map(r=>r.text).join(" · ") : "";
   }
+  function openLesson(l){
+    if (!l) return;
+    const st = STATIONS.find(s=>s.id===l.station);
+    $("#lessonMeta").textContent = `Workshop lesson · ${fmtDate(l.date)}${st?` · ${st.name} station`:""}`;
+    $("#lessonTitle").textContent = l.title; $("#lessonBody").textContent = l.body || "";
+    $("#lessonTry").hidden = !l.tryIt; $("#lessonTry").textContent = l.tryIt ? `Try it: ${l.tryIt}` : "";
+    const a=$("#lessonSrc"), u = l.source && safeUrl(l.source.url);
+    a.hidden = !u; if (u){ a.href=u; a.textContent=`Read more: ${l.source.title || "the source"}`; }
+    const go=$("#lessonGo"); go.hidden=!st;
+    if (st){ go.textContent=`Walk to ${st.name}`; go.onclick=()=>{ $("#dlgLesson").close(); openStation(st); }; }
+    $("#dlgLesson").showModal();
+  }
+  $("#lessonMoreBtn").onclick = () => { showAllLessons=!showAllLessons; renderReels(); };
   function openDrawer(r){
     if (r.kind==="yt") return openPlayer(r);
     needMember(() => { S.pending={reel:r.id, who:S.current, left:Date.now()}; save(); toast("Off to Claude Academy! The workshop will be here when you get back."); window.open(r.url,"_blank","noopener"); });
@@ -936,7 +1002,7 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
   function centerRoom(){ if (vp.scrollWidth > vp.clientWidth+4){ vp.scrollLeft=(vp.scrollWidth-vp.clientWidth)/2; $("#roomHint").textContent="Swipe to look around, then tap a station to walk over."; } }
 
   function renderAll(){ renderWho(); renderPins(); renderPassport(); renderRecipes(); renderReels(); renderGarden(); }
-  renderAll(); centerRoom(); checkReturn();
+  renderAll(); centerRoom(); checkReturn(); loadLibrary();
   { const s=STATIONS.find(x=>"#"+x.id===location.hash); if (s) openStation(s,{fromHistory:true}); }
 })();
 </script>

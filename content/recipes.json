@@ -1,0 +1,40 @@
+{
+  "about": "Workshop recipe cards for the recipe box. Every visitor sees these. Newest entries go at the end; the page shows the newest first.",
+  "recipes": [
+    {
+      "id": "2026-11-17-new-employee-brief",
+      "date": "2026-11-17",
+      "station": "duet",
+      "title": "The brilliant new employee brief",
+      "ingredients": [
+        "What you want made",
+        "Who it's for",
+        "Why it matters",
+        "What a good result looks like"
+      ],
+      "method": "I'm planning [what it is] for [who it's for]. It matters because [why]. Please make [the thing], about [length], in [format]. A great result would [what success looks like]. Include [anything extra you want], and ask me questions first if something is unclear.",
+      "notes": "Anthropic suggests treating Claude like a brilliant new employee who doesn't know your house rules yet. If a friend with no background would be confused by your prompt, Claude will be too.",
+      "source": {
+        "title": "Prompting best practices (Claude Docs)",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+      }
+    },
+    {
+      "id": "2026-11-17-show-examples",
+      "date": "2026-11-17",
+      "station": "duet",
+      "title": "Show it a few examples",
+      "ingredients": [
+        "Three samples of the style you like",
+        "<example> tags around each one",
+        "The new thing you want written"
+      ],
+      "method": "Here are examples of the style I like:\n<example>[first sample]</example>\n<example>[second sample]</example>\n<example>[third sample]</example>\nNow write [the new thing] in the same style.",
+      "notes": "Examples are one of the most reliable ways to steer tone and format. Anthropic recommends 3 to 5, and making them different from each other so Claude copies the style, not one quirk.",
+      "source": {
+        "title": "Prompting best practices (Claude Docs)",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+      }
+    }
+  ]
+}
