@@ -79,7 +79,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .pin.minor .dot::after{border-color:#fff}
 .pin.minor .tag{font-family:var(--hand);font-size:1.05rem;letter-spacing:0;text-transform:none}
 @keyframes ping{0%{transform:scale(.8);opacity:.9}80%,100%{transform:scale(2);opacity:0}}
-.room-hint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);margin:0;background:rgba(14,14,16,.78);color:#FFE7A8;font-family:var(--hand);font-size:1.1rem;padding:4px 14px;border-radius:999px;white-space:nowrap;z-index:2}
+.room-hint{position:absolute;left:50%;bottom:84px;transform:translateX(-50%);margin:0;background:rgba(14,14,16,.78);color:#FFE7A8;font-family:var(--hand);font-size:1.1rem;padding:4px 14px;border-radius:999px;white-space:nowrap;z-index:2}
 .diving .plate{transition:transform .7s cubic-bezier(.6,.05,.3,1),filter .7s;transform:scale(2.6);filter:blur(3px) brightness(.6)}
 /* lights-on intro */
 .room.dark .photo{animation:lightsOn 2.6s steps(1,end) both}
@@ -140,7 +140,8 @@ input,textarea,select{font:inherit;border:2px solid var(--line);border-radius:10
 .holder .card{display:block;background:#FBF6E6;color:#2b2016;font-family:var(--hand);font-size:1.02rem;line-height:1.1;padding:5px 6px 4px;min-height:2.7em;text-align:center;border-radius:1px}
 .holder .kind{position:absolute;top:-9px;right:-6px;font-family:var(--stencil);font-size:.62rem;letter-spacing:.06em;color:#fff;background:var(--k);padding:1px 6px 0;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.5)}
 .drawer.spare .card{color:#8a7a62;font-style:italic}
-.drawer.motion{--k:#B2456E}.drawer.yt{--k:#3A72AA}.drawer.academy{--k:#4D8653}
+.drawer.motion{--k:#B2456E}
+.holder .kind{white-space:nowrap}.drawer.yt{--k:#3A72AA}.drawer.academy{--k:#4D8653}
 .pull{width:46px;height:16px;border-radius:0 0 24px 24px;background:linear-gradient(180deg,#8C6A1E,#F3D98A 40%,#C9A24A);box-shadow:0 3px 4px rgba(0,0,0,.55),inset 0 3px 3px rgba(0,0,0,.35)}
 .tally{position:absolute;left:10px;bottom:6px;font-family:var(--hand);color:#FBF6E6;font-size:1rem;text-shadow:0 1px 2px rgba(0,0,0,.6)}
 .dest{position:absolute;right:10px;bottom:6px;font-size:.72rem;color:rgba(251,246,230,.85);text-shadow:0 1px 2px rgba(0,0,0,.6)}
@@ -161,6 +162,15 @@ input,textarea,select{font:inherit;border:2px solid var(--line);border-radius:10
 @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 @keyframes bloom{from{transform:scale(0)}to{transform:scale(1)}}
 
+/* station dock under the room */
+.dock{display:flex;gap:10px;overflow-x:auto;padding:12px 16px;background:#141416;scroll-snap-type:x proximity;justify-content:safe center}
+.dock button{flex:none;display:flex;align-items:center;gap:8px;background:#232327;color:#F3EDE0;border:2px solid transparent;border-radius:10px;padding:5px 12px 5px 5px;scroll-snap-align:start;transition:border-color .2s,transform .2s}
+.dock button:hover,.dock button:focus-visible{border-color:var(--accent);transform:translateY(-2px)}
+.dock .th{width:44px;height:44px;border-radius:7px;flex:none}
+.dock .nm{font-family:var(--stencil);letter-spacing:.05em;white-space:nowrap}
+.dock .ok{color:var(--accent);font-weight:800}
+.th{background-color:#333;background-repeat:no-repeat}
+
 /* station view */
 .station{position:fixed;inset:0;z-index:50;display:none;background:#0e0e10;color:#F3EDE0;overflow:hidden;perspective:1100px}
 .station.open{display:block}
@@ -170,7 +180,23 @@ input,textarea,select{font:inherit;border:2px solid var(--line);border-radius:10
 .station .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,12,.92) 0,rgba(10,10,12,.72) 38%,rgba(10,10,12,.15) 70%,rgba(10,10,12,.35)),linear-gradient(transparent 60%,rgba(10,10,12,.6))}
 @keyframes enter{from{transform:scale(1.22);filter:blur(4px)}to{transform:scale(1.04);filter:none}}
 @keyframes enterZoom{from{transform:scale(var(--z0,3));filter:blur(4px)}to{transform:scale(var(--z1,2.2));filter:none}}
-.panel{position:relative;height:100%;overflow-y:auto;padding:calc(20px + env(safe-area-inset-top,0px)) 24px calc(30px + env(safe-area-inset-bottom,0px));max-width:560px;animation:rise .7s .25s both}
+.panel{position:relative;height:100%;overflow-y:auto;padding:calc(20px + env(safe-area-inset-top,0px)) 24px calc(120px + env(safe-area-inset-bottom,0px));max-width:600px}
+.panel.rise{animation:rise .6s .15s both}
+.station .bg.from-r{animation:enterR .55s cubic-bezier(.2,.7,.2,1) both}
+.station .bg.from-l{animation:enterL .55s cubic-bezier(.2,.7,.2,1) both}
+@keyframes enterR{from{transform:translateX(7%) scale(1.1);opacity:.2}to{transform:scale(1.04);opacity:1}}
+@keyframes enterL{from{transform:translateX(-7%) scale(1.1);opacity:.2}to{transform:scale(1.04);opacity:1}}
+.sthead{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sthead .count{font-size:.85rem;color:#cfc6b4}
+.sthead .sp{flex:1}
+.navbtn{background:rgba(255,255,255,.12);border:0;color:#F3EDE0;border-radius:999px;padding:8px 13px;font-weight:600;backdrop-filter:blur(6px);white-space:nowrap}
+.navbtn:hover,.back:hover,.navbtn:focus-visible,.back:focus-visible{background:var(--accent);color:#1e1e22}
+.stnav{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;justify-content:safe center;gap:10px;overflow-x:auto;padding:26px 14px calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(transparent,rgba(10,10,12,.92) 38%)}
+.thumb{flex:none;display:grid;justify-items:center;gap:4px;background:none;border:0;color:#E8E1D2;font-size:.78rem;padding:0;opacity:.72;transition:opacity .2s,transform .2s}
+.thumb .th{width:80px;height:54px;border-radius:6px;border:2px solid transparent;box-shadow:0 4px 10px rgba(0,0,0,.6)}
+.thumb:hover,.thumb:focus-visible{opacity:1;transform:translateY(-3px)}
+.thumb.on{opacity:1;color:#FFE7A8}.thumb.on .th{border-color:var(--accent)}
+@media (max-width:700px){.sthead .count{display:none}.navbtn{padding:7px 10px;font-size:.9rem}.back{padding:7px 12px}}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 .back{background:rgba(255,255,255,.12);border:0;color:#F3EDE0;border-radius:999px;padding:8px 16px;font-weight:600;backdrop-filter:blur(6px)}
 .panel .kicker{font-family:var(--hand);color:#FFE7A8;font-size:1.2rem;margin-top:22px}
@@ -185,6 +211,58 @@ input,textarea,select{font:inherit;border:2px solid var(--line);border-radius:10
 .station .btn.sun{margin-top:14px}
 .credit{position:absolute;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));font-size:.75rem;color:rgba(255,255,255,.65)}
 @media (max-width:700px){.station .shade{background:linear-gradient(rgba(10,10,12,.35),rgba(10,10,12,.85) 45%,rgba(10,10,12,.95))}.panel{max-width:none;padding-top:calc(16px + env(safe-area-inset-top,0px))}.panel .kicker{margin-top:30vh}}
+
+/* station extras */
+.panel h3.sub{font-family:var(--stencil);font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:#FFE7A8;font-size:1rem;margin:26px 0 10px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.tile{background:rgba(255,255,255,.08);border:0;border-radius:8px;padding:0 0 8px;color:#F3EDE0;text-align:left;display:grid;gap:4px;overflow:hidden;transition:transform .2s,background .2s}
+.tile:hover,.tile:focus-visible{transform:translateY(-3px);background:rgba(255,255,255,.16)}
+.thumbimg{position:relative;aspect-ratio:16/9;background:#333 center/cover;display:block}
+.thumbimg .play{position:absolute;inset:0;display:grid;place-items:center;font-size:1.4rem;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+.thumbimg .len{position:absolute;right:6px;bottom:5px;background:rgba(0,0,0,.75);font-size:.72rem;padding:1px 5px;border-radius:3px}
+.tile .tt{font-weight:600;font-size:.9rem;line-height:1.2;padding:0 8px}
+.tile .ch{font-size:.75rem;opacity:.75;padding:0 8px}
+.deck{outline:none}
+.deck:focus-visible .fcard .face{box-shadow:0 0 0 3px var(--accent)}
+.fcard{display:block;width:100%;background:none;border:0;padding:0;perspective:1100px;cursor:pointer;color:#2b2016;text-align:left}
+.fcard .inner{display:grid;transition:transform .6s cubic-bezier(.3,.7,.2,1);transform-style:preserve-3d}
+.fcard.flipped .inner{transform:rotateY(180deg)}
+.fcard .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:6px;padding:22px 20px 20px 46px;min-height:170px;display:flex;align-items:center;font-size:1.08rem;line-height:1.4;position:relative;box-shadow:0 10px 22px -10px rgba(0,0,0,.8)}
+.fcard .fc-front{background:repeating-linear-gradient(transparent 0 27px,#A9C6E3 27px 28px) 0 12px,linear-gradient(90deg,transparent 34px,#E57C7C 34px 36px,transparent 36px),#FBF7EC;font-family:var(--hand);font-size:1.35rem}
+.fcard .fc-back{background:linear-gradient(170deg,#FFE9A0,#F5C94F);transform:rotateY(180deg)}
+.fcard .qlabel{position:absolute;left:12px;top:14px;font-family:var(--stencil);font-size:1.1rem;color:#B4436C}
+.fcard code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85em;background:rgba(0,0,0,.08);padding:1px 4px;border-radius:3px;word-break:break-word}
+.deckctl{display:flex;align-items:center;gap:8px;margin-top:10px}
+.deckctl .dpos{flex:1;text-align:center;font-size:.85rem;color:#cfc6b4}
+.dbtn{background:rgba(255,255,255,.12);border:0;color:#F3EDE0;border-radius:999px;width:40px;height:40px;font-size:1.2rem}
+.dbtn:hover,.dbtn:focus-visible{background:var(--accent);color:#1e1e22}
+ul.learn{margin:0;padding-left:18px}
+ul.learn a{color:#BFD9F2}
+/* screening room */
+dialog.player{max-width:min(980px,96vw);background:#141416;color:#F3EDE0}
+.plwrap{display:grid}
+.screen{background:#000}
+.frame{position:relative;aspect-ratio:16/9;background:#000 center/cover}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.plinfo{padding:18px 22px 20px;display:grid;gap:8px}
+.plinfo h3{font-family:var(--body);text-transform:none;font-weight:700;font-size:1.25rem;margin:0}
+.plmeta{margin:0;color:#BDB4A4;font-size:.9rem}
+.plinfo p{margin:0}
+.plinfo h4{margin:6px 0 4px;font-family:var(--stencil);font-weight:400;letter-spacing:.05em;color:#FFE7A8}
+.plinfo ul{margin:0;padding-left:20px}
+.pllinks a{color:#BFD9F2}
+.plinfo .btn{background:var(--accent);color:#1e1e22}
+
+/* family admin */
+.members{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.mrow{display:grid;grid-template-columns:22px 1fr auto auto;gap:8px;align-items:center}
+.mrow .dot{width:22px;height:22px;border-radius:50%}
+.mrow input{padding:7px 10px}
+.mrow select{width:auto;padding:7px 8px}
+.mrow .rm{background:none;border:2px solid var(--line);border-radius:8px;padding:6px 10px;color:var(--soft)}
+.mrow .rm:hover{border-color:#C8352B;color:#C8352B}
+.note{font-size:.88rem;color:var(--soft);background:var(--surface-2);border-radius:8px;padding:10px 12px;margin:0}
+.role{font-size:.7rem;font-family:var(--stencil);letter-spacing:.05em;opacity:.8}
 
 /* dialogs */
 dialog{border:0;border-radius:14px;padding:0;max-width:min(520px,92vw);width:100%;background:var(--surface);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.45)}
@@ -210,6 +288,7 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
 <div class="bar"><div class="wrap">
   <a class="brand" href="#top">🔧 The Curiosity Workshop</a>
   <div class="who" id="who" role="group" aria-label="Who’s in the workshop"></div>
+  <button class="icon-btn" id="adminBtn" title="Family admin" aria-label="Family admin">⚙️</button>
   <button class="icon-btn" id="replay" title="Turn the lights on again" aria-label="Replay the lights-on intro">💡</button>
 </div></div>
 
@@ -222,6 +301,7 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
       </div>
     </div>
     <p class="room-hint" id="roomHint">Move around to look, then tap a station to walk over.</p>
+    <nav class="dock" id="dock" aria-label="Walk to a station"></nav>
   </section>
 
   <div class="wrap intro">
@@ -241,7 +321,7 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
 
   <section class="block" id="reels">
     <div class="wrap">
-      <header><h2 class="label">The card catalog</h2><p>Quick lessons, one per drawer. Claude films open right here. Videos open in a new tab as an expedition, and when you come back and share what you found, you earn a passport stamp.</p></header>
+      <header><h2 class="label">The card catalog</h2><p>Our YouTube Tip Treasure Chest, plus Claude Academy courses. Videos play right here; Academy drawers open in a new tab. Watch, then share one thing you learned to stamp your passport.</p></header>
       <div class="catalog">
         <div class="drawers" id="reelShelf"></div>
         <div class="request"><label class="sr" for="reqText">Request a lesson</label><input id="reqText" placeholder="I want a lesson on…"><button class="btn sun" id="reqBtn">Drop it in the suggestion slot</button></div>
@@ -267,14 +347,19 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
 <div class="station" id="station" role="dialog" aria-modal="true" aria-labelledby="stTitle">
   <div class="bgwrap"><div class="bg" id="stBg"></div></div>
   <div class="shade"></div>
-  <div class="panel">
-    <button class="back" id="stBack">← Back to the workshop</button>
+  <div class="panel rise" id="stPanel">
+    <div class="sthead"><button class="back" id="stBack">← Workshop</button><span class="count" id="stCount"></span><span class="sp"></span><button class="navbtn" id="stPrev"></button><button class="navbtn" id="stNext"></button></div>
     <div class="kicker" id="stKicker"></div>
     <h2 id="stTitle"></h2>
     <p class="what" id="stWhat"></p>
+    <div id="stWatch"></div>
+    <div id="stDeck"></div>
+    <div id="stLearn"></div>
+    <h3 class="sub">On the bench</h3>
     <div class="shelf" id="stShelf"></div>
     <button class="btn sun" id="stAdd">Add to this station</button>
   </div>
+  <nav class="stnav" id="stStrip" aria-label="All stations"></nav>
 </div>
 
 <dialog id="dlgMember"><form method="dialog" class="dlg" id="memberForm">
@@ -283,6 +368,15 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
   <div><div style="font-weight:600;font-size:.92rem;margin-bottom:6px">Your color</div><div class="swatches" id="swatches"></div></div>
   <div class="row"><button value="cancel" class="btn ghost" formnovalidate>Cancel</button><button value="ok" class="btn">Join</button></div>
 </form></dialog>
+
+<dialog id="dlgAdmin"><div class="dlg">
+  <h3>Family admin</h3>
+  <p id="adminWho" class="note"></p>
+  <ul class="members" id="memberList"></ul>
+  <div class="row" style="justify-content:space-between"><button class="btn ghost" id="adminAdd">+ Add a family member</button><button class="btn" data-close>Done</button></div>
+  <p class="note">The whole site sits behind one family password. To change it, a parent updates <b>FAMILY_PASSWORD</b> in the Vercel project settings, and everyone signs in again.</p>
+  <p id="signOutWrap" style="margin:0"><a href="/__logout" id="signOut">Sign out of this device</a></p>
+</div></dialog>
 
 <dialog id="dlgItem"><form method="dialog" class="dlg" id="itemForm">
   <h3 id="itemTitle">Add to this station</h3>
@@ -321,7 +415,15 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
   <div class="row" style="justify-content:center"><button class="btn" data-close>Back to the workshop</button></div>
 </div></dialog>
 
-<dialog id="dlgFilm"><div class="dlg"><h3 id="filmTitle"></h3><p id="filmBody"></p><div class="row"><button class="btn ghost" data-close>Close</button></div></div></dialog>
+<dialog id="dlgPlayer" class="player" aria-labelledby="plTitle"><div class="plwrap">
+  <div class="screen"><div class="frame" id="plFrame"></div></div>
+  <div class="plinfo">
+    <h3 id="plTitle"></h3><p class="plmeta" id="plMeta"></p>
+    <p id="plSum"></p><div id="plTake"></div>
+    <p class="pllinks"><a id="plYT" target="_blank" rel="noopener">Open on YouTube ↗</a> · <a id="plNotes" target="_blank" rel="noopener">Full notes in our Notion ↗</a></p>
+    <div class="row"><button class="btn" data-close>Done watching</button></div>
+  </div>
+</div></dialog>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -335,36 +437,164 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
   // Stations: x/y are % positions on the room photo. "zoom" stations reuse the room photo, pushed in on that spot.
   const STATIONS = [
     {id:"skills", name:"Skills", place:"The pegboard", x:5, y:48, side:"right", img:"skills", pos:"50% 45%",
-     what:"Skills are packages of instructions that teach Claude how to do a particular kind of job well. Like tools on a pegboard, each one hangs ready for the task it was made for."},
+     what:"Skills are saved how-to files that teach Claude to do a job your way. Run one by name, or let Claude pick it up when the job comes along. Like tools on a pegboard, each one hangs ready for the task it was made for.",
+     academy:[{t:"Introduction to agent skills (course)",u:"https://academy.claude.com/courses/introduction-to-agent-skills"}]},
     {id:"mods", name:"Mods", place:"The red tool chest", x:72, y:66, side:"left", img:"mods", pos:"18% 70%",
-     what:"Mods are the add-ons and attachments that change how Claude works for us. Every drawer in the chest is a different modification to try."},
+     what:"A mod is a small add-on for Claude Code that changes how it looks or behaves: a side panel, a new slash command, or a safety check that pauses a risky command. Mods run on your own computer with your permissions, so only install ones from people you trust.",
+     academy:[{t:"Claude Code 101 (course)",u:"https://academy.claude.com/courses/claude-code-101"}]},
     {id:"connectors", name:"Connectors", place:"The cable wall", x:41, y:28, side:"right", img:"connectors", pos:"50% 50%",
-     what:"Connectors plug Claude into our other apps, like Gmail, Notion or Linear, so it can read and work with what lives there."},
+     what:"Connectors plug Claude into the apps where our stuff already lives, like Gmail, Calendar, Notion or Linear, so it can read and work with what’s there instead of us copying and pasting.",
+     academy:[{t:"Getting started with connectors",u:"https://academy.claude.com/tutorials/getting-started-with-connectors"},{t:"Connect your tools for a smarter AI companion",u:"https://academy.claude.com/tutorials/connect-your-tools-to-unlock-a-smarter-more-capable-ai-companion"}]},
     {id:"projects", name:"Projects", place:"The big workbench", x:80, y:82, side:"left", img:"projects", pos:"50% 62%",
-     what:"Projects are the builds in progress: real things we’re making with Claude, from family websites to homework helpers. When one is finished, it goes out the back door to the garden."},
+     what:"Projects are the builds in progress: real things we’re making with Claude. The trick is how you hand the job over, so this bench is full of tips on briefing, checking and finishing work. Finished builds go out the back door to the garden.",
+     academy:[{t:"Claude 101 (course)",u:"https://academy.claude.com/courses/claude-101"},{t:"Introduction to subagents (course)",u:"https://academy.claude.com/courses/introduction-to-subagents"}]},
     {id:"designs", name:"Designs", place:"The drafting table", x:35, y:57, side:"left", img:"designs", pos:"50% 50%",
-     what:"Designs are what Claude can draw up for us: posters, mockups, layouts and slide decks we can look at, change and share."},
+     what:"Designs are what Claude can draw up for us: posters, decks, clickable prototypes and Whiteboards where the family and Claude sketch ideas together.",
+     academy:[{t:"Using Claude for prototypes and UX",u:"https://academy.claude.com/tutorials/using-claude-design-for-prototypes-and-ux"},{t:"Creating with artifacts (Claude 101)",u:"https://academy.claude.com/courses/claude-101/creating-with-artifacts"}]},
     {id:"data", name:"Data", place:"The dust collector corner", x:63, y:51, side:"right", img:"room", zoom:true, pos:"63% 51%",
-     what:"Data is where numbers become something we can see: dashboards, charts and trackers that Claude helps us build and read."},
+     what:"Data is where numbers become something we can see: dashboards and charts Claude builds from our data, each showing when it was last refreshed, so we can ask questions in plain English.",
+     academy:[{t:"Build and share tools with custom artifacts",u:"https://academy.claude.com/tutorials/build-custom-artifacts-with-claude"},{t:"Visualize program data (use case)",u:"https://academy.claude.com/use-cases/visualize-program-data"}]},
     {id:"claudemd", name:"Claude.MD", place:"The shop rules by the door", x:18, y:34, side:"right", img:"room", zoom:true, pos:"18% 34%",
-     what:"A CLAUDE.md file is a project’s posted shop rules: standing instructions Claude reads before it starts work, so everyone works the same way."},
+     what:"A CLAUDE.md file is a project’s posted shop rules: standing instructions Claude reads at the start of every session. The best ones are short, explain goals instead of shouting rules, and point to where things live.",
+     academy:[{t:"Claude Code 101 (course)",u:"https://academy.claude.com/courses/claude-code-101"},{t:"AI capabilities and limitations (course)",u:"https://academy.claude.com/courses/ai-capabilities-and-limitations"}]},
     {id:"duet", name:"Duet", place:"The two-anvil forge", x:26, y:54, side:"right", img:"duet", pos:"50% 62%",
-     what:"Duet is working side by side with Claude, like two smiths at facing anvils: one shapes, the other refines, and the piece gets better each pass."}
+     what:"Claude Duet is the assistant that comes to you: a morning brief, tasks it works on in the background, watches it keeps, and drafts it never sends without your yes. Two smiths at facing anvils: you steer, it hammers.",
+     academy:[{t:"Building effective human-agent teams (course)",u:"https://academy.claude.com/courses/building-effective-human-agent-teams"}]}
   ];
   const EXTRAS = [
     {id:"recipes", name:"Recipe box", x:51, y:73, side:"left", href:"#recipes"},
     {id:"reels", name:"Card catalog", x:89, y:20, side:"left", href:"#reels"},
     {id:"garden", name:"Garden door", x:18.5, y:46, side:"right", href:"#garden"}
   ];
-  const REELS = [
-    {id:"m-prompt",kind:"motion",station:"claudemd",title:"How Claude reads a prompt",body:"This reel is waiting to be filmed. Ask Claude to make a short animated explainer, then add it here."},
-    {id:"m-artifacts",kind:"motion",station:"designs",title:"Five things Claude can build",body:"Coming soon: a short tour of decks, designs, docs, sheets and little apps."},
-    {id:"m-connect",kind:"motion",station:"connectors",title:"Plugging Claude into our apps",body:"Coming soon: how connectors link Claude to the tools we already use."},
-    {id:"yt-intro",kind:"yt",station:"skills",title:"Getting started with Claude",url:"https://www.youtube.com/results?search_query=anthropic+claude+getting+started"},
-    {id:"yt-prompt",kind:"yt",station:"duet",title:"Prompting tips",url:"https://www.youtube.com/results?search_query=anthropic+claude+prompting+tips"},
-    {id:"yt-code",kind:"yt",station:"projects",title:"Building with Claude Code",url:"https://www.youtube.com/results?search_query=claude+code+tutorial"},
-    {id:"ac",kind:"academy",station:"mods",title:"Claude Academy courses",url:"https://academy.claude.com"}
+
+  // YouTube Tip Treasure Chest (from our Notion page). stations[0] is where the passport stamp lands.
+  const NOTION = id => `https://app.notion.com/p/${id}`;
+  const VIDEOS = [
+    {id:"v-concepts", yt:"tcb5q_6jwvY", short:"Every Claude concept, explained", title:"Every Claude 2.0 Concept Explained for Normal People", channel:"Nate Herk", len:"21 min", stations:["skills","claudemd","mods","connectors","data"], notes:NOTION("41a89a0c168081368f7efecac35e2880"),
+     sum:"A plain-English tour of 25 Claude features, from picking a model and effort level to skills, connectors, mods and /goal, with tips on which ones to set up first.",
+     take:["Write a lean CLAUDE.md","Build one skill for your most frequent task","Try a few /goal prompts with a clear finish line","Then build your own “AI operating system” in Claude Code"]},
+    {id:"v-fable", yt:"AQWgE5LWQ4A", short:"Fable 5.2 vs Opus 5.5", title:"I Tested Claude Fable 5.2 vs Opus 5.5 (WILD RESULTS)", channel:"Brock Mesarich", len:"24 min", stations:["projects"], notes:NOTION("41a89a0c168081f5b775df4ebe8915e4"),
+     sum:"Brock runs Fable 5.2 and Opus 5.5 on the same three jobs (a website, a 3D game and a video edit) and finds Fable costs only about 14% more, with its clearest win on the game.",
+     take:["Judge models by cost per finished task, not list price","Default to Opus for everyday work; try Fable on big, complex or visual builds","Put a self-check loop in big prompts: “play through it, screenshot it, keep improving”","For repeat work, give Claude examples of finished results plus a one-page style brief","Always review for small but critical misses"]},
+    {id:"v-six", yt:"HD02f3-3c7E", short:"6 new Claude features", title:"The 6 NEW Claude Features to Get You Ahead of 99% in 2027", channel:"Tristen O’Brien", len:"14 min", stations:["skills","designs","duet","projects"], notes:NOTION("41a89a0c168081c8a107d6c697121ac0"),
+     sum:"Six new Claude features, including Record a Skill, finished docs and decks, Claude Code Projects, phone remote control and Claude Duet, that shift you from chatting to delegating.",
+     take:["Give Claude small real tasks all day, not just occasional questions","Use Record a Skill once for personal tasks Claude can’t guess","Ask for sources on each slide and talking points in the speaker notes","Feed Claude Design real inspiration to avoid generic-looking results","Turn on remote control in Settings → Code"]},
+    {id:"v-boards", yt:"_eth_3WxaGY", short:"Claude Whiteboards", title:"Claude Whiteboards Are Here (And They’re Impressive)", channel:"Educraft", len:"15 min", stations:["designs"], notes:NOTION("41a89a0c1680817ab4aceb5cf9d1b35e"),
+     sum:"Claude’s Whiteboards canvas: turning a folder into an editable visual, working together through comments Claude acts on, and building a clickable prototype to hand to Claude Code.",
+     take:["Open Whiteboards with the chat panel and attach a whole folder","Save a design system once and reuse it","Use comments with @Claude for precise changes, then check it changed the right thing","Prototype clickable flows on a whiteboard before building","When handing a board to Claude Code, tell it to match the visual design, not just the text"]},
+    {id:"v-100x", yt:"izSnNPynvps", short:"Make Claude 100× better", title:"Give Me 10 Minutes and I’ll Make Your Claude 100X Better", channel:"Christian Peverelli", len:"10 min", stations:["claudemd","mods","projects"], notes:NOTION("41a89a0c168081e59a67fc3702c54c72"),
+     sum:"Why old-style prompt templates now hold Claude back, and what to do instead: plain requests, yes/no checks for “done,” the right effort level, a slimmer CLAUDE.md and a few usage-saving mods.",
+     take:["Rewrite go-to prompts as plain requests with a little context and one example","End prompts with “ask me questions if anything is unclear”","Replace “check your work” with 3–5 yes/no checks","Pick effort by how much you want to steer; default to medium","Ask Claude to simplify your CLAUDE.md"]},
+    {id:"v-master", yt:"Q0ArTNWXeAU", short:"Master Claude for 2027", title:"The Only Video You’ll Need to Master Claude for 2027", channel:"Ben AI", len:"25 min", stations:["projects","skills"], notes:NOTION("41a89a0c168081088c23d8832830ebd8"),
+     sum:"Fifteen tips for the newest Claude models, from writing briefs instead of prompts and matching effort to the task to using sub-agents, Projects and side chats while keeping your setup lean.",
+     take:["Write a brief: the job, the why, the rules, what done looks like, plus “be ambitious”","Ask for several options, and /rewind instead of piling on corrections","Default to medium effort","Use /compact and side chats to keep the main chat sharp","Prune skills, connectors, scheduled tasks and context files regularly"]},
+    {id:"v-beginners", yt:"KehcONjBUE8", short:"Claude for beginners: full course", title:"Claude for Beginners: Full Course (2026)", channel:"Sean McCloskey", len:"52 min", stations:["connectors","skills","projects"], notes:NOTION("41a89a0c168081d7b2a1c01028a133ba"),
+     sum:"A no-code beginner’s course on the Claude desktop app covering Projects, Skills, Connectors, Artifacts, scheduled tasks and plugins, ending with a live build of a job-search agent."},
+    {id:"v-teams", yt:"fRPGJiYwkZ0", short:"Moving to a Team account", title:"How to Transfer to Claude Teams Account (Without Losing Your Data)", channel:"Isabelle Hanson", len:"13 min", stations:["projects"], notes:NOTION("41a89a0c168081d780a5f194ba2b5272"),
+     sum:"A step-by-step guide to moving your personal Claude setup, including skills, scheduled tasks, artifacts, chats and memory, into a Claude Team account without losing anything."},
+    {id:"v-2024", yt:"D-SVFneJ_Nk", short:"Stop using Claude like it’s 2024", title:"Claude Engineering Lead: “Stop Using Claude Like It’s 2024”", channel:"Silicon Valley Girl", len:"49 min", stations:["claudemd","skills"], notes:NOTION("41a89a0c16808166aa7cc771be12e2e9"),
+     sum:"An interview with Anthropic engineering lead Felix Rieseberg on giving Claude bigger goals and full access to your data, skipping role-play personas and stale skills, and catching confident mistakes with a separate reviewer session."},
+    {id:"v-duet10", yt:"ZIBI6FiLxgQ", short:"Claude Duet after 10 hours", title:"How I’m Actually Using Claude Duet (After 10 Hours of Testing)", channel:"Riley Brown", len:"24 min", stations:["duet"], notes:NOTION("41a89a0c16808137976ffc37eaddf57d"),
+     sum:"A hands-on review of Claude Duet covering channels, task threads and editing slide decks by voice, how it compares with Claude Projects and ChatGPT, and where it still falls short."},
+    {id:"v-duetend", yt:"ZdXXv-0aPfI", short:"Duet: the end of prompting?", title:"Claude Duet Is Here: The End of Prompting?", channel:"Skill Leap AI", len:"13 min", stations:["duet"], notes:NOTION("41a89a0c168081f29e51cdc102e80c8e"),
+     sum:"A week with Claude Duet, the app that messages you first, used for morning briefs with drafted replies, project management, pitching ideas and following up on email."},
+    {id:"v-themes", yt:"Aa9Esr4FDLM", short:"Make your own Claude theme", title:"Anthropic Just Dropped Claude Themes (Make Your Own)", channel:"Brock Mesarich", len:"10 min", stations:["mods"], notes:NOTION("41a89a0c168081d68143df857d248f9e"),
+     sum:"How to make custom themes for Claude Code in the desktop app, from a one-prompt color scheme to animated backgrounds that react while Claude works and celebrate when it finishes."},
+    {id:"v-dangerous", yt:"KAizhshLscY", short:"Get dangerously good with Claude", title:"How to Get Dangerously Good With Claude", channel:"Simon Scrapes", len:"13 min", stations:["skills","projects"], notes:NOTION("41a89a0c168081608932dd17f83f5185"),
+     sum:"A five-layer roadmap from better prompts to Projects, Skills built from your own corrections, scheduled tasks that run without you, and an optional “agentic OS” folder you own."},
+    {id:"v-duetpa", yt:"8GqwBoFwn6o", short:"Duet as a personal assistant", title:"I Turned Claude Duet Into My Personal Assistant (Full Setup)", channel:"Shaz Mathew", len:"19 min", stations:["duet","connectors"], notes:NOTION("41a89a0c168081da9f50f775f5ce78f1"),
+     sum:"A six-step Claude Duet setup: connect your apps, give it your goals, set clear ground rules, lock down security, control your computer through Claude in Chrome, and use voice."}
   ];
+  const ACADEMY_DRAWERS = [
+    {id:"ac-101", short:"Claude 101 (Academy course)", title:"Claude 101", url:"https://academy.claude.com/courses/claude-101", stations:["projects"]},
+    {id:"ac-students", short:"AI Fluency for students", title:"AI Fluency for students", url:"https://academy.claude.com/courses/ai-fluency-for-students", stations:["projects"]},
+    {id:"ac-limits", short:"What AI can and can’t do", title:"AI capabilities and limitations", url:"https://academy.claude.com/courses/ai-capabilities-and-limitations", stations:["claudemd"]},
+    {id:"ac-skills", short:"Intro to agent skills", title:"Introduction to agent skills", url:"https://academy.claude.com/courses/introduction-to-agent-skills", stations:["skills"]}
+  ];
+
+  // Flash card decks: [front, back]. Backs may hold a little trusted markup.
+  const DECKS = {
+    skills: [
+      ["What is a skill?","A saved how-to file (SKILL.md) that teaches Claude a task your way. Run it with <code>/its-name</code>, or Claude uses it when the job fits. Only the short description loads until it’s needed, so they’re cheap to keep."],
+      ["When should something become a skill?","Rule of thumb from the videos: anything you’ve done twice, or any result you make over and over."],
+      ["Three ways to build a skill?","1) Have Claude learn it from results you love. 2) Do the task together, then ask Claude to turn it into a skill. 3) Use Record a Skill and do it once while Claude watches and listens."],
+      ["What does Record a Skill do?","It watches your screen and listens while you do a task once, then saves it as a reusable skill. Great for things Claude can’t guess, like booking with your own preferences."],
+      ["A skill made a mistake. Now what?","Correct it in the chat, then ask Claude to update the skill so the fix sticks next time."],
+      ["Why skip old, stale skills?","Out-of-date instructions steer Claude wrong. Prune skills you no longer use and keep the rest current."]
+    ],
+    mods: [
+      ["What is a mod?","A small add-on for Claude Code that changes how it looks or behaves: a side panel, a new slash command, or a safety check. It runs on your computer with your permissions, so only install mods from people you trust."],
+      ["How do you install a mod?","1) <code>claude update</code> (version 2.1.287 or later)<br>2) <code>claude plugin marketplace add owner/repo</code><br>3) <code>claude plugin install name@marketplace</code><br>4) Restart or run <code>/reload-plugins</code>, then check <code>/plugin</code>."],
+      ["How do you check a mod before installing it?","Download its folder and run <code>claude plugin validate ./folder</code>. It lists what the mod watches and what it can touch, without running it."],
+      ["How do you turn off every mod for one session?","Start with <code>claude --safe-mode</code>. To turn one off for good: <code>/plugin</code> → Installed → disable or uninstall."],
+      ["Blast Radius","Holds a risky command (like <code>rm -rf</code> or a force push), shows what it would change, and waits for Proceed or Cancel. An Anthropic sample mod."],
+      ["Collision Guard <code>/guard</code>","Before Claude edits a file, checks whether another open chat changed it in the last 30 minutes and asks how to proceed."],
+      ["You Should Know","Built in but off by default. A side agent that leaves a note above the prompt when it spots something you may have missed. Turn it on in <code>/plugin</code> → Installed → Built-in."],
+      ["Cache Keeper <code>/cache</code>","Shows whether a chat’s cache is warm or cold, warns before an expensive cold send, and hands off to a fresh chat when you ask with <code>/handoff</code>."],
+      ["Replay Theater <code>/replay</code>","Steps through the file edits Claude made in its last turn. An Anthropic sample mod."],
+      ["File Tree <code>/filetree</code>","An IDE-style file tree beside the chat that lights up files as Claude reads and edits them."],
+      ["Claude Skins <code>/skin</code>","Restyles the transcript, adds a usage band, and ships 15 themes."],
+      ["Can’t find the mod you want?","Describe it in a Claude Code session and Claude writes a custom mod for you."]
+    ],
+    connectors: [
+      ["What do connectors do?","They give Claude access to the apps where your work already lives, like Gmail, Calendar, Drive, Slack or Notion, so you stop copying and pasting. Most use MCP under the hood."],
+      ["Are connectors only on paid plans?","No. According to the videos, connectors are available on the free plan too."],
+      ["How do you add a custom connector?","Customize → Connectors → add a custom connector with the service’s MCP address, or search for it by name."],
+      ["What’s the first step in a Duet setup?","Connect your apps. Duet can only brief you on mail, calendar and tasks it can see."]
+    ],
+    projects: [
+      ["Prompt or brief?","A brief. Tell Claude the job, why it matters, the rules, and what “done” looks like. Then let it work."],
+      ["One line that lifts quality on big jobs?","“Be ambitious.” Claude tends to build the smallest thing that satisfies a request unless you ask for more."],
+      ["Better than “check your work”?","3–5 yes/no checks it can test, like “every number appears in the source” or “every post is under 150 words.” Ask for a pass/fail table."],
+      ["How should a prompt end?","“Ask me questions if anything is unclear.”"],
+      ["Stuck in a loop of corrections?","Use <code>/rewind</code> (or Esc twice), go back to the earlier prompt, add the missing rule, and restart. Corrections pile up and make answers worse."],
+      ["Not sure what you want yet?","Ask for options: 10 angles, then 5 outlines, then 3 drafts. Choosing beats correcting."],
+      ["Which effort level?","Medium for most work. Low when you want to stay in the loop. High when a hidden mistake would cost you. Extra high or max for long jobs you want to walk away from."],
+      ["Which model is cheaper?","Compare cost per finished job, not list price. In one test the pricier model cost only about 14% more overall."],
+      ["What is a Claude Code Project?","One coordinator chat that opens a thread for each task, runs them in parallel, checks their work and reports back."]
+    ],
+    designs: [
+      ["Whiteboard or Claude Design?","Idea still fuzzy: start on a Whiteboard. You know exactly what you want: Claude Design. Then Claude Code can build the real thing."],
+      ["How do you change just one part of a board?","Select those objects and type an instruction, or leave a comment and tag @Claude. Then check it changed the right thing."],
+      ["Making a deck you can trust?","Ask for sources on each slide and talking points in the speaker notes so you can verify before sharing."],
+      ["How do you avoid generic-looking designs?","Give Claude real inspiration and a saved design system instead of describing colors and fonts each time."],
+      ["Handing a board to Claude Code as a PDF?","Tell it to match the visual design in the file, not just the text, or it may only read the words."]
+    ],
+    data: [
+      ["What is Claude Data?","A dashboard of charts and numbers from your data that you can question in plain English. Each chart shows when its data was last refreshed."],
+      ["Is a chart in a doc a live feed?","No. Data pulled into a doc is a snapshot. Ask Claude to refresh it when you need the latest."],
+      ["Best way to review a big analysis?","Make it visual. A dashboard or one-page design is much easier to check than a long wall of text."]
+    ],
+    claudemd: [
+      ["How long should CLAUDE.md be?","Short. Under about 200 lines, used as a map of where things live."],
+      ["ALL-CAPS ALWAYS / NEVER rules?","Outdated. Explain the goal instead, and ask Claude to review the file and propose a slimmer version."],
+      ["What does Claude remember between sessions?","Each session starts fresh. CLAUDE.md loads every time, and memory adds notes from your corrections."],
+      ["Why keep the whole setup lean?","Old skills, connectors, scheduled tasks and context files load into chats and cost tokens. Prune them regularly."],
+      ["Catching confident mistakes?","Use a separate reviewer: paste the result into a fresh session and ask it to critique."]
+    ],
+    duet: [
+      ["Hand off a whole task?","Say “Take this off my plate: …” It becomes a card on your Tasks page, a thread does the work, and you review the result."],
+      ["Steer a task that’s already running?","Reply in plain words, like “hold that” or “also check X.” It goes to that task’s thread instead of starting a new one."],
+      ["Keep an eye on something for you?","“Tell me when that pull request merges” or “watch for a reply from the plumber.” It checks at set times and only posts when something changes."],
+      ["Get a reply written in your voice?","“Draft a reply to …” puts the draft on a card you can edit. Nothing goes out until you tap Send."],
+      ["Set a reminder?","“Remind me Thursday at 9 to call the dentist” adds a calendar event with an alert."],
+      ["Change the morning brief?","“Add X to my morning brief” or “stop including Y.” It changes from the next morning."],
+      ["What’s waiting on you?","“What’s waiting on me across all my channels?” pulls every open ask into one answer."],
+      ["Teach it how you like things?","Thumbs-down a reply, or say “from now on, never …”. Ask “What do you know about me?” to see what it kept."],
+      ["Make something you can keep editing?","“Turn this into a Claude Doc.”"],
+      ["Run a check every week?","“Every Monday at 8, sum up what moved last week.” A routine runs on its own and posts the result."],
+      ["Keep a big topic tidy?","“Make a channel for the family trip.” Its chat, tasks and notes stay together, apart from your main chat."],
+      ["Quick yes to a question it asks?","Tap a thumbs-up or check mark. It counts as yes."],
+      ["Ask it for ideas?","“Suggest 3 tasks from my week.” Ideas land on your Tasks page, and nothing starts until you add one."],
+      ["Make drafts sound like you?","“Learn how I write.” It studies messages you’ve sent."],
+      ["Do a chore on a website?","“Check the school portal and tell me what’s due.” It stops before any submit, payment or sign-in and waits for your yes."],
+      ["Quiet weekends?","“No pings on weekends unless it’s urgent.” Non-urgent things wait for Monday’s brief."],
+      ["Remember or forget a fact?","“Remember soccer practice is every Tuesday.” Say “forget that” anytime and it’s removed."],
+      ["Find something across all your apps?","“Where did we land on the vacation dates?” It checks mail, chat, Notion and more, and gives the newest answer with its date."],
+      ["Find a time to meet?","“Find 30 minutes with Grandma next week.” It offers slots, and no invite goes out without your yes."],
+      ["Did the website deploy break?","“Did last night’s Vercel deploy break anything?” It reads the deploy status and errors and tells you what failed."]
+    ]
+  };
 
   // ---------- state ----------
   const blank = {members:[],current:null,visited:{},shelves:{},recipes:[],plants:[],stubs:{},requests:[],seenIntro:false,pending:null};
@@ -381,7 +611,7 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
 
   // ---------- family ----------
   function renderWho(){
-    $("#who").innerHTML = S.members.map(m => `<button class="chip" aria-pressed="${m.id===S.current}" data-id="${m.id}"><span class="dot" style="background:${m.color}"></span>${esc(m.name)}</button>`).join("") + `<button class="chip add" id="addMember">+ Add</button>`;
+    $("#who").innerHTML = S.members.map(m => `<button class="chip" aria-pressed="${m.id===S.current}" data-id="${m.id}"><span class="dot" style="background:${m.color}"></span>${esc(m.name)}${isParent(m)?' <span class="role">PARENT</span>':""}</button>`).join("") + `<button class="chip add" id="addMember">+ Add</button>`;
     $("#who").querySelectorAll("[data-id]").forEach(b => b.onclick = () => { S.current=b.dataset.id; save(); renderAll(); toast(`Hi, ${me().name}!`); });
     $("#addMember").onclick = () => openMember();
   }
@@ -390,10 +620,45 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
     $("#swatches").innerHTML = opts.map((c,i)=>`<label><input type="radio" name="color" value="${c}" ${i?"":"checked"}><span style="background:${c}"></span><span class="sr">${c}</span></label>`).join("");
     const d=$("#dlgMember"), f=$("#memberForm"); f.reset(); f.querySelector("input[type=radio]").checked=true;
     d.onclose = () => { if (d.returnValue!=="ok") return; const fd=new FormData(f), name=fd.get("name").trim(); if(!name) return;
-      const m={id:"m"+Date.now().toString(36),name,color:fd.get("color")}; S.members.push(m); S.current=m.id; save(); renderAll(); toast(`Welcome to the workshop, ${name}!`); then&&then(); };
+      const m={id:"m"+Date.now().toString(36),name,color:fd.get("color"),role:noParents()?"parent":"kid"}; S.members.push(m); S.current=m.id; save(); renderAll(); toast(`Welcome to the workshop, ${name}!`); then&&then(); };
     d.showModal();
   }
   const needMember = then => me() ? then() : openMember(then);
+
+  // ---------- family admin (parents manage the family list) ----------
+  const isParent = m => m && m.role === "parent";
+  const noParents = () => !S.members.some(isParent);
+  const canAdmin = () => isParent(me()) || noParents();
+  function renderAdmin(){
+    const ok = canAdmin();
+    $("#adminWho").textContent = !S.members.length ? "No one has joined yet. The first person to join becomes a parent."
+      : ok ? `You’re signed in as ${me()?me().name:"a guest"}, a parent, so you can rename people, change roles and remove members.`
+      : `You’re ${me()?me().name:"a guest"}. Only a parent can change the family list.`;
+    $("#memberList").innerHTML = S.members.map(m => `<li class="mrow" data-id="${m.id}">
+      <span class="dot" style="background:${m.color}"></span>
+      <input value="${esc(m.name)}" maxlength="20" aria-label="Name" ${ok?"":"disabled"}>
+      <select aria-label="Role for ${esc(m.name)}" ${ok?"":"disabled"}><option value="parent" ${m.role==="parent"?"selected":""}>Parent</option><option value="kid" ${m.role!=="parent"?"selected":""}>Kid</option></select>
+      <button class="rm" ${ok?"":"disabled"} aria-label="Remove ${esc(m.name)}">Remove</button></li>`).join("");
+    $("#memberList").querySelectorAll(".mrow").forEach(row => {
+      const m = S.members.find(x=>x.id===row.dataset.id);
+      row.querySelector("input").onchange = e => { const v=e.target.value.trim(); if (v){ m.name=v; save(); renderWho(); } };
+      row.querySelector("select").onchange = e => {
+        if (e.target.value==="kid" && isParent(m) && S.members.filter(isParent).length===1){ e.target.value="parent"; toast("The family needs at least one parent."); return; }
+        m.role=e.target.value; save(); renderAdmin(); renderWho();
+      };
+      row.querySelector(".rm").onclick = () => {
+        if (isParent(m) && S.members.filter(isParent).length===1){ toast("The family needs at least one parent."); return; }
+        if (!confirm(`Remove ${m.name} from the family list? Their cards and notes stay in the workshop.`)) return;
+        S.members = S.members.filter(x=>x.id!==m.id); if (S.current===m.id) S.current = S.members[0] ? S.members[0].id : null;
+        save(); renderAll(); renderAdmin();
+      };
+    });
+    $("#adminAdd").disabled = !ok;
+    const live = /myclaudelab\.com$|vercel\.app$/.test(location.hostname);
+    $("#signOutWrap").style.display = live ? "" : "none";
+  }
+  $("#adminBtn").onclick = () => { renderAdmin(); $("#dlgAdmin").showModal(); };
+  $("#adminAdd").onclick = () => { $("#dlgAdmin").close(); openMember(() => { renderAdmin(); $("#dlgAdmin").showModal(); }); };
 
   // ---------- passport ----------
   function visit(id){
@@ -418,7 +683,13 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
       if (s) return dive(s);
       document.querySelector(EXTRAS.find(x=>x.id===b.dataset.id).href).scrollIntoView({behavior:reduce?"auto":"smooth"});
     });
+    $("#dock").innerHTML = STATIONS.map(s => `<button data-id="${s.id}" aria-label="${esc(s.name)}: ${esc(s.place)}"><span class="th th-${s.id}"></span><span class="nm">${esc(s.name)}</span>${(S.visited[s.id]||[]).length?'<span class="ok" aria-hidden="true">✓</span>':""}</button>`).join("");
+    $("#dock").querySelectorAll("button").forEach(b => b.onclick = () => dive(STATIONS.find(s=>s.id===b.dataset.id)));
   }
+  // thumbnails for the dock and the station strip
+  const thStyle = document.createElement("style");
+  thStyle.textContent = STATIONS.map(s => `.th-${s.id}{background-image:url(${IMG[s.img]});background-position:${s.pos};background-size:${s.zoom?"340%":"cover"}}`).join("");
+  document.head.appendChild(thStyle);
   // 3D look-around: pointer on desktop, tilt on phones, gentle drift when idle
   const room = $("#room"); let tx=0, ty=0, cx=0, cy=0, lastMove=0;
   room.addEventListener("pointermove", e => { if (e.pointerType!=="mouse") return; const r=room.getBoundingClientRect(); tx=((e.clientX-r.left)/r.width-.5)*2; ty=((e.clientY-r.top)/r.height-.5)*2; lastMove=Date.now(); });
@@ -453,19 +724,55 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
     setTimeout(() => { openStation(s); setTimeout(()=>{ room.classList.remove("diving"); plate.style.transformOrigin=""; }, 300); }, 650);
   }
   let curStation=null, lastFocus=null;
-  function openStation(s){
-    curStation=s; lastFocus=document.activeElement;
-    const bg=$("#stBg"); bg.className="bg"+(s.zoom?" zoomed":""); void bg.offsetWidth;
+  const idx = s => STATIONS.indexOf(s);
+  function paintStation(s, dir){
+    const bg=$("#stBg"); bg.className="bg"+(s.zoom?" zoomed":(dir>0?" from-r":dir<0?" from-l":"")); void bg.offsetWidth;
     bg.style.backgroundImage=`url(${IMG[s.img]})`; bg.style.backgroundPosition=s.pos;
     if (s.zoom){ bg.style.transformOrigin=s.pos; bg.style.setProperty("--z0","3.2"); bg.style.setProperty("--z1","2.3"); } else bg.style.transformOrigin="";
     $("#stKicker").textContent = s.place; $("#stTitle").textContent = s.name; $("#stWhat").textContent = s.what;
-    renderShelf();
-    $("#station").classList.add("open"); document.body.style.overflow="hidden";
-    $("#stBack").focus(); visit(s.id);
+    const i=idx(s), n=STATIONS.length, pv=STATIONS[(i-1+n)%n], nx=STATIONS[(i+1)%n];
+    $("#stCount").textContent = `Station ${i+1} of ${n}`;
+    $("#stPrev").textContent = `‹ ${pv.name}`; $("#stPrev").setAttribute("aria-label", `Previous station: ${pv.name}`);
+    $("#stNext").textContent = `${nx.name} ›`; $("#stNext").setAttribute("aria-label", `Next station: ${nx.name}`);
+    const p=$("#stPanel"); p.classList.remove("rise"); void p.offsetWidth; p.classList.add("rise"); p.scrollTop=0;
+    renderWatch(s); renderDeck(s); renderLearn(s); renderShelf(); renderStrip(); visit(s.id);
   }
-  function closeStation(){ $("#station").classList.remove("open"); document.body.style.overflow=""; curStation=null; lastFocus&&lastFocus.focus&&lastFocus.focus(); }
-  $("#stBack").onclick = closeStation;
-  addEventListener("keydown", e => { if (e.key==="Escape" && curStation && !document.querySelector("dialog[open]")) closeStation(); });
+  function renderStrip(){
+    $("#stStrip").innerHTML = STATIONS.map(s => `<button class="thumb ${s===curStation?"on":""}" data-id="${s.id}" ${s===curStation?'aria-current="true"':""}><span class="th th-${s.id}"></span><span>${esc(s.name)}</span></button>`).join("");
+    $("#stStrip").querySelectorAll(".thumb").forEach(b => b.onclick = () => { const t2=STATIONS.find(s=>s.id===b.dataset.id); if (t2!==curStation) openStation(t2,{dir: idx(t2)>idx(curStation)?1:-1}); });
+    const on=$("#stStrip .on"); if (on) on.scrollIntoView({inline:"center",block:"nearest"});
+  }
+  function openStation(s, opts={}){
+    const wasOpen=!!curStation;
+    if (!wasOpen) lastFocus=document.activeElement;
+    curStation=s; paintStation(s, wasOpen ? (opts.dir||0) : 0);
+    if (!wasOpen){ $("#station").classList.add("open"); document.body.style.overflow="hidden"; $("#stBack").focus(); }
+    if (!opts.fromHistory){
+      if (wasOpen) history.replaceState({station:s.id}, "", "#"+s.id);
+      else history.pushState({station:s.id}, "", "#"+s.id);
+    }
+  }
+  function step(d){ if (!curStation) return; const n=STATIONS.length; openStation(STATIONS[(idx(curStation)+d+n)%n], {dir:d}); }
+  function closeStation(opts={}){
+    if (!curStation) return;
+    $("#station").classList.remove("open"); document.body.style.overflow=""; curStation=null;
+    if (!opts.fromHistory){ if (history.state && history.state.station) history.back(); else history.replaceState(null, "", location.pathname+location.search); }
+    lastFocus&&lastFocus.focus&&lastFocus.focus();
+  }
+  $("#stBack").onclick = () => closeStation();
+  $("#stPrev").onclick = () => step(-1);
+  $("#stNext").onclick = () => step(1);
+  addEventListener("popstate", () => { const s=STATIONS.find(x=>"#"+x.id===location.hash); if (s) openStation(s,{fromHistory:true}); else closeStation({fromHistory:true}); });
+  addEventListener("keydown", e => {
+    if (!curStation || document.querySelector("dialog[open]")) return;
+    if (e.key==="Escape") closeStation();
+    else if (e.key==="ArrowRight") step(1);
+    else if (e.key==="ArrowLeft") step(-1);
+  });
+  // swipe between stations on phones
+  let sx=null, sy=null;
+  $("#station").addEventListener("touchstart", e => { if (e.target.closest(".stnav, .deck, .tiles")) { sx=null; return; } sx=e.touches[0].clientX; sy=e.touches[0].clientY; }, {passive:true});
+  $("#station").addEventListener("touchend", e => { if (sx==null) return; const dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy; if (Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)*1.5) step(dx<0?1:-1); sx=null; });
   function renderShelf(){
     const list = S.shelves[curStation.id] || [];
     $("#stShelf").innerHTML = list.length ? list.map(it => `<article class="item"><h3>${esc(it.title)}</h3>${it.note?`<p>${esc(it.note)}</p>`:""}<div class="meta"><span>Added by <b style="color:${colorOf(it.by)}">${esc(nameOf(it.by))}</b></span>${safeUrl(it.link)?`<a href="${esc(it.link)}" target="_blank" rel="noopener">Open it</a>`:""}</div></article>`).join("")
@@ -489,48 +796,113 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
     d.showModal();
   });
 
-  // ---------- film reels & expeditions ----------
+  // ---------- card catalog: videos play right here, Academy drawers open as expeditions ----------
+  const ytThumb = id => `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
+  const ALL_DRAWERS = () => [...VIDEOS.map(v=>({...v,kind:"yt"})), ...ACADEMY_DRAWERS.map(a=>({...a,kind:"academy"}))];
   function renderReels(){
-    $("#reelShelf").innerHTML = REELS.map(r => { const n = Object.values(S.stubs).filter(l=>l.includes(r.id)).length; const st=STATIONS.find(s=>s.id===r.station);
-      const kind = r.kind==="motion"?"Claude film":r.kind==="yt"?"Video":"Academy";
-      return `<button class="drawer ${r.kind}" data-id="${r.id}" aria-label="${esc(r.title)}, ${kind}, stamps ${esc(st.name)}"><span class="inside" aria-hidden="true"></span><span class="face"><span class="holder"><span class="kind">${kind}</span><span class="card">${esc(r.title)}</span></span><span class="pull"></span>${n?`<span class="tally">${"|".repeat(Math.min(n,5))}${n>5?"+":""}</span>`:""}<span class="dest">→ ${esc(st.name)}</span></span></button>`; }).join("")
-      + Array.from({length:3},()=>`<button class="drawer spare" aria-label="Empty drawer: suggest a lesson"><span class="inside" aria-hidden="true"></span><span class="face"><span class="holder"><span class="card">Empty drawer: suggest a lesson</span></span><span class="pull"></span></span></button>`).join("");
+    $("#reelShelf").innerHTML = ALL_DRAWERS().map(r => { const n = Object.values(S.stubs).filter(l=>l.includes(r.id)).length; const st=STATIONS.find(s=>s.id===r.stations[0]);
+      const kind = r.kind==="yt" ? "Video" : "Academy";
+      return `<button class="drawer ${r.kind}" data-id="${r.id}" aria-label="${esc(r.title)}, ${kind}${r.len?", "+r.len:""}"><span class="inside" aria-hidden="true"></span><span class="face"><span class="holder"><span class="kind">${kind}${r.len?" · "+r.len:""}</span><span class="card">${esc(r.short)}</span></span><span class="pull"></span>${n?`<span class="tally">${"|".repeat(Math.min(n,5))}${n>5?"+":""}</span>`:""}<span class="dest">→ ${esc(st.name)}</span></span></button>`; }).join("")
+      + Array.from({length:2},()=>`<button class="drawer spare" aria-label="Empty drawer: suggest a lesson"><span class="inside" aria-hidden="true"></span><span class="face"><span class="holder"><span class="card">Empty drawer: suggest a lesson</span></span><span class="pull"></span></span></button>`).join("");
     $("#reelShelf").querySelectorAll(".drawer.spare").forEach(b => b.onclick = () => $("#reqText").focus());
     $("#reelShelf").querySelectorAll(".drawer:not(.spare)").forEach(b => b.onclick = () => {
       $("#reelShelf").querySelectorAll(".drawer.open").forEach(d => d!==b && d.classList.remove("open"));
       b.classList.add("open");
-      setTimeout(() => { playReel(REELS.find(r=>r.id===b.dataset.id)); setTimeout(()=>b.classList.remove("open"), 900); }, reduce?0:520);
+      setTimeout(() => { openDrawer(ALL_DRAWERS().find(r=>r.id===b.dataset.id)); setTimeout(()=>b.classList.remove("open"), 900); }, reduce?0:480);
     });
     $("#reqList").textContent = S.requests.length ? "In the suggestion slot: " + S.requests.slice(0,5).map(r=>r.text).join(" · ") : "";
   }
-  function playReel(r){
-    if (r.kind==="motion"){ $("#filmTitle").textContent=r.title; $("#filmBody").textContent=r.body; $("#dlgFilm").showModal(); return; }
-    needMember(() => { S.pending={reel:r.id, who:S.current, left:Date.now()}; save(); toast("Off to explore! The workshop will be here when you get back."); window.open(r.url,"_blank","noopener"); });
+  function openDrawer(r){
+    if (r.kind==="yt") return openPlayer(r);
+    needMember(() => { S.pending={reel:r.id, who:S.current, left:Date.now()}; save(); toast("Off to Claude Academy! The workshop will be here when you get back."); window.open(r.url,"_blank","noopener"); });
   }
-  function checkReturn(){
-    if (document.visibilityState!=="visible" || !S.pending) return;
-    const p=S.pending, r=REELS.find(x=>x.id===p.reel); if (!r || Date.now()-p.left<15000) return;
-    S.current=p.who; renderWho();
-    $("#backTitle").textContent = `Welcome back, ${me()?me().name:"explorer"}!`;
-    $("#backSub").textContent = `You went to “${r.title}”. What did you find?`;
+
+  // the screening room: an in-page YouTube player
+  let playing=null;
+  function openPlayer(v, ctx){
+    const stampId = ctx && v.stations.includes(ctx) ? ctx : v.stations[0];
+    playing={v, at:Date.now(), stampId};
+    $("#plFrame").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.yt}?rel=0&modestbranding=1&playsinline=1&autoplay=1" title="${esc(v.title)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+    $("#plTitle").textContent = v.title;
+    $("#plMeta").textContent = `${v.channel} · ${v.len} · stamps ${STATIONS.find(s=>s.id===stampId).name}`;
+    $("#plSum").textContent = v.sum;
+    $("#plTake").innerHTML = v.take ? `<h4>Takeaways</h4><ul>${v.take.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>` : "";
+    $("#plYT").href = `https://youtu.be/${v.yt}`;
+    $("#plNotes").href = v.notes;
+    $("#dlgPlayer").showModal();
+  }
+  $("#dlgPlayer").addEventListener("close", () => {
+    $("#plFrame").innerHTML = "";
+    if (!playing) return; const {v, at, stampId} = playing; playing=null;
+    if (Date.now()-at > 45000) askFieldNote(v, S.current, stampId);
+  });
+
+  // field notes: after a video (or a trip to the Academy) you can stamp your passport
+  function askFieldNote(r, who, stampId){
+    if (who) S.current = who;
+    if (!me()) return;
+    renderWho();
+    $("#backTitle").textContent = `Nice work, ${me().name}!`;
+    $("#backSub").textContent = `What’s one thing you learned from “${r.title}”?`;
     const f=$("#backForm"), d=$("#dlgBack"); f.reset();
     d.onclose = () => {
-      const ok = d.returnValue==="ok"; const note = ok ? new FormData(f).get("note").trim() : "";
-      S.pending=null;
-      if (!ok){ save(); return; }
-      (S.stubs[p.who]=S.stubs[p.who]||[]).includes(r.id) || S.stubs[p.who].push(r.id);
-      const st=STATIONS.find(s=>s.id===r.station);
-      (S.shelves[st.id]=S.shelves[st.id]||[]).unshift({title:`Field note: ${r.title}`, note, link:r.url, by:p.who, at:Date.now()});
-      const together = Object.entries(S.stubs).filter(([w,l])=>w!==p.who && l.includes(r.id)).map(([w])=>nameOf(w));
-      save(); visit(st.id); renderReels();
+      if (d.returnValue!=="ok"){ save(); return; }
+      const note = new FormData(f).get("note").trim(); const by=S.current;
+      (S.stubs[by]=S.stubs[by]||[]).includes(r.id) || S.stubs[by].push(r.id);
+      const st=STATIONS.find(s=>s.id===(stampId||r.stations[0]));
+      (S.shelves[st.id]=S.shelves[st.id]||[]).unshift({title:`Field note: ${r.short}`, note, link:r.yt?`https://youtu.be/${r.yt}`:r.url, by, at:Date.now()});
+      const together = Object.entries(S.stubs).filter(([w,l])=>w!==by && l.includes(r.id)).map(([w])=>nameOf(w));
+      save(); visit(st.id); renderReels(); if (curStation) paintStation(curStation, 0);
       $("#stampBig").textContent = st.name;
       $("#stampTitle").textContent = together.length ? `Family expedition! ${together.join(" and ")} watched this too, so compare notes.` : `Passport stamped! Your note is on the ${st.name} bench.`;
       $("#dlgStamp").showModal();
     };
     if (!d.open) d.showModal();
   }
+  function checkReturn(){
+    if (document.visibilityState!=="visible" || !S.pending) return;
+    const p=S.pending, r=ALL_DRAWERS().find(x=>x.id===p.reel);
+    if (!r || Date.now()-p.left<15000) return;
+    S.pending=null; save(); askFieldNote(r, p.who);
+  }
   addEventListener("visibilitychange", checkReturn); addEventListener("focus", checkReturn);
   $("#reqBtn").onclick = () => { const v=$("#reqText").value.trim(); if(!v) return; S.requests.unshift({text:v,by:S.current,at:Date.now()}); save(); $("#reqText").value=""; renderReels(); toast("Suggestion card dropped in the slot"); };
+
+  // ---------- station extras: videos, flash cards, Academy ----------
+  function renderWatch(s){
+    const vids = VIDEOS.filter(v=>v.stations.includes(s.id));
+    $("#stWatch").innerHTML = vids.length ? `<h3 class="sub">Watch at this station</h3><div class="tiles">${vids.map(v=>`<button class="tile" data-id="${v.id}"><span class="thumbimg" style="background-image:url(${ytThumb(v.yt)})"><span class="play">▶</span><span class="len">${v.len}</span></span><span class="tt">${esc(v.short)}</span><span class="ch">${esc(v.channel)}</span></button>`).join("")}</div>` : "";
+    $("#stWatch").querySelectorAll(".tile").forEach(b => b.onclick = () => openPlayer(VIDEOS.find(v=>v.id===b.dataset.id), s.id));
+  }
+  const deckState = {};
+  function renderDeck(s){
+    const cards = DECKS[s.id] || [];
+    if (!cards.length){ $("#stDeck").innerHTML=""; return; }
+    const st = deckState[s.id] = deckState[s.id] || {order:cards.map((_,i)=>i), i:0, flipped:false};
+    const [q,a] = cards[st.order[st.i]];
+    $("#stDeck").innerHTML = `<h3 class="sub">Flash cards</h3>
+      <div class="deck" tabindex="0" aria-label="Flash cards for ${esc(s.name)}. Space flips, arrows move.">
+        <button class="fcard ${st.flipped?"flipped":""}" aria-label="${st.flipped?"Answer showing. Tap to see the question.":"Question showing. Tap to see the answer."}">
+          <span class="inner"><span class="face fc-front"><span class="qlabel">Q</span>${q}</span><span class="face fc-back"><span class="qlabel">A</span>${a}</span></span>
+        </button>
+        <div class="deckctl"><button class="dbtn" data-d="-1" aria-label="Previous card">‹</button><span class="dpos">${st.i+1} / ${cards.length} · tap to flip</span><button class="dbtn" data-d="1" aria-label="Next card">›</button><button class="dbtn shuffle" aria-label="Shuffle the deck">⤨</button></div>
+      </div>`;
+    const deck=$("#stDeck .deck");
+    const flip = () => { st.flipped=!st.flipped; deck.querySelector(".fcard").classList.toggle("flipped", st.flipped); };
+    const move = d => { st.i=(st.i+d+cards.length)%cards.length; st.flipped=false; renderDeck(s); $("#stDeck .deck").focus({preventScroll:true}); };
+    deck.querySelector(".fcard").onclick = flip;
+    deck.querySelectorAll(".dbtn[data-d]").forEach(b => b.onclick = () => move(+b.dataset.d));
+    deck.querySelector(".shuffle").onclick = () => { st.order.sort(()=>Math.random()-.5); st.i=0; st.flipped=false; renderDeck(s); toast("Shuffled"); };
+    deck.addEventListener("keydown", e => {
+      if (e.key==="ArrowRight"||e.key==="ArrowLeft"){ e.preventDefault(); e.stopPropagation(); move(e.key==="ArrowRight"?1:-1); }
+      else if ((e.key===" "||e.key==="Enter") && e.target===deck){ e.preventDefault(); flip(); }
+    });
+    let tx=null; deck.addEventListener("touchstart", e => { tx=e.touches[0].clientX; }, {passive:true});
+    deck.addEventListener("touchend", e => { if (tx==null) return; const dx=e.changedTouches[0].clientX-tx; tx=null; if (Math.abs(dx)>50) move(dx<0?1:-1); });
+  }
+  function renderLearn(s){
+    $("#stLearn").innerHTML = s.academy && s.academy.length ? `<h3 class="sub">Learn more at Claude Academy</h3><ul class="learn">${s.academy.map(a=>`<li><a href="${a.u}" target="_blank" rel="noopener">${esc(a.t)} ↗</a></li>`).join("")}</ul>` : "";
+  }
 
   // ---------- garden ----------
   function plantSVG(kind,color){
@@ -565,6 +937,7 @@ footer{padding:30px 0 50px;color:var(--soft);font-size:.9rem}
 
   function renderAll(){ renderWho(); renderPins(); renderPassport(); renderRecipes(); renderReels(); renderGarden(); }
   renderAll(); centerRoom(); checkReturn();
+  { const s=STATIONS.find(x=>"#"+x.id===location.hash); if (s) openStation(s,{fromHistory:true}); }
 })();
 </script>
 </body>
