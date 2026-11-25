@@ -35,6 +35,23 @@
         "title": "Prompting best practices (Claude Docs)",
         "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
       }
+    },
+    {
+      "id": "2026-11-25-skill-by-chatting",
+      "date": "2026-11-25",
+      "station": "skills",
+      "title": "Make a skill just by chatting",
+      "ingredients": [
+        "A job you do the same way again and again",
+        "One or two good examples or a template",
+        "A few minutes to answer Claude's questions"
+      ],
+      "method": "I want to create a skill for [the job, like planning our weekly family dinners]. Here's how I do it now: [your steps]. Here's an example of a result I liked: [example]. Ask me whatever you need to know about my process, then build the skill.",
+      "notes": "Claude will ask when you'd use the skill and what makes a result good. Answer with enough detail that someone capable but new could follow your approach. Save the skill file, then test it on a real task.",
+      "source": {
+        "title": "How to create a skill with Claude through conversation (Claude Academy)",
+        "url": "https://academy.claude.com/tutorials/how-to-create-a-skill-with-claude-through-conversation"
+      }
     }
   ]
 }
