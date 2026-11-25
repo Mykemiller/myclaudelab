@@ -36,6 +36,18 @@
         "title": "How Claude remembers your project (Claude Code Docs)",
         "url": "https://code.claude.com/docs/en/memory"
       }
+    },
+    {
+      "id": "2026-11-25-connectors",
+      "date": "2026-11-25",
+      "station": "connectors",
+      "title": "Connectors: plugging Claude into your apps",
+      "body": "A connector lets Claude reach one of your other apps, like Google Drive, Slack or Linear, so it can find your information there and even take actions, such as creating a task. You add one under Customize, then Connectors, pick the app and sign in. In a chat, the + button lets you switch on just the connectors you want for that conversation. Claude only sees what your own account can see in that app, so only connect services you trust and actually need.",
+      "tryIt": "Connect Google Drive, switch it on in a new chat, and ask Claude to find last month's shared family document and sum it up in three bullet points.",
+      "source": {
+        "title": "Use connectors to extend Claude's capabilities (Claude Help Center)",
+        "url": "https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities"
+      }
     }
   ]
 }
