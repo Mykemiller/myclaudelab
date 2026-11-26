@@ -1,0 +1,57 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.102
+This is the Skills Workbench,
+
+2
+00:00:02.102 --> 00:00:05.183
+where you teach Claude your way of doing something,
+
+3
+00:00:05.183 --> 00:00:05.485
+once.
+
+4
+00:00:05.485 --> 00:00:07.781
+A skill is a saved set of instructions
+
+5
+00:00:07.781 --> 00:00:10.258
+that Claude picks up when a task matches,
+
+6
+00:00:10.258 --> 00:00:12.131
+or when you ask for it by name.
+
+7
+00:00:12.131 --> 00:00:13.642
+Here's the rule of thumb:
+
+8
+00:00:13.642 --> 00:00:16.421
+if you've explained something to Claude twice,
+
+9
+00:00:16.421 --> 00:00:17.690
+it should be a skill.
+
+10
+00:00:17.690 --> 00:00:18.777
+The easiest start?
+
+11
+00:00:18.777 --> 00:00:21.436
+Just tell Claude you'd like to make a skill,
+
+12
+00:00:21.436 --> 00:00:23.369
+and describe how you do the job.
+
+13
+00:00:23.369 --> 00:00:25.182
+Then test it on a tricky case.
+
+14
+00:00:25.182 --> 00:00:26.390
+Did it get it right?

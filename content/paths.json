@@ -1,0 +1,215 @@
+{
+  "about": "Explorer's map paths, the Maker Ladder ranks (Visitor to Master Maker, the top 10%), the Tool Belt Check and the Tool Cage cards.",
+  "paths": [
+    {
+      "id": "storyteller",
+      "name": "Storyteller",
+      "icon": "📖",
+      "for": "Stories, games and writing",
+      "route": [
+        "prompts",
+        "artifacts",
+        "discernment",
+        "motion",
+        "skills"
+      ],
+      "capstone": "An illustrated story book plus an animated trailer"
+    },
+    {
+      "id": "artist",
+      "name": "Artist",
+      "icon": "🎨",
+      "for": "Design and making things look good",
+      "route": [
+        "prompts",
+        "designs",
+        "discernment",
+        "models",
+        "mods"
+      ],
+      "capstone": "A small design system used on three real pieces"
+    },
+    {
+      "id": "organizer",
+      "name": "Organizer",
+      "icon": "🗂️",
+      "for": "Plans, lists and saving time",
+      "route": [
+        "prompts",
+        "projects",
+        "discernment",
+        "connectors",
+        "duet"
+      ],
+      "capstone": "A command center that keeps itself up to date"
+    },
+    {
+      "id": "builder",
+      "name": "Builder",
+      "icon": "🛠️",
+      "for": "How things work, code and tinkering",
+      "route": [
+        "models",
+        "skills",
+        "discernment",
+        "claudemd",
+        "mods"
+      ],
+      "capstone": "A real pull request to this workshop, approved and merged"
+    }
+  ],
+  "ranks": [
+    {
+      "id": "visitor",
+      "name": "Visitor",
+      "pct": "Just arrived",
+      "can": "You've found the door. Everything starts at the Tool Cage.",
+      "needs": []
+    },
+    {
+      "id": "apprentice",
+      "name": "Apprentice",
+      "pct": "Ahead of most casual users",
+      "can": "You brief Claude clearly and improve answers by iterating instead of starting over.",
+      "needs": [
+        {
+          "k": "cage",
+          "label": "Check out at the Tool Cage"
+        },
+        {
+          "k": "stamps",
+          "n": 2,
+          "label": "Earn 2 stamps at any benches"
+        }
+      ]
+    },
+    {
+      "id": "journeyman",
+      "name": "Journeyman",
+      "pct": "Top half of Claude users",
+      "can": "You pick the right model and effort, check what comes back, and make artifacts people actually use.",
+      "needs": [
+        {
+          "k": "arc",
+          "arc": 1,
+          "label": "A stamp at every Hand Tools bench"
+        },
+        {
+          "k": "arcCount",
+          "arc": 2,
+          "n": 2,
+          "label": "Stamps at 2 Power Tools benches"
+        },
+        {
+          "k": "quizzes",
+          "n": 3,
+          "label": "Pass 3 self-checks"
+        }
+      ]
+    },
+    {
+      "id": "craftsperson",
+      "name": "Craftsperson",
+      "pct": "Top quarter",
+      "can": "You set up projects and connectors that remember, and teach Claude repeatable work.",
+      "needs": [
+        {
+          "k": "tiered",
+          "tiers": [
+            "build",
+            "invent"
+          ],
+          "n": 6,
+          "label": "6 Build or Invent stamps"
+        },
+        {
+          "k": "arcCount",
+          "arc": 3,
+          "n": 1,
+          "label": "A stamp in Shop Automation"
+        },
+        {
+          "k": "quizzes",
+          "n": 6,
+          "label": "Pass 6 self-checks"
+        }
+      ]
+    },
+    {
+      "id": "master",
+      "name": "Master Maker",
+      "pct": "Top 10%",
+      "can": "Claude works for you even when you're not watching, and you can tell good work from confident nonsense.",
+      "needs": [
+        {
+          "k": "inventArcs",
+          "label": "An Invent stamp in all three arcs"
+        },
+        {
+          "k": "quizzes",
+          "n": 10,
+          "label": "Pass 10 self-checks"
+        },
+        {
+          "k": "plants",
+          "n": 1,
+          "label": "Plant a build in the garden"
+        },
+        {
+          "k": "reviews",
+          "n": 20,
+          "label": "Review 20 flash cards"
+        }
+      ]
+    }
+  ],
+  "belt": [
+    {
+      "q": "Have you made something with Claude that you showed someone?",
+      "a": [
+        "Not yet",
+        "Once or twice",
+        "Lots of times"
+      ]
+    },
+    {
+      "q": "Have you used a Claude project, skill or connector?",
+      "a": [
+        "Never",
+        "Tried one",
+        "Use them often"
+      ]
+    },
+    {
+      "q": "What sounds most fun right now?",
+      "a": [
+        "Make something cool",
+        "Save time on real stuff",
+        "Figure out how it works",
+        "Make it look great"
+      ]
+    }
+  ],
+  "cage": [
+    {
+      "icon": "🔒",
+      "title": "Keep private things private",
+      "body": "Don't paste passwords, ID numbers or other people's private details into Claude. If it's not yours to share, leave it out."
+    },
+    {
+      "icon": "🔍",
+      "title": "Check anything that matters",
+      "body": "Claude can sound sure and still be wrong. For health, money, legal or safety questions, check a real source or a person you trust."
+    },
+    {
+      "icon": "✋",
+      "title": "Read before you approve",
+      "body": "When Claude offers to send, buy, delete or change something, it asks first. Read what it plans to do before you say yes."
+    },
+    {
+      "icon": "🧭",
+      "title": "You're the maker",
+      "body": "Claude is a powerful tool, not the boss. You decide what's good enough, and you put your name on what you share."
+    }
+  ]
+}

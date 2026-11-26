@@ -1,0 +1,281 @@
+{
+  "about": "Replay Theater: tip videos from the YouTube Tip Treasure Chest (Notion). stations[0] is the main station. Weekly runs may append.",
+  "videos": [
+    {
+      "id": "v-concepts",
+      "yt": "tcb5q_6jwvY",
+      "short": "Every Claude concept, explained",
+      "title": "Every Claude 2.0 Concept Explained for Normal People",
+      "channel": "Nate Herk",
+      "len": "21 min",
+      "stations": [
+        "skills",
+        "claudemd",
+        "mods",
+        "connectors",
+        "data"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c168081368f7efecac35e2880",
+      "sum": "A plain-English tour of 25 Claude features, from picking a model and effort level to skills, connectors, mods and /goal, with tips on which ones to set up first.",
+      "take": [
+        "Write a lean CLAUDE.md",
+        "Build one skill for your most frequent task",
+        "Try a few /goal prompts with a clear finish line",
+        "Then build your own “AI operating system” in Claude Code"
+      ]
+    },
+    {
+      "id": "v-fable",
+      "yt": "AQWgE5LWQ4A",
+      "short": "Fable 5.2 vs Opus 5.5",
+      "title": "I Tested Claude Fable 5.2 vs Opus 5.5 (WILD RESULTS)",
+      "channel": "Brock Mesarich",
+      "len": "24 min",
+      "stations": [
+        "projects"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c168081f5b775df4ebe8915e4",
+      "sum": "Brock runs Fable 5.2 and Opus 5.5 on the same three jobs (a website, a 3D game and a video edit) and finds Fable costs only about 14% more, with its clearest win on the game.",
+      "take": [
+        "Judge models by cost per finished task, not list price",
+        "Default to Opus for everyday work; try Fable on big, complex or visual builds",
+        "Put a self-check loop in big prompts: “play through it, screenshot it, keep improving”",
+        "For repeat work, give Claude examples of finished results plus a one-page style brief",
+        "Always review for small but critical misses"
+      ]
+    },
+    {
+      "id": "v-six",
+      "yt": "HD02f3-3c7E",
+      "short": "6 new Claude features",
+      "title": "The 6 NEW Claude Features to Get You Ahead of 99% in 2027",
+      "channel": "Tristen O’Brien",
+      "len": "14 min",
+      "stations": [
+        "skills",
+        "designs",
+        "duet",
+        "projects"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c168081c8a107d6c697121ac0",
+      "sum": "Six new Claude features, including Record a Skill, finished docs and decks, Claude Code Projects, phone remote control and Claude Duet, that shift you from chatting to delegating.",
+      "take": [
+        "Give Claude small real tasks all day, not just occasional questions",
+        "Use Record a Skill once for personal tasks Claude can’t guess",
+        "Ask for sources on each slide and talking points in the speaker notes",
+        "Feed Claude Design real inspiration to avoid generic-looking results",
+        "Turn on remote control in Settings → Code"
+      ]
+    },
+    {
+      "id": "v-boards",
+      "yt": "_eth_3WxaGY",
+      "short": "Claude Whiteboards",
+      "title": "Claude Whiteboards Are Here (And They’re Impressive)",
+      "channel": "Educraft",
+      "len": "15 min",
+      "stations": [
+        "designs"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c1680817ab4aceb5cf9d1b35e",
+      "sum": "Claude’s Whiteboards canvas: turning a folder into an editable visual, working together through comments Claude acts on, and building a clickable prototype to hand to Claude Code.",
+      "take": [
+        "Open Whiteboards with the chat panel and attach a whole folder",
+        "Save a design system once and reuse it",
+        "Use comments with @Claude for precise changes, then check it changed the right thing",
+        "Prototype clickable flows on a whiteboard before building",
+        "When handing a board to Claude Code, tell it to match the visual design, not just the text"
+      ]
+    },
+    {
+      "id": "v-100x",
+      "yt": "izSnNPynvps",
+      "short": "Make Claude 100× better",
+      "title": "Give Me 10 Minutes and I’ll Make Your Claude 100X Better",
+      "channel": "Christian Peverelli",
+      "len": "10 min",
+      "stations": [
+        "claudemd",
+        "mods",
+        "projects"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c168081e59a67fc3702c54c72",
+      "sum": "Why old-style prompt templates now hold Claude back, and what to do instead: plain requests, yes/no checks for “done,” the right effort level, a slimmer CLAUDE.md and a few usage-saving mods.",
+      "take": [
+        "Rewrite go-to prompts as plain requests with a little context and one example",
+        "End prompts with “ask me questions if anything is unclear”",
+        "Replace “check your work” with 3–5 yes/no checks",
+        "Pick effort by how much you want to steer; default to medium",
+        "Ask Claude to simplify your CLAUDE.md"
+      ]
+    },
+    {
+      "id": "v-master",
+      "yt": "Q0ArTNWXeAU",
+      "short": "Master Claude for 2027",
+      "title": "The Only Video You’ll Need to Master Claude for 2027",
+      "channel": "Ben AI",
+      "len": "25 min",
+      "stations": [
+        "projects",
+        "skills"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c168081088c23d8832830ebd8",
+      "sum": "Fifteen tips for the newest Claude models, from writing briefs instead of prompts and matching effort to the task to using sub-agents, Projects and side chats while keeping your setup lean.",
+      "take": [
+        "Write a brief: the job, the why, the rules, what done looks like, plus “be ambitious”",
+        "Ask for several options, and /rewind instead of piling on corrections",
+        "Default to medium effort",
+        "Use /compact and side chats to keep the main chat sharp",
+        "Prune skills, connectors, scheduled tasks and context files regularly"
+      ]
+    },
+    {
+      "id": "v-beginners",
+      "yt": "KehcONjBUE8",
+      "short": "Claude for beginners: full course",
+      "title": "Claude for Beginners: Full Course (2026)",
+      "channel": "Sean McCloskey",
+      "len": "52 min",
+      "stations": [
+        "connectors",
+        "skills",
+        "projects"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c168081d7b2a1c01028a133ba",
+      "sum": "A no-code beginner’s course on the Claude desktop app covering Projects, Skills, Connectors, Artifacts, scheduled tasks and plugins, ending with a live build of a job-search agent."
+    },
+    {
+      "id": "v-teams",
+      "yt": "fRPGJiYwkZ0",
+      "short": "Moving to a Team account",
+      "title": "How to Transfer to Claude Teams Account (Without Losing Your Data)",
+      "channel": "Isabelle Hanson",
+      "len": "13 min",
+      "stations": [
+        "projects"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c168081d780a5f194ba2b5272",
+      "sum": "A step-by-step guide to moving your personal Claude setup, including skills, scheduled tasks, artifacts, chats and memory, into a Claude Team account without losing anything."
+    },
+    {
+      "id": "v-2024",
+      "yt": "D-SVFneJ_Nk",
+      "short": "Stop using Claude like it’s 2024",
+      "title": "Claude Engineering Lead: “Stop Using Claude Like It’s 2024”",
+      "channel": "Silicon Valley Girl",
+      "len": "49 min",
+      "stations": [
+        "claudemd",
+        "skills"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c16808166aa7cc771be12e2e9",
+      "sum": "An interview with Anthropic engineering lead Felix Rieseberg on giving Claude bigger goals and full access to your data, skipping role-play personas and stale skills, and catching confident mistakes with a separate reviewer session."
+    },
+    {
+      "id": "v-duet10",
+      "yt": "ZIBI6FiLxgQ",
+      "short": "Claude Duet after 10 hours",
+      "title": "How I’m Actually Using Claude Duet (After 10 Hours of Testing)",
+      "channel": "Riley Brown",
+      "len": "24 min",
+      "stations": [
+        "duet"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c16808137976ffc37eaddf57d",
+      "sum": "A hands-on review of Claude Duet covering channels, task threads and editing slide decks by voice, how it compares with Claude Projects and ChatGPT, and where it still falls short."
+    },
+    {
+      "id": "v-duetend",
+      "yt": "ZdXXv-0aPfI",
+      "short": "Duet: the end of prompting?",
+      "title": "Claude Duet Is Here: The End of Prompting?",
+      "channel": "Skill Leap AI",
+      "len": "13 min",
+      "stations": [
+        "duet"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c168081f29e51cdc102e80c8e",
+      "sum": "A week with Claude Duet, the app that messages you first, used for morning briefs with drafted replies, project management, pitching ideas and following up on email."
+    },
+    {
+      "id": "v-themes",
+      "yt": "Aa9Esr4FDLM",
+      "short": "Make your own Claude theme",
+      "title": "Anthropic Just Dropped Claude Themes (Make Your Own)",
+      "channel": "Brock Mesarich",
+      "len": "10 min",
+      "stations": [
+        "mods"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c168081d68143df857d248f9e",
+      "sum": "How to make custom themes for Claude Code in the desktop app, from a one-prompt color scheme to animated backgrounds that react while Claude works and celebrate when it finishes."
+    },
+    {
+      "id": "v-dangerous",
+      "yt": "KAizhshLscY",
+      "short": "Get dangerously good with Claude",
+      "title": "How to Get Dangerously Good With Claude",
+      "channel": "Simon Scrapes",
+      "len": "13 min",
+      "stations": [
+        "skills",
+        "projects"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c168081608932dd17f83f5185",
+      "sum": "A five-layer roadmap from better prompts to Projects, Skills built from your own corrections, scheduled tasks that run without you, and an optional “agentic OS” folder you own."
+    },
+    {
+      "id": "v-duetpa",
+      "yt": "8GqwBoFwn6o",
+      "short": "Duet as a personal assistant",
+      "title": "I Turned Claude Duet Into My Personal Assistant (Full Setup)",
+      "channel": "Shaz Mathew",
+      "len": "19 min",
+      "stations": [
+        "duet",
+        "connectors"
+      ],
+      "notes": "https://app.notion.com/p/41a89a0c168081da9f50f775f5ce78f1",
+      "sum": "A six-step Claude Duet setup: connect your apps, give it your goals, set clear ground rules, lock down security, control your computer through Claude in Chrome, and use voice."
+    }
+  ],
+  "academy": [
+    {
+      "id": "ac-101",
+      "short": "Claude 101 (Academy course)",
+      "title": "Claude 101",
+      "url": "https://academy.claude.com/courses/claude-101",
+      "stations": [
+        "projects"
+      ]
+    },
+    {
+      "id": "ac-students",
+      "short": "AI Fluency for students",
+      "title": "AI Fluency for students",
+      "url": "https://academy.claude.com/courses/ai-fluency-for-students",
+      "stations": [
+        "projects"
+      ]
+    },
+    {
+      "id": "ac-limits",
+      "short": "What AI can and can’t do",
+      "title": "AI capabilities and limitations",
+      "url": "https://academy.claude.com/courses/ai-capabilities-and-limitations",
+      "stations": [
+        "claudemd"
+      ]
+    },
+    {
+      "id": "ac-skills",
+      "short": "Intro to agent skills",
+      "title": "Introduction to agent skills",
+      "url": "https://academy.claude.com/courses/introduction-to-agent-skills",
+      "stations": [
+        "skills"
+      ]
+    }
+  ]
+}

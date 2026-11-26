@@ -1,0 +1,485 @@
+{
+  "about": "Flash cards for spaced review. back may hold a little trusted markup (code, br). Weekly runs may append; ids must be unique.",
+  "cards": [
+    {
+      "id": "skills-1",
+      "station": "skills",
+      "front": "What is a skill?",
+      "back": "A saved how-to file (SKILL.md) that teaches Claude a task your way. Run it with <code>/its-name</code>, or Claude uses it when the job fits. Only the short description loads until it’s needed, so they’re cheap to keep."
+    },
+    {
+      "id": "skills-2",
+      "station": "skills",
+      "front": "When should something become a skill?",
+      "back": "Rule of thumb from the videos: anything you’ve done twice, or any result you make over and over."
+    },
+    {
+      "id": "skills-3",
+      "station": "skills",
+      "front": "Three ways to build a skill?",
+      "back": "1) Have Claude learn it from results you love. 2) Do the task together, then ask Claude to turn it into a skill. 3) Use Record a Skill and do it once while Claude watches and listens."
+    },
+    {
+      "id": "skills-4",
+      "station": "skills",
+      "front": "What does Record a Skill do?",
+      "back": "It watches your screen and listens while you do a task once, then saves it as a reusable skill. Great for things Claude can’t guess, like booking with your own preferences."
+    },
+    {
+      "id": "skills-5",
+      "station": "skills",
+      "front": "A skill made a mistake. Now what?",
+      "back": "Correct it in the chat, then ask Claude to update the skill so the fix sticks next time."
+    },
+    {
+      "id": "skills-6",
+      "station": "skills",
+      "front": "Why skip old, stale skills?",
+      "back": "Out-of-date instructions steer Claude wrong. Prune skills you no longer use and keep the rest current."
+    },
+    {
+      "id": "mods-1",
+      "station": "mods",
+      "front": "What is a mod?",
+      "back": "A small add-on for Claude Code that changes how it looks or behaves: a side panel, a new slash command, or a safety check. It runs on your computer with your permissions, so only install mods from people you trust."
+    },
+    {
+      "id": "mods-2",
+      "station": "mods",
+      "front": "How do you install a mod?",
+      "back": "1) <code>claude update</code> (version 2.1.287 or later)<br>2) <code>claude plugin marketplace add owner/repo</code><br>3) <code>claude plugin install name@marketplace</code><br>4) Restart or run <code>/reload-plugins</code>, then check <code>/plugin</code>."
+    },
+    {
+      "id": "mods-3",
+      "station": "mods",
+      "front": "How do you check a mod before installing it?",
+      "back": "Download its folder and run <code>claude plugin validate ./folder</code>. It lists what the mod watches and what it can touch, without running it."
+    },
+    {
+      "id": "mods-4",
+      "station": "mods",
+      "front": "How do you turn off every mod for one session?",
+      "back": "Start with <code>claude --safe-mode</code>. To turn one off for good: <code>/plugin</code> → Installed → disable or uninstall."
+    },
+    {
+      "id": "mods-5",
+      "station": "mods",
+      "front": "Blast Radius",
+      "back": "Holds a risky command (like <code>rm -rf</code> or a force push), shows what it would change, and waits for Proceed or Cancel. An Anthropic sample mod."
+    },
+    {
+      "id": "mods-6",
+      "station": "mods",
+      "front": "Collision Guard <code>/guard</code>",
+      "back": "Before Claude edits a file, checks whether another open chat changed it in the last 30 minutes and asks how to proceed."
+    },
+    {
+      "id": "mods-7",
+      "station": "mods",
+      "front": "You Should Know",
+      "back": "Built in but off by default. A side agent that leaves a note above the prompt when it spots something you may have missed. Turn it on in <code>/plugin</code> → Installed → Built-in."
+    },
+    {
+      "id": "mods-8",
+      "station": "mods",
+      "front": "Cache Keeper <code>/cache</code>",
+      "back": "Shows whether a chat’s cache is warm or cold, warns before an expensive cold send, and hands off to a fresh chat when you ask with <code>/handoff</code>."
+    },
+    {
+      "id": "mods-9",
+      "station": "mods",
+      "front": "Replay Theater <code>/replay</code>",
+      "back": "Steps through the file edits Claude made in its last turn. An Anthropic sample mod."
+    },
+    {
+      "id": "mods-10",
+      "station": "mods",
+      "front": "File Tree <code>/filetree</code>",
+      "back": "An IDE-style file tree beside the chat that lights up files as Claude reads and edits them."
+    },
+    {
+      "id": "mods-11",
+      "station": "mods",
+      "front": "Claude Skins <code>/skin</code>",
+      "back": "Restyles the transcript, adds a usage band, and ships 15 themes."
+    },
+    {
+      "id": "mods-12",
+      "station": "mods",
+      "front": "Can’t find the mod you want?",
+      "back": "Describe it in a Claude Code session and Claude writes a custom mod for you."
+    },
+    {
+      "id": "connectors-1",
+      "station": "connectors",
+      "front": "What do connectors do?",
+      "back": "They give Claude access to the apps where your work already lives, like Gmail, Calendar, Drive, Slack or Notion, so you stop copying and pasting. Most use MCP under the hood."
+    },
+    {
+      "id": "connectors-2",
+      "station": "connectors",
+      "front": "Are connectors only on paid plans?",
+      "back": "No. According to the videos, connectors are available on the free plan too."
+    },
+    {
+      "id": "connectors-3",
+      "station": "connectors",
+      "front": "How do you add a custom connector?",
+      "back": "Customize → Connectors → add a custom connector with the service’s MCP address, or search for it by name."
+    },
+    {
+      "id": "connectors-4",
+      "station": "connectors",
+      "front": "What’s the first step in a Duet setup?",
+      "back": "Connect your apps. Duet can only brief you on mail, calendar and tasks it can see."
+    },
+    {
+      "id": "projects-1",
+      "station": "projects",
+      "front": "Prompt or brief?",
+      "back": "A brief. Tell Claude the job, why it matters, the rules, and what “done” looks like. Then let it work."
+    },
+    {
+      "id": "projects-2",
+      "station": "projects",
+      "front": "One line that lifts quality on big jobs?",
+      "back": "“Be ambitious.” Claude tends to build the smallest thing that satisfies a request unless you ask for more."
+    },
+    {
+      "id": "projects-3",
+      "station": "projects",
+      "front": "Better than “check your work”?",
+      "back": "3–5 yes/no checks it can test, like “every number appears in the source” or “every post is under 150 words.” Ask for a pass/fail table."
+    },
+    {
+      "id": "projects-4",
+      "station": "projects",
+      "front": "How should a prompt end?",
+      "back": "“Ask me questions if anything is unclear.”"
+    },
+    {
+      "id": "projects-5",
+      "station": "projects",
+      "front": "Stuck in a loop of corrections?",
+      "back": "Use <code>/rewind</code> (or Esc twice), go back to the earlier prompt, add the missing rule, and restart. Corrections pile up and make answers worse."
+    },
+    {
+      "id": "projects-6",
+      "station": "projects",
+      "front": "Not sure what you want yet?",
+      "back": "Ask for options: 10 angles, then 5 outlines, then 3 drafts. Choosing beats correcting."
+    },
+    {
+      "id": "projects-7",
+      "station": "projects",
+      "front": "Which effort level?",
+      "back": "Medium for most work. Low when you want to stay in the loop. High when a hidden mistake would cost you. Extra high or max for long jobs you want to walk away from."
+    },
+    {
+      "id": "projects-8",
+      "station": "projects",
+      "front": "Which model is cheaper?",
+      "back": "Compare cost per finished job, not list price. In one test the pricier model cost only about 14% more overall."
+    },
+    {
+      "id": "projects-9",
+      "station": "projects",
+      "front": "What is a Claude Code Project?",
+      "back": "One coordinator chat that opens a thread for each task, runs them in parallel, checks their work and reports back."
+    },
+    {
+      "id": "designs-1",
+      "station": "designs",
+      "front": "Whiteboard or Claude Design?",
+      "back": "Idea still fuzzy: start on a Whiteboard. You know exactly what you want: Claude Design. Then Claude Code can build the real thing."
+    },
+    {
+      "id": "designs-2",
+      "station": "designs",
+      "front": "How do you change just one part of a board?",
+      "back": "Select those objects and type an instruction, or leave a comment and tag @Claude. Then check it changed the right thing."
+    },
+    {
+      "id": "designs-3",
+      "station": "designs",
+      "front": "Making a deck you can trust?",
+      "back": "Ask for sources on each slide and talking points in the speaker notes so you can verify before sharing."
+    },
+    {
+      "id": "designs-4",
+      "station": "designs",
+      "front": "How do you avoid generic-looking designs?",
+      "back": "Give Claude real inspiration and a saved design system instead of describing colors and fonts each time."
+    },
+    {
+      "id": "designs-5",
+      "station": "designs",
+      "front": "Handing a board to Claude Code as a PDF?",
+      "back": "Tell it to match the visual design in the file, not just the text, or it may only read the words."
+    },
+    {
+      "id": "data-1",
+      "station": "data",
+      "front": "What is Claude Data?",
+      "back": "A dashboard of charts and numbers from your data that you can question in plain English. Each chart shows when its data was last refreshed."
+    },
+    {
+      "id": "data-2",
+      "station": "data",
+      "front": "Is a chart in a doc a live feed?",
+      "back": "No. Data pulled into a doc is a snapshot. Ask Claude to refresh it when you need the latest."
+    },
+    {
+      "id": "data-3",
+      "station": "data",
+      "front": "Best way to review a big analysis?",
+      "back": "Make it visual. A dashboard or one-page design is much easier to check than a long wall of text."
+    },
+    {
+      "id": "claudemd-1",
+      "station": "claudemd",
+      "front": "How long should CLAUDE.md be?",
+      "back": "Short. Under about 200 lines, used as a map of where things live."
+    },
+    {
+      "id": "claudemd-2",
+      "station": "claudemd",
+      "front": "ALL-CAPS ALWAYS / NEVER rules?",
+      "back": "Outdated. Explain the goal instead, and ask Claude to review the file and propose a slimmer version."
+    },
+    {
+      "id": "claudemd-3",
+      "station": "claudemd",
+      "front": "What does Claude remember between sessions?",
+      "back": "Each session starts fresh. CLAUDE.md loads every time, and memory adds notes from your corrections."
+    },
+    {
+      "id": "claudemd-4",
+      "station": "claudemd",
+      "front": "Why keep the whole setup lean?",
+      "back": "Old skills, connectors, scheduled tasks and context files load into chats and cost tokens. Prune them regularly."
+    },
+    {
+      "id": "claudemd-5",
+      "station": "claudemd",
+      "front": "Catching confident mistakes?",
+      "back": "Use a separate reviewer: paste the result into a fresh session and ask it to critique."
+    },
+    {
+      "id": "duet-1",
+      "station": "duet",
+      "front": "Hand off a whole task?",
+      "back": "Say “Take this off my plate: …” It becomes a card on your Tasks page, a thread does the work, and you review the result."
+    },
+    {
+      "id": "duet-2",
+      "station": "duet",
+      "front": "Steer a task that’s already running?",
+      "back": "Reply in plain words, like “hold that” or “also check X.” It goes to that task’s thread instead of starting a new one."
+    },
+    {
+      "id": "duet-3",
+      "station": "duet",
+      "front": "Keep an eye on something for you?",
+      "back": "“Tell me when that pull request merges” or “watch for a reply from the plumber.” It checks at set times and only posts when something changes."
+    },
+    {
+      "id": "duet-4",
+      "station": "duet",
+      "front": "Get a reply written in your voice?",
+      "back": "“Draft a reply to …” puts the draft on a card you can edit. Nothing goes out until you tap Send."
+    },
+    {
+      "id": "duet-5",
+      "station": "duet",
+      "front": "Set a reminder?",
+      "back": "“Remind me Thursday at 9 to call the dentist” adds a calendar event with an alert."
+    },
+    {
+      "id": "duet-6",
+      "station": "duet",
+      "front": "Change the morning brief?",
+      "back": "“Add X to my morning brief” or “stop including Y.” It changes from the next morning."
+    },
+    {
+      "id": "duet-7",
+      "station": "duet",
+      "front": "What’s waiting on you?",
+      "back": "“What’s waiting on me across all my channels?” pulls every open ask into one answer."
+    },
+    {
+      "id": "duet-8",
+      "station": "duet",
+      "front": "Teach it how you like things?",
+      "back": "Thumbs-down a reply, or say “from now on, never …”. Ask “What do you know about me?” to see what it kept."
+    },
+    {
+      "id": "duet-9",
+      "station": "duet",
+      "front": "Make something you can keep editing?",
+      "back": "“Turn this into a Claude Doc.”"
+    },
+    {
+      "id": "duet-10",
+      "station": "duet",
+      "front": "Run a check every week?",
+      "back": "“Every Monday at 8, sum up what moved last week.” A routine runs on its own and posts the result."
+    },
+    {
+      "id": "duet-11",
+      "station": "duet",
+      "front": "Keep a big topic tidy?",
+      "back": "“Make a channel for the family trip.” Its chat, tasks and notes stay together, apart from your main chat."
+    },
+    {
+      "id": "duet-12",
+      "station": "duet",
+      "front": "Quick yes to a question it asks?",
+      "back": "Tap a thumbs-up or check mark. It counts as yes."
+    },
+    {
+      "id": "duet-13",
+      "station": "duet",
+      "front": "Ask it for ideas?",
+      "back": "“Suggest 3 tasks from my week.” Ideas land on your Tasks page, and nothing starts until you add one."
+    },
+    {
+      "id": "duet-14",
+      "station": "duet",
+      "front": "Make drafts sound like you?",
+      "back": "“Learn how I write.” It studies messages you’ve sent."
+    },
+    {
+      "id": "duet-15",
+      "station": "duet",
+      "front": "Do a chore on a website?",
+      "back": "“Check the school portal and tell me what’s due.” It stops before any submit, payment or sign-in and waits for your yes."
+    },
+    {
+      "id": "duet-16",
+      "station": "duet",
+      "front": "Quiet weekends?",
+      "back": "“No pings on weekends unless it’s urgent.” Non-urgent things wait for Monday’s brief."
+    },
+    {
+      "id": "duet-17",
+      "station": "duet",
+      "front": "Remember or forget a fact?",
+      "back": "“Remember soccer practice is every Tuesday.” Say “forget that” anytime and it’s removed."
+    },
+    {
+      "id": "duet-18",
+      "station": "duet",
+      "front": "Find something across all your apps?",
+      "back": "“Where did we land on the vacation dates?” It checks mail, chat, Notion and more, and gives the newest answer with its date."
+    },
+    {
+      "id": "duet-19",
+      "station": "duet",
+      "front": "Find a time to meet?",
+      "back": "“Find 30 minutes with Grandma next week.” It offers slots, and no invite goes out without your yes."
+    },
+    {
+      "id": "duet-20",
+      "station": "duet",
+      "front": "Did the website deploy break?",
+      "back": "“Did last night’s Vercel deploy break anything?” It reads the deploy status and errors and tells you what failed."
+    },
+    {
+      "id": "prompts-1",
+      "station": "prompts",
+      "front": "What four things make a prompt a brief?",
+      "back": "What you want, who it's for, why it matters, and what a good result looks like."
+    },
+    {
+      "id": "prompts-2",
+      "station": "prompts",
+      "front": "The answer is close but not right. Start over?",
+      "back": "No. Reply with what to change. Iterating keeps everything Claude already understood."
+    },
+    {
+      "id": "prompts-3",
+      "station": "prompts",
+      "front": "Why show examples instead of adjectives?",
+      "back": "\"Punchy\" means different things to different people. Two or three samples show the style exactly."
+    },
+    {
+      "id": "prompts-4",
+      "station": "prompts",
+      "front": "A quick clarity test for any prompt?",
+      "back": "Would a smart friend with no background understand it? If not, Claude won't either."
+    },
+    {
+      "id": "models-1",
+      "station": "models",
+      "front": "Haiku, Sonnet, Opus, Fable: what's the pattern?",
+      "back": "From fast and light to big and deep. Pick the engine that fits the job, not always the biggest."
+    },
+    {
+      "id": "models-2",
+      "station": "models",
+      "front": "What does a higher effort setting trade?",
+      "back": "More time and more of your plan's usage, for potentially better answers on hard problems."
+    },
+    {
+      "id": "models-3",
+      "station": "models",
+      "front": "Can't find a model you read about?",
+      "back": "Model availability depends on your plan and changes over time. Check the Help Center."
+    },
+    {
+      "id": "discernment-1",
+      "station": "discernment",
+      "front": "What's a hallucination?",
+      "back": "When an AI states something false with confidence, like a made-up date, quote or source."
+    },
+    {
+      "id": "discernment-2",
+      "station": "discernment",
+      "front": "What's sycophancy?",
+      "back": "Agreeing with you just to please you. Ask Claude to argue the other side."
+    },
+    {
+      "id": "discernment-3",
+      "station": "discernment",
+      "front": "Best way to review important work?",
+      "back": "Paste it into a fresh chat and ask for the top problems, most serious first."
+    },
+    {
+      "id": "discernment-4",
+      "station": "discernment",
+      "front": "Does checking skill grow on its own?",
+      "back": "Anthropic's AI fluency research says no. You have to practice it on purpose."
+    },
+    {
+      "id": "artifacts-1",
+      "station": "artifacts",
+      "front": "What is an artifact?",
+      "back": "Something Claude makes that you'd put in front of someone, like a doc, deck, chart or small tool. It opens beside the chat."
+    },
+    {
+      "id": "artifacts-2",
+      "station": "artifacts",
+      "front": "Who can see a new artifact?",
+      "back": "Just you, until you choose to share it. Read every word before sharing the link."
+    },
+    {
+      "id": "artifacts-3",
+      "station": "artifacts",
+      "front": "The signature move of the Power Tools arc?",
+      "back": "Specify the output: format, audience, length and must-haves, before you ask."
+    },
+    {
+      "id": "motion-1",
+      "station": "motion",
+      "front": "What comes before building an animation?",
+      "back": "A storyboard: a few beats with what happens and when."
+    },
+    {
+      "id": "motion-2",
+      "station": "motion",
+      "front": "Rule of thumb for on-screen text?",
+      "back": "Only a few words per screen. People watch more than they read."
+    }
+  ]
+}

@@ -1,0 +1,434 @@
+{
+  "about": "Workshop stations (benches). hall = [x%, y%] hotspot on img/v2/hall.webp. Keep ids stable: lessons and recipes point at them.",
+  "arcs": [
+    {
+      "n": 1,
+      "name": "Hand Tools",
+      "durability": "In the moment",
+      "move": "Iterate, then question",
+      "blurb": "Shape one response at a time. Everyone starts here."
+    },
+    {
+      "n": 2,
+      "name": "Power Tools",
+      "durability": "Reusable",
+      "move": "Specify the output",
+      "blurb": "Make things you keep, in workspaces that remember."
+    },
+    {
+      "n": 3,
+      "name": "Shop Automation",
+      "durability": "Always on",
+      "move": "Clarify the goal",
+      "blurb": "Teach Claude once and let it work while you don't."
+    }
+  ],
+  "stations": [
+    {
+      "id": "prompts",
+      "name": "Prompt Bench",
+      "arc": 1,
+      "img": "prompts",
+      "hall": [
+        17,
+        72
+      ],
+      "fourD": "Description",
+      "durability": "One response",
+      "move": "Iterate",
+      "promise": "Brief Claude like a brilliant new teammate.",
+      "quick": "A prompt is just what you ask. A great prompt is a brief: what you want, who it's for, why it matters, and what good looks like.",
+      "deep": "Claude can't read your mind, but it is very good at following a clear brief. Say what you want made, who it's for, why it matters and what a great result looks like. Then improve it with follow-up turns instead of starting over: \"shorter\", \"funnier ending\", \"use our family's names\". Examples are powerful too: show two or three samples of the style you want. A useful test is to imagine a smart friend with no background reading your prompt. If they would be confused, Claude will be too.",
+      "discern": "Did Claude give you what you asked for, or what it guessed you meant? Point to one guess.",
+      "rule": "Don't paste private details about other people into a prompt without their OK.",
+      "academy": [
+        {
+          "t": "Effective prompting techniques",
+          "u": "https://academy.claude.com/courses/ai-fluency-framework-foundations/effective-prompting-techniques"
+        },
+        {
+          "t": "A closer look at Description",
+          "u": "https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-description"
+        }
+      ],
+      "source": {
+        "title": "Prompting best practices (Claude Docs)",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+      }
+    },
+    {
+      "id": "models",
+      "name": "Model Garage",
+      "arc": 1,
+      "img": "models",
+      "hall": [
+        14,
+        48
+      ],
+      "fourD": "Delegation",
+      "durability": "One response",
+      "move": "Pick the engine",
+      "promise": "Pick the right engine, and how hard it should think.",
+      "quick": "Claude comes in different models, like engines of different sizes, and you can choose how much effort it puts in.",
+      "deep": "Claude's model family runs from fast and light to big and deep: Haiku for quick jobs, Sonnet as the everyday workhorse, Opus for big open-ended work, and Fable at the top for long, hard reasoning. You can also choose an effort level. More effort can mean better answers on hard problems, but it takes longer and uses more of your plan. Bigger isn't always better: for a quick rewrite, a lighter setting is often just as good. Which models you see depends on your plan, and names change, so check the Help Center when in doubt.",
+      "discern": "Did the bigger engine actually do better, or just take longer and sound more confident?",
+      "rule": "Higher effort uses more of the plan's usage. Save it for jobs that need it.",
+      "academy": [
+        {
+          "t": "Choosing a Claude model",
+          "u": "https://academy.claude.com/tutorials/choosing-the-right-claude-model"
+        },
+        {
+          "t": "How to select the right effort setting",
+          "u": "https://academy.claude.com/tutorials/how-to-select-the-right-effort-setting-for-claude-cowork-and-chat"
+        }
+      ],
+      "source": {
+        "title": "Choosing a Claude model (Claude Academy)",
+        "url": "https://academy.claude.com/tutorials/choosing-the-right-claude-model"
+      },
+      "checked": "2026-11-26"
+    },
+    {
+      "id": "discernment",
+      "name": "Inspection Bench",
+      "arc": 1,
+      "img": "discernment",
+      "hall": [
+        33,
+        40
+      ],
+      "fourD": "Discernment",
+      "durability": "Every response",
+      "move": "Question it",
+      "promise": "Catch the mistakes before they leave the shop.",
+      "quick": "Claude can sound sure and still be wrong. This bench is where you build the habit of checking.",
+      "deep": "AI models can make things up (often called hallucination), agree with you just to be pleasant (sycophancy), or carry hidden bias. None of that is rare enough to ignore. The fix is a habit: ask Claude what it assumed and where it might be wrong, ask for sources and open one, and for anything important, paste the result into a fresh chat and ask that session to critique it. Anthropic's research on AI fluency found this checking skill doesn't grow on its own; you have to practice it on purpose. Every other bench sends a question back here.",
+      "discern": "What would make this wrong? Did you check that?",
+      "rule": "If it matters (health, money, legal, safety), check it with a real source or a person you trust before you use it.",
+      "academy": [
+        {
+          "t": "A closer look at Discernment",
+          "u": "https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-discernment"
+        },
+        {
+          "t": "Why do AI models hallucinate?",
+          "u": "https://academy.claude.com/tutorials/why-do-ai-models-hallucinate"
+        },
+        {
+          "t": "What is sycophancy?",
+          "u": "https://academy.claude.com/tutorials/what-is-sycophancy-in-ai-models"
+        }
+      ],
+      "source": {
+        "title": "A closer look at Discernment (Claude Academy)",
+        "url": "https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-discernment"
+      }
+    },
+    {
+      "id": "artifacts",
+      "name": "Artifact Studio",
+      "arc": 2,
+      "img": "artifacts",
+      "hall": [
+        54,
+        36
+      ],
+      "fourD": "Description",
+      "durability": "One thing you keep",
+      "move": "Specify the output",
+      "promise": "Make things you'd put in front of someone.",
+      "quick": "An artifact is anything Claude makes that you'd show someone: a doc, a slide deck, a chart, a small working tool. It opens beside the chat.",
+      "deep": "Anthropic describes an artifact as anything Claude makes for you that you'd put in front of someone: a document, a slide deck, a design, a dashboard or a small interactive tool. It opens beside the chat so you can see it and keep refining it, and it stays private until you choose to share it. The craft here is specifying the output before you ask: the format, who it's for, how long, and what it must include. Three sub-benches go deeper: the Design Desk, the Data Bench and the Motion Booth.",
+      "discern": "If someone saw this without you there to explain it, would they get it?",
+      "rule": "Read everything in an artifact before you share the link.",
+      "academy": [
+        {
+          "t": "Build and share tools with custom artifacts",
+          "u": "https://academy.claude.com/tutorials/build-custom-artifacts-with-claude"
+        }
+      ],
+      "source": {
+        "title": "What are artifacts? (Claude Help Center)",
+        "url": "https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them"
+      }
+    },
+    {
+      "id": "designs",
+      "name": "Design Desk",
+      "arc": 2,
+      "parent": "artifacts",
+      "img": "designs",
+      "hall": [
+        61,
+        35
+      ],
+      "fourD": "Description",
+      "durability": "One thing you keep",
+      "move": "Show, don't describe",
+      "promise": "Posters, invitations, decks and app screens that look like you meant them.",
+      "quick": "Claude can draw up posters, slide decks, invitations and clickable app mockups. The trick is giving it real inspiration.",
+      "deep": "Claude can design visual things: posters, invitations, landing pages, slide decks and clickable prototypes. Descriptions like \"modern and clean\" get generic results; real inspiration gets better ones. Show it two or three examples you like, name your colors and fonts once, and ask for options before you pick and refine. Saving a simple design system (colors, fonts, spacing) lets every future piece match.",
+      "discern": "Would you put your name on this? What looks generic, and what looks like yours?",
+      "rule": "Don't copy someone else's logo, brand or artwork into a design.",
+      "academy": [
+        {
+          "t": "Setting up a design system",
+          "u": "https://academy.claude.com/tutorials/create-a-design-system-with-claude"
+        },
+        {
+          "t": "Prototypes and UX",
+          "u": "https://academy.claude.com/tutorials/using-claude-design-for-prototypes-and-ux"
+        }
+      ],
+      "source": {
+        "title": "Setting up a design system (Claude Academy)",
+        "url": "https://academy.claude.com/tutorials/create-a-design-system-with-claude"
+      }
+    },
+    {
+      "id": "data",
+      "name": "Data Bench",
+      "arc": 2,
+      "parent": "artifacts",
+      "img": "data",
+      "hall": [
+        47,
+        36
+      ],
+      "fourD": "Discernment",
+      "durability": "One thing you keep",
+      "move": "Trace every number",
+      "promise": "Turn numbers into charts and dashboards you can question.",
+      "quick": "Give Claude your numbers (a spreadsheet, a list, a connected app) and it can chart them and answer questions in plain English.",
+      "deep": "Claude can read a spreadsheet or a list you paste, build charts and small dashboards, and answer questions about the numbers in plain English. A chart pulled into a document is a snapshot, not a live feed, so ask for a refresh when you need the latest. The most important habit at this bench: every number should trace back to a real source, and you should spot-check a few yourself.",
+      "discern": "Does every number trace back to a real source? Spot-check three.",
+      "rule": "Keep personal financial details out of shared dashboards.",
+      "academy": [
+        {
+          "t": "Build and share tools with custom artifacts",
+          "u": "https://academy.claude.com/tutorials/build-custom-artifacts-with-claude"
+        }
+      ],
+      "source": {
+        "title": "What are artifacts? (Claude Help Center)",
+        "url": "https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them"
+      }
+    },
+    {
+      "id": "motion",
+      "name": "Motion Booth",
+      "arc": 2,
+      "parent": "artifacts",
+      "img": "motion",
+      "hall": [
+        40,
+        37
+      ],
+      "fourD": "Description",
+      "durability": "One thing you keep",
+      "move": "Storyboard first",
+      "promise": "Short animated explainers and title cards, built with Claude.",
+      "quick": "Claude can help you make short animations, like a title card or a 30-second explainer. Start with a storyboard.",
+      "deep": "Short animated pieces (a title card, a 30-second explainer, a recap of a dashboard) start the same way films do: a storyboard. Write the beats first (\"0 to 5 seconds: title fades in\"), then ask Claude to build it. Availability of motion and video features varies by plan and changes often, so check the Help Center for what your account can do today.",
+      "discern": "Does the motion help the message, or just decorate it?",
+      "rule": "Only use music, images and footage you have the right to use.",
+      "academy": [
+        {
+          "t": "Claude 101",
+          "u": "https://academy.claude.com/courses/claude-101"
+        }
+      ],
+      "source": {
+        "title": "Claude Help Center",
+        "url": "https://support.claude.com"
+      },
+      "checked": "2026-11-26"
+    },
+    {
+      "id": "projects",
+      "name": "Projects Shelf",
+      "arc": 2,
+      "img": "projects",
+      "hall": [
+        72,
+        36
+      ],
+      "fourD": "Delegation",
+      "durability": "Every chat in one workspace",
+      "move": "Feed the right context",
+      "promise": "A workbench that remembers.",
+      "quick": "A project is its own workspace in Claude, with its own chats, files and instructions that apply every time.",
+      "deep": "A project is its own workspace in Claude, with its own chats and its own shelf of knowledge. Upload documents, text or code to that shelf and Claude uses them as background for every chat in the project. Add project instructions (a tone, a point of view, a format) so you don't repeat yourself. The skill to build here is choosing the right context, not the most context: extra files can distract as easily as they help.",
+      "discern": "Is your project feeding Claude the right context, or just more context?",
+      "rule": "Only upload files you're comfortable with Claude reading every time in that project.",
+      "academy": [
+        {
+          "t": "Intro to Projects",
+          "u": "https://academy.claude.com/tutorials/intro-to-projects"
+        }
+      ],
+      "source": {
+        "title": "What are projects? (Claude Help Center)",
+        "url": "https://support.claude.com/en/articles/9517075-what-are-projects"
+      }
+    },
+    {
+      "id": "connectors",
+      "name": "Connector Panel",
+      "arc": 2,
+      "img": "connectors",
+      "hall": [
+        89,
+        46
+      ],
+      "fourD": "Delegation + Diligence",
+      "durability": "Reusable",
+      "move": "Plug in, then read before approving",
+      "promise": "Plug Claude into the apps you already use.",
+      "quick": "A connector gives Claude permission to read from, or act in, one of your apps, like your calendar or your notes.",
+      "deep": "Connectors plug Claude into the apps where your stuff already lives (calendar, mail, docs, notes, code) so it can work with what's there instead of you copying and pasting. Most use MCP, the Model Context Protocol, an open standard for connecting AI to tools. Once connected, Claude can see what that app shares with it, and it asks before taking actions. You can disconnect any time. Start with one app and one real task.",
+      "discern": "Did the connector pull what you actually needed, or just what was easy to find?",
+      "rule": "Connect only accounts you own or have permission to use. Claude asks before acting; you read before you approve.",
+      "academy": [
+        {
+          "t": "Getting started with connectors",
+          "u": "https://academy.claude.com/tutorials/getting-started-with-connectors"
+        },
+        {
+          "t": "Introduction to MCP",
+          "u": "https://academy.claude.com/courses/introduction-to-model-context-protocol"
+        }
+      ],
+      "source": {
+        "title": "Getting started with connectors (Claude Academy)",
+        "url": "https://academy.claude.com/tutorials/getting-started-with-connectors"
+      }
+    },
+    {
+      "id": "skills",
+      "name": "Skills Workbench",
+      "arc": 3,
+      "img": "skills",
+      "hall": [
+        75,
+        52
+      ],
+      "fourD": "Description",
+      "durability": "Always available",
+      "move": "Teach it once",
+      "promise": "Teach Claude your way of doing something, once.",
+      "quick": "A skill is a saved set of instructions Claude picks up when a task matches, or when you call it by name.",
+      "deep": "A skill is a saved folder of instructions (a SKILL.md file, plus any examples or scripts it needs). Claude loads it when a task matches its description, or when you ask for it by name, so your way of doing something is always on hand. Rule of thumb: anything you've explained to Claude twice is a skill candidate. The easiest start is just to tell Claude you want to make a skill and describe how you do the job; it asks questions and writes it for you. Then test it on a case it might get wrong, and fix it from your corrections.",
+      "discern": "Test the skill on a case it might get wrong. Did it?",
+      "rule": "Only install skills from people and sources you trust, and read what a skill does first.",
+      "academy": [
+        {
+          "t": "What are skills?",
+          "u": "https://academy.claude.com/tutorials/what-are-skills"
+        },
+        {
+          "t": "Create a skill through conversation",
+          "u": "https://academy.claude.com/tutorials/how-to-create-a-skill-with-claude-through-conversation"
+        },
+        {
+          "t": "Introduction to agent skills",
+          "u": "https://academy.claude.com/courses/introduction-to-agent-skills"
+        }
+      ],
+      "source": {
+        "title": "What are skills? (Claude Academy)",
+        "url": "https://academy.claude.com/tutorials/what-are-skills"
+      }
+    },
+    {
+      "id": "claudemd",
+      "name": "Shop Rules Board",
+      "arc": 3,
+      "img": "claudemd",
+      "hall": [
+        6,
+        30
+      ],
+      "fourD": "Description + Diligence",
+      "durability": "Every session in a folder",
+      "move": "Write a lean map",
+      "promise": "The standing rules Claude reads before every job.",
+      "quick": "CLAUDE.md is a plain text file in a project folder that Claude Code reads at the start of every session.",
+      "deep": "When you use Claude Code on a folder of files, a CLAUDE.md file in that folder is read at the start of every session. It's where standing rules live: how the project is laid out, how to run things, what to never do. The best ones are short, explain goals rather than shouting rules, and point to where things live. Running /init in Claude Code drafts one for you to trim. Compare it with project instructions in the Claude app, which do a similar job for chats.",
+      "discern": "Audit your configuration: is Claude actually following it the way you expect?",
+      "rule": "Keep secrets (passwords, keys) out of CLAUDE.md and out of the repo.",
+      "academy": [
+        {
+          "t": "Claude Code 101",
+          "u": "https://academy.claude.com/courses/claude-code-101"
+        }
+      ],
+      "source": {
+        "title": "Claude Code docs",
+        "url": "https://code.claude.com/docs"
+      }
+    },
+    {
+      "id": "mods",
+      "name": "Mods Jar",
+      "arc": 3,
+      "img": "mods",
+      "hall": [
+        87,
+        72
+      ],
+      "fourD": "Delegation",
+      "durability": "Always on",
+      "move": "Keep it lean",
+      "promise": "Customize the workshop itself.",
+      "quick": "Mods are plugins that change Claude Code itself: new commands, panels, themes or safety checks.",
+      "deep": "Mods (plugins) change Claude Code itself: a new slash command, a side panel, a theme, or a safety check that pauses a risky command. You can install ones others have made or describe one and have Claude build it. They run on your computer with your permissions, so the habits here are reading what a mod does before you add it, and removing the ones that no longer earn their place.",
+      "discern": "Is this mod still earning its place, or is it clutter?",
+      "rule": "Mods can change what Claude Code does on your computer. Only add mods you understand.",
+      "academy": [
+        {
+          "t": "How to build a plugin from scratch",
+          "u": "https://academy.claude.com/tutorials/how-to-build-a-plugin-from-scratch-in-cowork"
+        }
+      ],
+      "source": {
+        "title": "Claude Code docs",
+        "url": "https://code.claude.com/docs"
+      }
+    },
+    {
+      "id": "duet",
+      "name": "Duet Desk",
+      "arc": 3,
+      "img": "duet",
+      "hall": [
+        69,
+        82
+      ],
+      "fourD": "Delegation + Diligence",
+      "durability": "Runs in the background",
+      "move": "Set goals and ground rules",
+      "promise": "Let Claude take the first step.",
+      "quick": "Claude Duet is a proactive assistant: it briefs you, drafts, follows up, and asks before it sends, pays, signs or deletes.",
+      "deep": "Claude Duet works the other way round from a chat: it comes to you. It can send a morning brief, work on tasks in the background, keep watch on things, and draft replies in your voice. It asks before it sends, pays, signs or deletes anything. Setting it up well means connecting the apps it needs, telling it your goals, and writing clear ground rules for what it should never do without asking. Availability is changing, so check the Help Center.",
+      "discern": "When did you last check that this still produces good work?",
+      "rule": "Never give an assistant permission to send, buy or delete on anyone's behalf without that person agreeing.",
+      "academy": [
+        {
+          "t": "Use Claude Duet",
+          "u": "https://academy.claude.com/tutorials/use-claude-duet"
+        },
+        {
+          "t": "Building effective human-agent teams",
+          "u": "https://academy.claude.com/courses/building-effective-human-agent-teams"
+        }
+      ],
+      "source": {
+        "title": "Use Claude Duet (Claude Academy)",
+        "url": "https://academy.claude.com/tutorials/use-claude-duet"
+      },
+      "checked": "2026-11-26"
+    }
+  ]
+}
