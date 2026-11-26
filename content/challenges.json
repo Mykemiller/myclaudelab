@@ -1,0 +1,707 @@
+{
+  "about": "Spark / Build / Invent challenges per station. prompt is copy-ready with [brackets] to fill in. hints are revealed one at a time: nudge, model, worked example.",
+  "challenges": [
+    {
+      "id": "prompts-spark",
+      "station": "prompts",
+      "tier": "spark",
+      "title": "Three-turn story",
+      "brief": "Ask Claude for a short story, then make it better in three follow-up turns instead of starting over.",
+      "prompt": "Write a short bedtime story (about 200 words) about [a character] who discovers [something surprising]. Keep it gentle and a little funny.",
+      "doneWhen": [
+        "You asked for at least three changes in follow-up turns",
+        "Each change was specific (not just \"make it better\")",
+        "You like the final version more than the first"
+      ],
+      "hints": [
+        "What's one thing you'd change if this were your story?",
+        "Try: \"Add a sidekick named [name] and give the ending a twist.\"",
+        "Worked example: turn 1 \"shorter, under 120 words\"; turn 2 \"give the fox a catchphrase\"; turn 3 \"end with a question for the reader\"."
+      ]
+    },
+    {
+      "id": "prompts-build",
+      "station": "prompts",
+      "tier": "build",
+      "title": "The brief that needs no questions",
+      "brief": "Write one brief for a real plan (a weekend, a dinner, a trip) so complete that Claude doesn't need to ask anything you could have told it.",
+      "prompt": "I'm planning [what] for [who, with ages or needs]. It matters because [why]. Budget: [amount]. Avoid [one thing]. A great result would [what success looks like]. Give me [format, like a day-by-day table]. Ask me questions first if anything is unclear.",
+      "doneWhen": [
+        "Your brief says what, who, why, and what good looks like",
+        "Claude's questions (if any) were things you genuinely couldn't have known",
+        "The plan is something you'd actually use"
+      ],
+      "hints": [
+        "Read your brief as a stranger would. What's missing?",
+        "Add one line that starts \"A great result would...\"",
+        "Worked example: a 3-day trip brief with ages, a $600 budget, \"no early mornings\" and \"table with a rainy-day backup each day\"."
+      ]
+    },
+    {
+      "id": "prompts-invent",
+      "station": "prompts",
+      "tier": "invent",
+      "title": "Before and after",
+      "brief": "Take a prompt that disappointed you this month and rewrite it using two or three examples of what you want. Compare the results side by side.",
+      "prompt": "Here are examples of the style I want:\n<example>[sample 1]</example>\n<example>[sample 2]</example>\n<example>[sample 3]</example>\nNow write [the new thing] in the same style. Match the tone and length, not the exact words.",
+      "doneWhen": [
+        "You kept the old result and the new result side by side",
+        "Your examples differ from each other, so Claude copies the style, not one quirk",
+        "You can name one specific reason the new version is better"
+      ],
+      "hints": [
+        "Which old prompt still bugs you?",
+        "Examples beat adjectives. Instead of \"punchy\", show three punchy lines.",
+        "Worked example: three past newsletter intros as examples, then \"write this week's intro\"; the new one matched voice on the first try."
+      ]
+    },
+    {
+      "id": "models-spark",
+      "station": "models",
+      "tier": "spark",
+      "title": "Same question, two settings",
+      "brief": "Ask the same tricky riddle or question at two different settings (two models, or two effort levels). Which answer did you like, and why?",
+      "prompt": "Here's a riddle: [your riddle]. Think it through, then give your answer and one sentence on how you got there.",
+      "doneWhen": [
+        "You ran the same prompt twice with one setting changed",
+        "You noted which setting gave which answer",
+        "You wrote one sentence on why you preferred one"
+      ],
+      "hints": [
+        "Change only one thing at a time, or you won't know what made the difference.",
+        "Try a quick model first, then a deeper one.",
+        "Worked example: a lighter setting answered instantly and correctly; the heavier one took longer and gave the same answer. Lesson: save effort for hard jobs."
+      ]
+    },
+    {
+      "id": "models-build",
+      "station": "models",
+      "tier": "build",
+      "title": "Is the extra effort worth it?",
+      "brief": "Run one real task (a plan, an analysis, a tricky email) at a low and a high effort setting. Record time, quality and whether it was worth it.",
+      "prompt": "[Your real task, described fully, with who it's for and what good looks like.]",
+      "doneWhen": [
+        "You recorded roughly how long each took",
+        "You scored each result out of 10 against the same three checks",
+        "You decided which setting you'd use for this kind of job next time"
+      ],
+      "hints": [
+        "Pick a task where a hidden mistake would cost you something.",
+        "Write your three checks before you run it, so you don't grade on vibes.",
+        "Worked example: a trip budget at low effort missed a ferry fee; high effort caught it. Verdict: high effort for money tasks."
+      ]
+    },
+    {
+      "id": "models-invent",
+      "station": "models",
+      "tier": "invent",
+      "title": "The family engine guide",
+      "brief": "Make a one-page \"which engine?\" cheat sheet as an artifact, with three real examples per model or effort level from your own tests.",
+      "prompt": "Make a one-page cheat sheet titled \"Which engine?\". For each setting I tested, include: what it's good at, three real examples from my tests (below), and when not to use it. Here are my results: [paste notes].",
+      "doneWhen": [
+        "Every example came from a test you actually ran",
+        "Each row says when NOT to use that setting",
+        "You planted it in the garden for others"
+      ],
+      "hints": [
+        "Collect your notes from the Build challenge first.",
+        "Ask Claude to keep it to one page and to mark anything that's a guess.",
+        "Worked example: a three-column table (quick / everyday / deep) with real tasks in each cell."
+      ]
+    },
+    {
+      "id": "discernment-spark",
+      "station": "discernment",
+      "tier": "spark",
+      "title": "Spot the fib",
+      "brief": "Ask Claude to write three short facts about a topic you know well, with one made-up fact hidden among them. Find the fib, then explain how you knew.",
+      "prompt": "Write three short facts about [a topic you know really well]. Make one of them subtly false, but don't tell me which. I'll try to spot it.",
+      "doneWhen": [
+        "You named the false fact",
+        "You said what gave it away (a source, your own knowledge, a check)",
+        "You checked at least one of the true facts too"
+      ],
+      "hints": [
+        "Pick a topic where you're the expert: your town, your hobby, your job.",
+        "Look for specifics: dates, numbers and names are where errors hide.",
+        "Worked example: \"The bridge opened in 1931\" looked right, but the town's own website says 1937."
+      ]
+    },
+    {
+      "id": "discernment-build",
+      "station": "discernment",
+      "tier": "build",
+      "title": "How I checked",
+      "brief": "Ask Claude a real question you care about, then verify two of its claims with trusted sources. Write a one-line \"how I checked\" note.",
+      "prompt": "[Your real question.] Please list the key claims in your answer as bullet points, say how confident you are in each, and tell me what source I could use to check it.",
+      "doneWhen": [
+        "You verified two claims against sources you opened yourself",
+        "You noted any claim that turned out wrong or unclear",
+        "You wrote one line: \"How I checked: ...\""
+      ],
+      "hints": [
+        "Ask Claude to separate facts from opinions.",
+        "Open the source; a link alone isn't a check.",
+        "Worked example: two dosage claims checked against the medicine leaflet; one matched, one needed a pharmacist."
+      ]
+    },
+    {
+      "id": "discernment-invent",
+      "station": "discernment",
+      "tier": "invent",
+      "title": "The second opinion",
+      "brief": "Take something you made at another bench. Open a brand-new chat, paste it in, and ask that session to critique it hard. Decide which critiques to accept.",
+      "prompt": "You are reviewing work you did not write. Here it is: [paste]. List the five most important problems (accuracy, clarity, missing pieces), most serious first. For each, say how sure you are.",
+      "doneWhen": [
+        "You used a fresh chat, not the one that made the work",
+        "You accepted at least one critique and rejected at least one, with a reason",
+        "You updated the original and noted what changed"
+      ],
+      "hints": [
+        "A fresh chat has no attachment to the first draft. That's the point.",
+        "Ask it to rank problems, so you fix what matters first.",
+        "Worked example: the reviewer caught a contradiction between slide 2 and slide 7; its tone complaint was rejected (audience is family)."
+      ]
+    },
+    {
+      "id": "artifacts-spark",
+      "station": "artifacts",
+      "tier": "spark",
+      "title": "Game-night poster",
+      "brief": "Ask Claude for a one-page poster for a game night, then ask for three changes.",
+      "prompt": "Make a one-page poster for a game night on [date] at [place]. Fun, readable from across a room, with the time big and a short list of games: [games].",
+      "doneWhen": [
+        "The poster opened as an artifact beside the chat",
+        "You asked for three specific changes",
+        "Someone could read the date and time from across a room"
+      ],
+      "hints": [
+        "Specify the output: one page, what's biggest, who it's for.",
+        "Try: \"Make the date twice as big and add a small trophy at the bottom.\"",
+        "Worked example: v1 too busy; \"cut to three games and more white space\" fixed it."
+      ]
+    },
+    {
+      "id": "artifacts-build",
+      "station": "artifacts",
+      "tier": "build",
+      "title": "A tool you'll actually use",
+      "brief": "Make a small interactive tool for your household or work: a chore wheel, a reading tracker, a packing checklist.",
+      "prompt": "Build a small interactive [tool] as an artifact. It should let me [main action] and [second action]. Keep it simple, with big buttons that work on a phone. Ask me questions first if anything is unclear.",
+      "doneWhen": [
+        "The tool works: you clicked through every button",
+        "Someone else used it once",
+        "You fixed at least one thing they found confusing"
+      ],
+      "hints": [
+        "Start with the one action you'd do daily.",
+        "Say what device it's for; phones change the design.",
+        "Worked example: a chore wheel with names, a spin button and a weekly reset."
+      ]
+    },
+    {
+      "id": "artifacts-invent",
+      "station": "artifacts",
+      "tier": "invent",
+      "title": "Three forms, one message",
+      "brief": "Make the same content as a document, a slide deck and one other form. Write which form worked best and why.",
+      "prompt": "Here's my content: [paste]. Make it three ways: (1) a one-page document, (2) a five-slide deck, (3) [a third form, like a chart or a simple interactive page]. Keep the facts identical across all three.",
+      "doneWhen": [
+        "All three versions say the same facts",
+        "You picked a winner and wrote two sentences on why",
+        "You planted the winner in the garden"
+      ],
+      "hints": [
+        "Pick content with a real audience in mind.",
+        "Ask Claude to flag any fact it changed between versions.",
+        "Worked example: the deck won for a meeting; the one-pager won for email."
+      ]
+    },
+    {
+      "id": "designs-spark",
+      "station": "designs",
+      "tier": "spark",
+      "title": "An invitation with taste",
+      "brief": "Make a birthday or event invitation by showing Claude two or three designs you like, instead of describing them.",
+      "prompt": "Design an invitation for [event] on [date]. Here are examples of the look I like: [describe or attach 2 or 3]. Use [colors] and keep the text to the essentials.",
+      "doneWhen": [
+        "You gave real inspiration (not just \"modern\")",
+        "You asked for two options and picked one",
+        "You refined it once"
+      ],
+      "hints": [
+        "Adjectives get generic results; examples get yours.",
+        "Ask for two options; choosing beats correcting.",
+        "Worked example: two pressed-flower invitations shown as inspiration produced a calm botanical layout."
+      ]
+    },
+    {
+      "id": "designs-build",
+      "station": "designs",
+      "tier": "build",
+      "title": "Logo in three directions",
+      "brief": "Ask for three different directions for a family, club or project logo. Pick one and refine it twice.",
+      "prompt": "Create three distinct logo directions for [name], which is [what it is]. Direction 1: [idea]. Direction 2: [idea]. Direction 3: your best idea. Show each in color and in black and white.",
+      "doneWhen": [
+        "The three directions are genuinely different",
+        "You chose one and refined it twice",
+        "It still works small and in black and white"
+      ],
+      "hints": [
+        "Name each direction so the options stay distinct.",
+        "Check it small: shrink it to the size of a phone icon.",
+        "Worked example: a monogram, a badge and a pictogram; the pictogram won after simplifying."
+      ]
+    },
+    {
+      "id": "designs-invent",
+      "station": "designs",
+      "tier": "invent",
+      "title": "A tiny design system",
+      "brief": "Set up a simple design system (colors, fonts, spacing, a few rules) and use it on two real pieces.",
+      "prompt": "Help me write a one-page design system for [name]: 5 colors with hex values, 2 fonts, a spacing scale, and five do/don't rules. Then use it to design [piece 1] and [piece 2].",
+      "doneWhen": [
+        "Your system fits on one page",
+        "Both pieces visibly follow it",
+        "You'd hand it to someone else to use"
+      ],
+      "hints": [
+        "Start from something you already like the look of.",
+        "Rules beat options: five clear do/don'ts.",
+        "Worked example: a family system used on a holiday card and a recipe page."
+      ]
+    },
+    {
+      "id": "data-spark",
+      "station": "data",
+      "tier": "spark",
+      "title": "Chart the vote",
+      "brief": "Run a quick poll (favorite pizza topping, best weekend activity) and have Claude chart the results.",
+      "prompt": "Here are the votes: [list]. Make a clear bar chart, sorted from most to fewest votes, with the count on each bar and a one-line takeaway.",
+      "doneWhen": [
+        "The counts on the chart match your raw votes",
+        "The chart is sorted and labeled",
+        "The takeaway is true"
+      ],
+      "hints": [
+        "Count a couple yourself before trusting the chart.",
+        "Ask for the raw table beside the chart.",
+        "Worked example: 11 votes, 4 for mushrooms; the chart said 5. Caught it, fixed it."
+      ]
+    },
+    {
+      "id": "data-build",
+      "station": "data",
+      "tier": "build",
+      "title": "A sheet with real formulas",
+      "brief": "Build a household budget, chore-points or reading sheet with working formulas.",
+      "prompt": "Build a [type] sheet with columns for [list]. Add formulas for [totals or calculations], and explain each formula in one plain sentence.",
+      "doneWhen": [
+        "The formulas calculate correctly on three rows you check by hand",
+        "You understand what each formula does",
+        "Someone else could add a row without breaking it"
+      ],
+      "hints": [
+        "Ask for a short explanation next to each formula.",
+        "Test with silly numbers (like 0 or 1000) to see what breaks.",
+        "Worked example: a chore-points sheet where the weekly total formula skipped Sunday until checked."
+      ]
+    },
+    {
+      "id": "data-invent",
+      "station": "data",
+      "tier": "invent",
+      "title": "A dashboard you can question",
+      "brief": "Build a small dashboard from your own data (or a connected app) and ask it three questions in plain English.",
+      "prompt": "Here's my data: [paste or connect]. Build a small dashboard with [2 or 3 charts], show when the data was last updated, and then answer: [question 1], [question 2], [question 3].",
+      "doneWhen": [
+        "Every number on it traces back to your source",
+        "The dashboard says when its data is from",
+        "You checked three answers yourself"
+      ],
+      "hints": [
+        "Ask Claude to show its working for each answer.",
+        "A dashboard in a doc is a snapshot. Note the date.",
+        "Worked example: monthly spending by category with a last-updated stamp; one category total was double-counted and fixed."
+      ]
+    },
+    {
+      "id": "motion-spark",
+      "station": "motion",
+      "tier": "spark",
+      "title": "A 10-second title card",
+      "brief": "Storyboard and make a short animated title card that says \"Welcome to the Workshop\".",
+      "prompt": "Help me make a 10-second animated title card that says \"Welcome to the Workshop\". First write a 3-beat storyboard (what happens at 0, 3 and 7 seconds), then build it.",
+      "doneWhen": [
+        "You wrote or approved a storyboard first",
+        "The text is readable the whole time",
+        "It loops or ends cleanly"
+      ],
+      "hints": [
+        "Beats first, build second.",
+        "Fewer moving parts look more expensive.",
+        "Worked example: beat 1 lamp glows, beat 2 title fades up, beat 3 subtitle slides in."
+      ]
+    },
+    {
+      "id": "motion-build",
+      "station": "motion",
+      "tier": "build",
+      "title": "Thirty-second explainer",
+      "brief": "Make a 30-second animated explainer of one idea (a rule, a process, a fun fact).",
+      "prompt": "Make a 30-second animated explainer of [one idea] for [audience]. Storyboard 5 beats first with on-screen text for each, then build it. No more than 8 words on screen at once.",
+      "doneWhen": [
+        "The storyboard has five beats",
+        "No screen has more than eight words",
+        "Someone who watched it can say the idea back to you"
+      ],
+      "hints": [
+        "One idea only. If it needs \"and also\", that's a second video.",
+        "Read the on-screen text aloud; if it's a mouthful, cut it.",
+        "Worked example: \"How we recycle\" in five beats: sort, rinse, bin, collect, done."
+      ]
+    },
+    {
+      "id": "motion-invent",
+      "station": "motion",
+      "tier": "invent",
+      "title": "Recap reel",
+      "brief": "Turn a dashboard or deck you made into a short recap video.",
+      "prompt": "Turn this [deck or dashboard] into a 45-second recap video. Pick the three most important points, storyboard them, and end with one call to action.",
+      "doneWhen": [
+        "You picked three points, not ten",
+        "Every figure in the video matches the source",
+        "You planted it in the garden"
+      ],
+      "hints": [
+        "Ask Claude which three points matter most, then decide yourself.",
+        "Check every number against the original.",
+        "Worked example: a quarterly deck became a 40-second recap with three numbers and one ask."
+      ]
+    },
+    {
+      "id": "projects-spark",
+      "station": "projects",
+      "tier": "spark",
+      "title": "Homework Helper",
+      "brief": "Make a project called Homework Helper (or Study Buddy), add one reading, and one instruction.",
+      "prompt": "Project instruction: Explain things step by step, check my understanding with a question back, and never just give me the final answer to graded work.",
+      "doneWhen": [
+        "You created a project with one file and one instruction",
+        "You used it in at least two chats",
+        "The instruction visibly changed how Claude answered"
+      ],
+      "hints": [
+        "One file and one instruction is enough to feel the difference.",
+        "Ask the same question inside and outside the project and compare.",
+        "Worked example: inside the project Claude quoted the reading and asked a check question; outside it gave a general answer."
+      ]
+    },
+    {
+      "id": "projects-build",
+      "station": "projects",
+      "tier": "build",
+      "title": "The trip project",
+      "brief": "Make a project for a real plan (a trip, an event, a renovation) with its key files and a \"how we like plans written\" instruction. Use it in three chats.",
+      "prompt": "Project instruction: Plans are written as a day-by-day table with times, costs and a backup option. Keep a running list of open questions at the end. Our constraints: [list].",
+      "doneWhen": [
+        "The project has the files Claude needs and nothing it doesn't",
+        "You used it in three separate chats",
+        "Each chat respected the instruction without reminders"
+      ],
+      "hints": [
+        "What would a helpful new teammate need to read first?",
+        "Put constraints in the instruction, not in every chat.",
+        "Worked example: itinerary, budget sheet and a packing list; three chats for lodging, food and the rainy-day plan."
+      ]
+    },
+    {
+      "id": "projects-invent",
+      "station": "projects",
+      "tier": "invent",
+      "title": "Context audit",
+      "brief": "Take an existing project. Remove anything Claude doesn't need, and test whether answers get better or worse.",
+      "prompt": "Look at the files and instructions in this project. Which ones did you actually use to answer my last three questions? Which could I remove without hurting your answers?",
+      "doneWhen": [
+        "You removed at least one file or instruction",
+        "You asked the same two questions before and after",
+        "You recorded whether answers got better, worse or stayed the same"
+      ],
+      "hints": [
+        "More context is not always better context.",
+        "Keep a copy of what you removed, just in case.",
+        "Worked example: removing an old draft fixed answers that kept quoting outdated prices."
+      ]
+    },
+    {
+      "id": "connectors-spark",
+      "station": "connectors",
+      "tier": "spark",
+      "title": "Ask your calendar",
+      "brief": "Connect one app you already use (like a calendar) and ask a real question about it.",
+      "prompt": "Look at my calendar for this weekend. What's on, what's overlapping, and is there a free 2-hour block?",
+      "doneWhen": [
+        "You connected one app you own",
+        "Claude's answer matched what's actually in the app",
+        "You know how to disconnect it"
+      ],
+      "hints": [
+        "Start with read-only questions.",
+        "Open the app and check Claude's answer against it.",
+        "Worked example: Claude found a clash between a game and a dinner that had gone unnoticed."
+      ]
+    },
+    {
+      "id": "connectors-build",
+      "station": "connectors",
+      "tier": "build",
+      "title": "From note to lesson card",
+      "brief": "Use a notes or docs connector to turn something you saved into something useful (a summary, a checklist, a lesson card).",
+      "prompt": "Find my note called [title] and turn it into [a one-page checklist / a lesson card / a summary]. Quote the parts you used so I can check them.",
+      "doneWhen": [
+        "Claude found the right note",
+        "The output quotes or links the parts it used",
+        "You checked the quotes against the original"
+      ],
+      "hints": [
+        "Name the note exactly, or ask Claude to list candidates first.",
+        "Ask for quotes; it makes checking fast.",
+        "Worked example: a messy video note became a five-step checklist with timestamps."
+      ]
+    },
+    {
+      "id": "connectors-invent",
+      "station": "connectors",
+      "tier": "invent",
+      "title": "Chain two apps",
+      "brief": "Chain two connectors so one real job flows from one app to another (an idea to a tracked task; an email to a calendar plan).",
+      "prompt": "Read [source in app 1] and create [thing in app 2] from it. Before you create anything, show me exactly what you'll create and wait for my OK.",
+      "doneWhen": [
+        "Claude showed you the action before taking it",
+        "The result landed in the second app correctly",
+        "You'd trust it to do the same next week, with your review"
+      ],
+      "hints": [
+        "Always ask to see the action first.",
+        "Pick a job you do every week.",
+        "Worked example: an idea from a notes page became a tracked issue with a checklist."
+      ]
+    },
+    {
+      "id": "skills-spark",
+      "station": "skills",
+      "tier": "spark",
+      "title": "Make a skill by chatting",
+      "brief": "Tell Claude you want to make a skill for something you do the same way every time, and let it ask you questions.",
+      "prompt": "I'd like to make a skill for [a job you do the same way each time, like planning our weekly dinners]. Here's how I do it now: [your steps]. Ask me whatever you need to know about my process, then build the skill.",
+      "doneWhen": [
+        "Claude asked you questions before writing the skill",
+        "You saved the skill",
+        "You used it on a real job"
+      ],
+      "hints": [
+        "Pick something you've explained to Claude at least twice.",
+        "Describe your real steps, including the weird ones.",
+        "Worked example: a weekly dinner skill that knows no mushrooms, Taco Tuesday and a 30-minute limit."
+      ]
+    },
+    {
+      "id": "skills-build",
+      "station": "skills",
+      "tier": "build",
+      "title": "Fix it from corrections",
+      "brief": "Use your skill three times. Each time it gets something wrong, correct it, then ask Claude to update the skill.",
+      "prompt": "That last result missed [what]. Please update the skill so it always [the fix], and show me the change you made.",
+      "doneWhen": [
+        "You used the skill three times",
+        "You updated it at least once from a correction",
+        "The next run got that thing right without reminders"
+      ],
+      "hints": [
+        "Corrections in chat fade; corrections in the skill stick.",
+        "Ask to see the exact change in the skill.",
+        "Worked example: the skill kept forgetting a budget cap; one update fixed it for good."
+      ]
+    },
+    {
+      "id": "skills-invent",
+      "station": "skills",
+      "tier": "invent",
+      "title": "The Lab Lesson Writer",
+      "brief": "Write a skill that turns a tip you found into a lesson card for this workshop, following its house rules.",
+      "prompt": "Make a skill called lab-lesson-writer. Given a tip, it writes one lesson entry with: id, date, station, title, body (one plain paragraph), tryIt and source. Rules: plain words, one idea, only real features, and the source must be an official Anthropic page that was actually read.",
+      "doneWhen": [
+        "The skill produces an entry in the right format",
+        "It refuses or flags tips it can't verify",
+        "You tested it on a tricky tip (one that's half true)"
+      ],
+      "hints": [
+        "Paste the house rules into the skill itself.",
+        "Test it on a tip that's out of date; it should flag it.",
+        "Worked example: it flagged a video claim about a feature name that had changed."
+      ]
+    },
+    {
+      "id": "claudemd-spark",
+      "station": "claudemd",
+      "tier": "spark",
+      "title": "Read the rules together",
+      "brief": "Open a project's CLAUDE.md (this workshop's repo will have one) and find three rules. Say why each one exists.",
+      "prompt": "Here's a CLAUDE.md file: [paste]. Explain each rule in plain words and why someone might have added it.",
+      "doneWhen": [
+        "You found three rules",
+        "You can say why each one exists",
+        "You spotted one rule you'd change"
+      ],
+      "hints": [
+        "Rules usually exist because something once went wrong.",
+        "Ask Claude which rule seems least useful.",
+        "Worked example: \"never push to main\" exists because pushes to main go live instantly."
+      ]
+    },
+    {
+      "id": "claudemd-build",
+      "station": "claudemd",
+      "tier": "build",
+      "title": "Init and trim",
+      "brief": "In Claude Code, run /init in a small folder, then trim the result to the rules that matter.",
+      "prompt": "Here's the CLAUDE.md /init drafted: [paste]. Help me cut it to under 40 lines: keep the map of where things live and the rules that prevent real mistakes. Explain goals instead of shouting rules.",
+      "doneWhen": [
+        "You ran /init on a real folder",
+        "The final file is shorter than the draft",
+        "Claude follows it in a fresh session"
+      ],
+      "hints": [
+        "A map beats an encyclopedia.",
+        "Test in a fresh session: does Claude behave as expected?",
+        "Worked example: 140 lines trimmed to 35; behavior didn't change, startup got leaner."
+      ]
+    },
+    {
+      "id": "claudemd-invent",
+      "station": "claudemd",
+      "tier": "invent",
+      "title": "Rules that enforce house rules",
+      "brief": "Write a CLAUDE.md for a content repo so that Claude follows its content rules automatically when adding entries.",
+      "prompt": "Write a CLAUDE.md for this repo so that whenever you add content, you follow content/README.md: [paste rules]. Keep it short and explain why each rule matters.",
+      "doneWhen": [
+        "A fresh session followed the content rules without being told",
+        "The file is under 60 lines",
+        "It contains no secrets"
+      ],
+      "hints": [
+        "Point to the rules file rather than copying it all.",
+        "Test with a deliberately sloppy request.",
+        "Worked example: Claude refused to add a lesson without an official source link."
+      ]
+    },
+    {
+      "id": "mods-spark",
+      "station": "mods",
+      "tier": "spark",
+      "title": "Your own colors",
+      "brief": "Ask Claude Code to make a custom theme in your favorite colors.",
+      "prompt": "Make me a Claude Code theme in [colors] with a calm, readable look. Explain how to switch it on and off.",
+      "doneWhen": [
+        "The theme works",
+        "You know how to switch it off",
+        "It's still easy to read"
+      ],
+      "hints": [
+        "Start with two colors you love.",
+        "Check contrast: can you read it in daylight?",
+        "Worked example: a forest-green and brass theme, switched on in a minute."
+      ]
+    },
+    {
+      "id": "mods-build",
+      "station": "mods",
+      "tier": "build",
+      "title": "One mod, one week",
+      "brief": "Add one mod you think will help, and keep a simple note for a week: did it help?",
+      "prompt": "I'm adding [mod]. Before I do, explain in plain words what it can see and change on my computer.",
+      "doneWhen": [
+        "You read what the mod can access before installing",
+        "You kept a note for a week",
+        "You decided to keep it or remove it"
+      ],
+      "hints": [
+        "If you can't explain what it does, don't install it.",
+        "Removing a mod is as much a skill as adding one.",
+        "Worked example: a usage panel kept; a noisy notifier removed after two days."
+      ]
+    },
+    {
+      "id": "mods-invent",
+      "station": "mods",
+      "tier": "invent",
+      "title": "Build a celebration mod",
+      "brief": "Describe and build a small mod that celebrates when something good happens (a merged change, a finished task).",
+      "prompt": "Build a small Claude Code mod that [celebrates when X happens]. Keep it tiny and explain every permission it needs.",
+      "doneWhen": [
+        "The mod works on a real event",
+        "It asks for no more permissions than it needs",
+        "You'd be comfortable sharing it with family"
+      ],
+      "hints": [
+        "Smallest version first.",
+        "List the permissions before writing code.",
+        "Worked example: a confetti line in the status bar when a pull request merges."
+      ]
+    },
+    {
+      "id": "duet-spark",
+      "station": "duet",
+      "tier": "spark",
+      "title": "Draw your helper",
+      "brief": "Watch the Director's notes and sketch (or list) what your own helper would do each morning, and what it should never do without asking.",
+      "prompt": "Help me write a one-page \"morning helper\" plan: five things it checks each morning, three things it can draft for me, and five things it must never do without my yes.",
+      "doneWhen": [
+        "You listed five morning checks",
+        "You listed what it must never do without asking",
+        "Someone else read it and understood it"
+      ],
+      "hints": [
+        "Start with your most annoying weekly task.",
+        "The \"never without asking\" list matters most.",
+        "Worked example: checks school dates and bills; never sends, pays or deletes without a yes."
+      ]
+    },
+    {
+      "id": "duet-build",
+      "station": "duet",
+      "tier": "build",
+      "title": "A logistics channel",
+      "brief": "Set up one channel for a real area of life (school dates, practice schedules, a project) with clear goals and ground rules. Review its first three briefs.",
+      "prompt": "Here are my goals for this channel: [goals]. Ground rules: [rules]. Before you take any action, tell me what you plan to do.",
+      "doneWhen": [
+        "You wrote goals and ground rules first",
+        "You reviewed the first three briefs",
+        "You corrected it at least once and it remembered"
+      ],
+      "hints": [
+        "Goals plus ground rules beat clever prompts.",
+        "Correct it in plain words: \"from now on, ...\"",
+        "Worked example: a sports channel that drafts carpool messages but never sends them."
+      ]
+    },
+    {
+      "id": "duet-invent",
+      "station": "duet",
+      "tier": "invent",
+      "title": "Weekly what's new",
+      "brief": "Pair your assistant with a weekly routine that produces a short \"what's new\" summary for your family or team.",
+      "prompt": "Every [day] at [time], summarize what changed this week in [area], in five bullets, with links to where each came from. Flag anything that needs a decision.",
+      "doneWhen": [
+        "It ran on schedule at least once",
+        "Every bullet links to its source",
+        "You checked two bullets against their sources"
+      ],
+      "hints": [
+        "Ask for sources on every bullet.",
+        "Check the first few runs closely; trust grows from checks.",
+        "Worked example: a Monday summary of the workshop's new cards, with links."
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@
     {
       "id": "2026-11-17-new-employee-brief",
       "date": "2026-11-17",
-      "station": "duet",
+      "station": "prompts",
       "title": "The brilliant new employee brief",
       "ingredients": [
         "What you want made",
@@ -22,7 +22,7 @@
     {
       "id": "2026-11-17-show-examples",
       "date": "2026-11-17",
-      "station": "duet",
+      "station": "prompts",
       "title": "Show it a few examples",
       "ingredients": [
         "Three samples of the style you like",

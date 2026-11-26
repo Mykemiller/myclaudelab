@@ -1,0 +1,57 @@
+{
+  "about": "Lab Director clips. Four key stations get a new intro each week: desk, prompts, artifacts, skills (weekly run may rotate others in). src is a signed HeyGen link that expires about 7 days after it's fetched; the weekly refresh renews it. If the HEYGEN_API_KEY environment variable is set in Vercel, /api/director fetches a fresh link on demand instead. Videos stay private in HeyGen.",
+  "keyStations": [
+    "desk",
+    "prompts",
+    "artifacts",
+    "skills"
+  ],
+  "current": [
+    {
+      "id": "desk-w1",
+      "station": "desk",
+      "week": "2026-11-30",
+      "title": "Welcome to the Curiosity Workshop",
+      "heygenId": "fe6f5586bd06a53f1097ab052251a647",
+      "duration": 34.3,
+      "captions": "content/captions/desk-w1.vtt",
+      "transcript": "Hi, and welcome to the Curiosity Workshop. I'm the Lab Director. I'm an AI video avatar, made just for this lab, and my job is to help you get really good at working with Claude. Every bench in this hall teaches one Claude skill. Watch me try it, build something real in your own Claude, then check your work here. Start anywhere you like. And come back each week: I'll be at four benches with something new. Two shop rules before you go. You're in charge of what Claude makes, so always check it. And when something works, plant it in the garden.",
+      "checkedOn": "2026-11-26"
+    },
+    {
+      "id": "prompts-w1",
+      "station": "prompts",
+      "week": "2026-11-30",
+      "title": "Same tool, better brief",
+      "heygenId": "1a85c4c38ae76670ad9c137ef3a89eff",
+      "duration": 32.9,
+      "captions": "content/captions/prompts-w1.vtt",
+      "transcript": "This is the Prompt Bench, and it's where everything starts. Watch. If I ask Claude for a birthday card, I get a card. Nobody's card. Now I brief it like a brilliant new teammate: it's for my nephew, he's turning nine, he loves sharks and terrible puns, and it has to fit inside a folded card. Same tool, better brief. And if it's not quite right, I don't start over. I just say what to change. Your turn. Grab the recipe card, then come back and tell me: what did Claude guess?",
+      "checkedOn": "2026-11-26"
+    },
+    {
+      "id": "artifacts-w1",
+      "station": "artifacts",
+      "week": "2026-11-30",
+      "title": "Things you'd put in front of someone",
+      "heygenId": "c8452ff272942f00cd8689795d66df6a",
+      "duration": 29.1,
+      "captions": "content/captions/artifacts-w1.vtt",
+      "transcript": "Welcome to the Artifact Studio. An artifact is anything Claude makes that you'd put in front of someone: a document, a slide deck, a chart, even a small working tool. It opens right beside your chat, so you can see it, change it, and keep it. This week's challenge: ask Claude for a one-page poster for a game night, then ask for three changes. Before you share it, read every word. Would someone get it without you there to explain?",
+      "checkedOn": "2026-11-26"
+    },
+    {
+      "id": "skills-w1",
+      "station": "skills",
+      "week": "2026-11-30",
+      "title": "Teach it once",
+      "heygenId": "294bfaac1c54cdeadc44ad6139291ac9",
+      "duration": 26.6,
+      "captions": "content/captions/skills-w1.vtt",
+      "transcript": "This is the Skills Workbench, where you teach Claude your way of doing something, once. A skill is a saved set of instructions that Claude picks up when a task matches, or when you ask for it by name. Here's the rule of thumb: if you've explained something to Claude twice, it should be a skill. The easiest start? Just tell Claude you'd like to make a skill, and describe how you do the job. Then test it on a tricky case. Did it get it right?",
+      "checkedOn": "2026-11-26"
+    }
+  ],
+  "archive": [],
+  "note": "Clips stay private in HeyGen. Play links are never stored here, because this repository is public. The site asks /api/director for a fresh link, which needs HEYGEN_API_KEY set in Vercel."
+}

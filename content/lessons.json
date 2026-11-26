@@ -16,7 +16,7 @@
     {
       "id": "2026-11-17-artifacts",
       "date": "2026-11-17",
-      "station": "designs",
+      "station": "artifacts",
       "title": "Artifacts: things you'd put in front of someone",
       "body": "Anthropic describes an artifact as anything Claude makes for you that you'd put in front of someone: a document, a slide deck, a design, a dashboard or a small interactive tool. It opens beside your chat, where you can keep changing it by asking Claude, or edit some kinds directly, like typing in a doc. Everything you make is saved in the Artifacts tab in your sidebar, and it starts out private to you until you share it.",
       "tryIt": "Ask Claude: make a one-page poster for our family game night, with the date, the snacks and the rules for choosing a game.",

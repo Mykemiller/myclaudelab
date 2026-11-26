@@ -1,0 +1,460 @@
+{
+  "about": "On-site self-check quizzes ('Now question it'). answer is the 0-based index of the right option. Passing = all correct (retries allowed).",
+  "checks": {
+    "prompts": [
+      {
+        "q": "Claude's first draft is close but too long. What's the best next move?",
+        "options": [
+          "Start a new chat with a longer prompt",
+          "Reply with what to change: \"Shorter, under 100 words\"",
+          "Ask it to try again with no other guidance",
+          "Switch to a different tool"
+        ],
+        "answer": 1,
+        "why": "Iterating in the same chat keeps everything Claude already understood. Say exactly what to change."
+      },
+      {
+        "q": "Which brief will most likely get a useful result on the first try?",
+        "options": [
+          "\"Write a toast.\"",
+          "\"Write a great toast, be creative!\"",
+          "\"Write a 1-minute toast for my sister's 40th. She loves hiking and bad puns. Warm, not sappy.\"",
+          "\"Write a toast like a professional writer would.\""
+        ],
+        "answer": 2,
+        "why": "It says what, who, why and what good looks like. Hype words and role-play add little."
+      },
+      {
+        "q": "A quick test for whether your prompt is clear enough:",
+        "options": [
+          "It's longer than 100 words",
+          "It uses the word \"please\"",
+          "A smart friend with no background would understand it",
+          "It includes the word \"expert\""
+        ],
+        "answer": 2,
+        "why": "If a friend with no context would be confused, Claude will be too."
+      }
+    ],
+    "models": [
+      {
+        "q": "For a quick rewrite of a two-line text message, which is usually the sensible choice?",
+        "options": [
+          "The biggest model at maximum effort",
+          "A light, fast setting",
+          "Running it on every model to compare",
+          "It makes no difference to usage"
+        ],
+        "answer": 1,
+        "why": "Bigger and slower isn't better for small jobs, and higher effort uses more of your plan."
+      },
+      {
+        "q": "What does raising the effort level generally trade?",
+        "options": [
+          "Nothing: it's always better",
+          "More time and usage for potentially better answers on hard problems",
+          "Lower quality for faster answers",
+          "It changes the model's personality"
+        ],
+        "answer": 1,
+        "why": "Effort is a dial between speed/usage and depth. Save high effort for jobs that need it."
+      },
+      {
+        "q": "You can't find a model you read about. The most likely reason?",
+        "options": [
+          "It was never real",
+          "Model availability depends on your plan and changes over time",
+          "You need a special password",
+          "It only works on Sundays"
+        ],
+        "answer": 1,
+        "why": "Plans differ in which models they include, and names change. Check the Help Center."
+      }
+    ],
+    "discernment": [
+      {
+        "q": "Claude gives you a confident, well-written answer with a specific date. What should you do if the date matters?",
+        "options": [
+          "Trust it; it sounded sure",
+          "Check it against a source you open yourself",
+          "Ask Claude if it's sure, and accept a yes",
+          "Rephrase the question until you like the answer"
+        ],
+        "answer": 1,
+        "why": "Confidence isn't evidence. Open a real source for anything that matters."
+      },
+      {
+        "q": "What's \"sycophancy\" in an AI model?",
+        "options": [
+          "Speaking too formally",
+          "Agreeing with you just to please you",
+          "Refusing to answer",
+          "Using too many emoji"
+        ],
+        "answer": 1,
+        "why": "Models can drift toward agreeing with you. Ask it to argue the other side."
+      },
+      {
+        "q": "The strongest way to get an honest critique of something important Claude helped you make:",
+        "options": [
+          "Ask the same chat \"is this good?\"",
+          "Paste it into a fresh chat and ask for the top problems",
+          "Ask for compliments first",
+          "Skip review if it reads well"
+        ],
+        "answer": 1,
+        "why": "A fresh session has no attachment to the draft and catches different problems."
+      }
+    ],
+    "artifacts": [
+      {
+        "q": "What is an artifact in Claude?",
+        "options": [
+          "A bug in the output",
+          "Something Claude makes that you'd put in front of someone, opened beside the chat",
+          "An old chat you archived",
+          "A paid add-on"
+        ],
+        "answer": 1,
+        "why": "Docs, decks, designs, dashboards and small tools open as artifacts beside the chat."
+      },
+      {
+        "q": "Before asking for an artifact, the most useful thing to specify is:",
+        "options": [
+          "Your favorite color only",
+          "The format, audience, length and must-haves",
+          "That it should be \"amazing\"",
+          "Nothing; let Claude decide"
+        ],
+        "answer": 1,
+        "why": "Specifying the output is the signature move of this arc."
+      },
+      {
+        "q": "Who can see an artifact you've just made?",
+        "options": [
+          "Everyone on the internet",
+          "Only you, until you choose to share it",
+          "All Claude users",
+          "Your contacts automatically"
+        ],
+        "answer": 1,
+        "why": "Artifacts stay private until you share them, so read before you share."
+      }
+    ],
+    "designs": [
+      {
+        "q": "Which gets less generic design results?",
+        "options": [
+          "\"Make it modern and clean\"",
+          "Showing two or three examples you like",
+          "Asking for \"the best design possible\"",
+          "Adding more adjectives"
+        ],
+        "answer": 1,
+        "why": "Real inspiration beats adjectives."
+      },
+      {
+        "q": "Why ask for several design options?",
+        "options": [
+          "To use up usage",
+          "Choosing between options is easier and better than correcting one",
+          "It's required",
+          "It makes files smaller"
+        ],
+        "answer": 1,
+        "why": "Pick, then refine."
+      },
+      {
+        "q": "A simple design system mostly helps by:",
+        "options": [
+          "Making every design identical",
+          "Keeping colors, fonts and spacing consistent across pieces",
+          "Removing the need to check",
+          "Adding animations"
+        ],
+        "answer": 1,
+        "why": "Name your choices once and every piece can match."
+      }
+    ],
+    "data": [
+      {
+        "q": "A chart Claude placed in a document last week is:",
+        "options": [
+          "A live feed that updates itself",
+          "A snapshot of the data at that time",
+          "Always out of date",
+          "Automatically fact-checked"
+        ],
+        "answer": 1,
+        "why": "Snapshots need a refresh when you want the latest."
+      },
+      {
+        "q": "The habit that matters most at the Data Bench:",
+        "options": [
+          "Using as many colors as possible",
+          "Tracing every number back to a real source and spot-checking a few",
+          "Rounding everything",
+          "Hiding the raw data"
+        ],
+        "answer": 1,
+        "why": "Charts look trustworthy even when a number is wrong."
+      },
+      {
+        "q": "Claude's chart says 5 votes for mushrooms; your list shows 4. What now?",
+        "options": [
+          "Trust the chart",
+          "Tell Claude what you found and ask it to recount, then check again",
+          "Delete the chart",
+          "Change your list"
+        ],
+        "answer": 1,
+        "why": "Point to the discrepancy, have it fixed, and re-check."
+      }
+    ],
+    "motion": [
+      {
+        "q": "What should come before building an animation?",
+        "options": [
+          "Picking music",
+          "A short storyboard of the beats",
+          "Choosing a file format",
+          "Adding every effect"
+        ],
+        "answer": 1,
+        "why": "Beats first, build second."
+      },
+      {
+        "q": "A good rule for on-screen text in a short explainer:",
+        "options": [
+          "As much as fits",
+          "Keep it to a few words per screen",
+          "Only use capital letters",
+          "Never use text"
+        ],
+        "answer": 1,
+        "why": "People watch more than they read."
+      },
+      {
+        "q": "Motion and video features in Claude:",
+        "options": [
+          "Are identical on every plan forever",
+          "Vary by plan and change often, so check the Help Center",
+          "Don't exist",
+          "Only work offline"
+        ],
+        "answer": 1,
+        "why": "Check what your account can do today."
+      }
+    ],
+    "projects": [
+      {
+        "q": "What does a Claude project give you that a single chat doesn't?",
+        "options": [
+          "A faster model",
+          "A workspace whose files and instructions apply to every chat in it",
+          "Unlimited usage",
+          "Automatic sharing"
+        ],
+        "answer": 1,
+        "why": "A project is a workbench that remembers."
+      },
+      {
+        "q": "Adding every file you have to a project usually:",
+        "options": [
+          "Always helps",
+          "Can distract Claude; the right context beats more context",
+          "Is required",
+          "Makes Claude ignore instructions"
+        ],
+        "answer": 1,
+        "why": "Feed it what it needs, not everything."
+      },
+      {
+        "q": "Where should a rule like \"always write plans as a table\" go?",
+        "options": [
+          "Repeated in every chat",
+          "In the project instructions",
+          "In the project name",
+          "Nowhere"
+        ],
+        "answer": 1,
+        "why": "Project instructions apply every time, so you don't repeat yourself."
+      }
+    ],
+    "connectors": [
+      {
+        "q": "What is a connector?",
+        "options": [
+          "A cable for your laptop",
+          "A permission for Claude to read from or act in one of your apps",
+          "A paid support line",
+          "A browser extension that blocks ads"
+        ],
+        "answer": 1,
+        "why": "Connectors plug Claude into apps you already use."
+      },
+      {
+        "q": "Most connectors use MCP. What is it?",
+        "options": [
+          "A file format for images",
+          "An open standard for connecting AI to tools and data",
+          "A Claude model",
+          "A password manager"
+        ],
+        "answer": 1,
+        "why": "MCP is the Model Context Protocol."
+      },
+      {
+        "q": "Claude proposes creating an event in your calendar. Your job:",
+        "options": [
+          "Approve without reading",
+          "Read what it plans to do, then approve or change it",
+          "Disconnect the calendar",
+          "Nothing; it already happened"
+        ],
+        "answer": 1,
+        "why": "Claude asks before acting; you read before you approve."
+      }
+    ],
+    "skills": [
+      {
+        "q": "What is a skill?",
+        "options": [
+          "A model upgrade",
+          "A saved set of instructions Claude uses when a task matches or when you call it",
+          "A browser bookmark",
+          "A paid course"
+        ],
+        "answer": 1,
+        "why": "Teach Claude your way once, and it's always on hand."
+      },
+      {
+        "q": "A good sign something should become a skill:",
+        "options": [
+          "You've explained it to Claude twice",
+          "It's a one-off question",
+          "It's about the weather",
+          "It needs no instructions"
+        ],
+        "answer": 0,
+        "why": "Repeated explanations are the classic skill candidate."
+      },
+      {
+        "q": "Your skill keeps missing one rule. Best fix:",
+        "options": [
+          "Remind it in every chat",
+          "Correct it, then ask Claude to update the skill",
+          "Delete the skill",
+          "Switch models"
+        ],
+        "answer": 1,
+        "why": "Corrections in the skill stick; corrections in chat fade."
+      }
+    ],
+    "claudemd": [
+      {
+        "q": "When does Claude Code read a project's CLAUDE.md?",
+        "options": [
+          "Only when asked",
+          "At the start of every session in that folder",
+          "Once, ever",
+          "Only on Mondays"
+        ],
+        "answer": 1,
+        "why": "It's the standing rules Claude reads before every job."
+      },
+      {
+        "q": "A strong CLAUDE.md is usually:",
+        "options": [
+          "As long as possible",
+          "Short: a map of where things live plus rules that prevent real mistakes",
+          "All capital letters",
+          "Full of passwords for convenience"
+        ],
+        "answer": 1,
+        "why": "Lean and goal-focused beats long and shouty."
+      },
+      {
+        "q": "Where should an API key or password go?",
+        "options": [
+          "In CLAUDE.md",
+          "In the repo's README",
+          "In a secret store or environment variable, never in the repo",
+          "In a commit message"
+        ],
+        "answer": 2,
+        "why": "Secrets stay out of files Claude and others read."
+      }
+    ],
+    "mods": [
+      {
+        "q": "What do mods (plugins) change?",
+        "options": [
+          "Your Claude plan",
+          "Claude Code itself: commands, panels, themes, checks",
+          "Your phone's settings",
+          "Nothing"
+        ],
+        "answer": 1,
+        "why": "They customize the workshop itself."
+      },
+      {
+        "q": "Before installing a mod, you should:",
+        "options": [
+          "Install first, read later",
+          "Understand what it can see and change on your computer",
+          "Install as many as possible",
+          "Disable all safety checks"
+        ],
+        "answer": 1,
+        "why": "Mods run with your permissions."
+      },
+      {
+        "q": "A mod hasn't helped in weeks. What now?",
+        "options": [
+          "Keep it forever",
+          "Remove it; a lean setup is part of the skill",
+          "Install two more",
+          "Ignore it"
+        ],
+        "answer": 1,
+        "why": "Keep only what earns its place."
+      }
+    ],
+    "duet": [
+      {
+        "q": "What does Claude Duet do before sending, paying, signing or deleting?",
+        "options": [
+          "Nothing special",
+          "Asks for your yes",
+          "Waits a day",
+          "Sends a copy to everyone"
+        ],
+        "answer": 1,
+        "why": "Permission stays with you."
+      },
+      {
+        "q": "The most important part of setting up a background assistant:",
+        "options": [
+          "A clever nickname",
+          "Clear goals and ground rules for what it must never do without asking",
+          "Turning on every notification",
+          "Giving it every password"
+        ],
+        "answer": 1,
+        "why": "Goals plus ground rules make it safe and useful."
+      },
+      {
+        "q": "A weekly summary has run fine for a month. Good practice:",
+        "options": [
+          "Never check again",
+          "Spot-check a few items against their sources now and then",
+          "Turn off sources",
+          "Make it daily without review"
+        ],
+        "answer": 1,
+        "why": "Trust grows from checks; keep checking."
+      }
+    ]
+  }
+}

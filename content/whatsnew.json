@@ -1,0 +1,34 @@
+{
+  "about": "The chalkboard on the Lab Director's Desk. The weekly refresh replaces weekOf and puts new items first. Keep 3 to 6 items; each source must be an official page or a page inside this workshop.",
+  "weekOf": "2026-11-30",
+  "items": [
+    {
+      "date": "2026-11-30",
+      "title": "The workshop doors are open",
+      "body": "Thirteen benches on three arcs, a Lab Director at four of them, challenges at three levels and a self-check at every bench.",
+      "station": null,
+      "link": "#hall"
+    },
+    {
+      "date": "2026-11-25",
+      "title": "New lesson: Connectors",
+      "body": "How connectors plug Claude into the apps you already use, and what Claude can see once they're connected.",
+      "station": "connectors",
+      "link": "#/bench/connectors"
+    },
+    {
+      "date": "2026-11-25",
+      "title": "New recipe: Make a skill just by chatting",
+      "body": "Describe how you do a job and let Claude ask the questions. It writes the skill for you.",
+      "station": "skills",
+      "link": "#recipes"
+    },
+    {
+      "date": "2026-11-30",
+      "title": "Try the Inspection Bench",
+      "body": "The habit that separates great Claude users from good ones: checking. Start with Spot the fib.",
+      "station": "discernment",
+      "link": "#/bench/discernment"
+    }
+  ]
+}
