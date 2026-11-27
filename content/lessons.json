@@ -48,6 +48,18 @@
         "title": "Use connectors to extend Claude's capabilities (Claude Help Center)",
         "url": "https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities"
       }
+    },
+    {
+      "id": "2026-11-27-double-check",
+      "date": "2026-11-27",
+      "station": "discernment",
+      "title": "When Claude sounds sure but is wrong",
+      "body": "Claude can sometimes write things that look correct but are mistaken. Anthropic calls this hallucinating, and it happens because of limits in today's AI models. Claude might not know the latest news, and it can even produce quotes that sound convincing but aren't real. So don't treat Claude as your only source of truth, especially for important decisions. When Claude searches the web, open the sources it cites, because the original page may hold details Claude left out. If an answer is wrong or unhelpful, tap the thumbs-down button to tell Anthropic.",
+      "tryIt": "Ask Claude a question about something you know well, like your hometown's history, then check one of its claims against a source you trust.",
+      "source": {
+        "title": "Claude is providing incorrect or misleading responses (Claude Help Center)",
+        "url": "https://support.claude.com/en/articles/8525154-claude-is-providing-incorrect-or-misleading-responses-what-s-going-on"
+      }
     }
   ]
 }
