@@ -122,7 +122,7 @@ function initTop() {
   $("#setBtn").addEventListener("click", () => { $("#motionSw").checked = reduce(); $("#setDlg").showModal(); });
   $("#motionSw").addEventListener("change", e => {
     try { localStorage.setItem("cw:motion", e.target.checked ? "reduce" : "full"); } catch (x) {}
-    document.documentElement.classList.toggle("reduce", e.target.checked); walk.reset(); toast(e.target.checked ? "Calm motion on." : "Full motion on.");
+    document.documentElement.classList.toggle("reduce", e.target.checked); walk.reset(); intro.reset(); toast(e.target.checked ? "Calm motion on." : "Full motion on.");
   });
 }
 const inWalk = () => { const w = $("#walkin"); const r = w.getBoundingClientRect(); return r.bottom > innerHeight * 0.5; };
@@ -204,6 +204,47 @@ const walk = (() => {
   addEventListener("scroll", onScroll, { passive: true });
   addEventListener("resize", () => { if (!reduce()) { sizeCanvas(); frame(); } });
   return { start, reset };
+})();
+
+/* ---------------- the full-motion entrance ---------------- */
+// Plays once over the walk-in, then moves into the hall the way "Skip to the hall" does.
+// Calm motion: no autoplay; the poster waits behind a play button.
+const intro = (() => {
+  let fly, v, play, replayBtn, done = false, pending = false;
+  const near = () => scrollY < innerHeight * 0.15;
+  const enterRoom = () => $("#hall").scrollIntoView({ behavior: reduce() ? "auto" : "smooth" });
+  const showPlay = (on, label) => { play.hidden = !on; if (label) play.setAttribute("aria-label", label); };
+  function tryPlay() { const p = v.play(); if (p && p.catch) p.catch(() => showPlay(true, "Play the flythrough")); }
+  function rewind() { try { v.currentTime = 0; } catch (e) {} }
+  function dismiss() { done = true; pending = false; v.pause(); fly.classList.add("done"); replayBtn.hidden = reduce(); }
+  function park() { v.pause(); v.controls = false; showPlay(true, "Replay the flythrough"); }
+  function leave() { if (reduce()) park(); else dismiss(); enterRoom(); }
+  function begin() { done = false; pending = false; fly.classList.remove("done"); replayBtn.hidden = true; showPlay(false); rewind(); tryPlay(); }
+  function replay() { if (reduce()) { begin(); return; } done = false; pending = true; fly.classList.remove("done"); replayBtn.hidden = true; scrollTo({ top: 0, behavior: "instant" }); if (near()) begin(); }
+  function onScroll() {
+    if (reduce()) return;
+    if (pending) { if (near()) begin(); return; }
+    if (!done && !near()) dismiss(); // scrolling on means the visitor chose the photo tour
+  }
+  function reset() {
+    v.pause(); v.controls = false; pending = false; done = false; fly.classList.remove("done"); replayBtn.hidden = true;
+    if (reduce()) { v.autoplay = false; showPlay(true, "Play the flythrough"); return; }
+    showPlay(false);
+    const d = D(), deepLink = location.hash && location.hash !== "#walkin";
+    if ((d && d.seenWalk && !location.hash) || deepLink || !near()) { v.autoplay = false; dismiss(); } else { v.autoplay = true; tryPlay(); }
+  }
+  function start() {
+    fly = $("#fly"); v = $("#flyVid"); play = $("#flyPlay"); replayBtn = $("#flyReplay");
+    if (!fly || !v) return;
+    v.addEventListener("ended", leave);
+    v.addEventListener("playing", () => showPlay(false));
+    play.addEventListener("click", () => { if (reduce()) v.controls = true; if (v.ended) rewind(); done = false; fly.classList.remove("done"); showPlay(false); tryPlay(); });
+    $("#flySkip").addEventListener("click", leave);
+    replayBtn.addEventListener("click", replay);
+    addEventListener("scroll", onScroll, { passive: true });
+    reset();
+  }
+  return { start, reset: () => v && reset() };
 })();
 
 /* ---------------- the hall ---------------- */
@@ -614,7 +655,7 @@ function renderAll() { renderWho(); renderHall(); renderDesk(); renderPath(); re
 /* ---------------- start ---------------- */
 async function start() {
   loadState();
-  initTop(); walk.start();
+  initTop(); walk.start(); intro.start();
   document.addEventListener("click", onClick);
   document.addEventListener("change", onChange);
   document.addEventListener("submit", onSubmit);
