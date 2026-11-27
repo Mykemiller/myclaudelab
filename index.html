@@ -41,6 +41,16 @@
 <!-- ============ THE WALK-IN ============ -->
 <section class="walkin" id="walkin" aria-label="Walk-in tour of the workshop">
   <div class="stage" id="stage">
+    <!-- full-motion entrance: plays first, then carries you into the hall -->
+    <div class="fly" id="fly">
+      <video id="flyVid" autoplay muted playsinline preload="metadata" poster="img/workshop-flythrough-poster.webp" aria-label="A 48-second flythrough of the Curiosity Workshop: from the balcony over the round map table, past the Model Garage, the Artifact Studio, the Skills Workbench and the connector switchboard, then back to the hall with the words Pick a bench, start anywhere.">
+        <source src="img/workshop-flythrough.webm" type="video/webm">
+        <source src="img/workshop-flythrough.mp4" type="video/mp4">
+      </video>
+      <script>if (document.documentElement.classList.contains("reduce")) { var fv = document.getElementById("flyVid"); fv.removeAttribute("autoplay"); fv.autoplay = false; }</script>
+      <button class="fly-play" id="flyPlay" hidden aria-label="Play the flythrough"><span aria-hidden="true">▶</span></button>
+      <button class="fly-skip" id="flySkip">Skip intro ↓</button>
+    </div>
     <div class="layer l-door" data-l="door"><img src="img/v2/door.webp" srcset="img/v2/door-s.webp 720w, img/v2/door.webp 1536w" sizes="100vw" alt="Dusk on a wet cobbled lane: tall oak doors glowing with warm light under a painted sign, The Curiosity Workshop." fetchpriority="high"></div>
     <div class="layer" data-l="threshold"><img src="img/v2/threshold.webp" srcset="img/v2/threshold-s.webp 720w, img/v2/threshold.webp 1536w" sizes="100vw" alt="Through the open doors: a vast, golden workshop hall with long benches, hanging bulbs, wooden drawers to the ceiling and a mezzanine library." decoding="async"></div>
     <div class="layer" data-l="hall"><img src="img/v2/hall.webp" srcset="img/v2/hall-s.webp 720w, img/v2/hall.webp 1536w" sizes="100vw" alt="The hall from the balcony: a ring of workstations around a round map table, under a glass roof at dusk." decoding="async"></div>
@@ -79,6 +89,7 @@
     <div class="walk-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
     <div class="scroll-cue" id="cue" aria-hidden="true">Scroll</div>
     <button class="walk-skip" data-act="skipwalk">Skip to the hall ↓</button>
+    <button class="fly-replay" id="flyReplay" hidden>↺ Replay intro</button>
 
     <!-- shown instead of the moving tour when motion is calm -->
     <div class="scene-static"><img src="img/v2/door-s.webp" alt="" loading="lazy"><div class="cap"><p class="k">myclaudelab · a family workshop</p><h1>Some rooms teach you. This one lets you make.</h1><p>A workshop for learning Claude, from your very first prompt to the top 10% of people who use it. Thirteen benches on three arcs, a Lab Director, and a board that changes every week.</p><div class="cta"><a class="btn primary" href="#hall">Step inside</a><button class="btn ghost" data-act="join">Who's joining?</button></div></div></div>
