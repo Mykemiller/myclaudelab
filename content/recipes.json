@@ -52,6 +52,23 @@
         "title": "How to create a skill with Claude through conversation (Claude Academy)",
         "url": "https://academy.claude.com/tutorials/how-to-create-a-skill-with-claude-through-conversation"
       }
+    },
+    {
+      "id": "2026-11-27-give-a-role",
+      "date": "2026-11-27",
+      "station": "prompts",
+      "title": "Give Claude a job title",
+      "ingredients": [
+        "The role you want Claude to play",
+        "What it's especially good at",
+        "Your actual question"
+      ],
+      "method": "You are a [role, like a patient piano teacher] who specializes in [focus, like adult beginners]. [Your question or task.]",
+      "notes": "Anthropic says setting a role focuses Claude's behavior and tone, and even a single sentence makes a difference. Their own example is a helpful coding assistant specializing in Python.",
+      "source": {
+        "title": "Prompting best practices (Claude Docs)",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+      }
     }
   ]
 }
