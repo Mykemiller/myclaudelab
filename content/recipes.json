@@ -69,6 +69,23 @@
         "title": "Prompting best practices (Claude Docs)",
         "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
       }
+    },
+    {
+      "id": "2026-11-28-make-a-spreadsheet",
+      "date": "2026-11-28",
+      "station": "artifacts",
+      "title": "Order up a ready-made spreadsheet",
+      "ingredients": [
+        "What you want to keep track of",
+        "The columns or categories you need",
+        "Any totals or calculations you want done for you"
+      ],
+      "method": "Create an Excel spreadsheet to track [what, like our monthly family expenses]. Include columns for [your columns]. Add automatic calculations for [totals you want], and a simple chart on a second sheet.",
+      "notes": "Claude can make real Excel, Word, PowerPoint and PDF files you download from the chat. The setting is called Code execution and file creation (or Create and edit files) under Settings, Capabilities. Making files uses more of your plan's usage than a normal chat.",
+      "source": {
+        "title": "Create and edit files with Claude (Claude Help Center)",
+        "url": "https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude"
+      }
     }
   ]
 }
