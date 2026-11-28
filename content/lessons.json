@@ -60,6 +60,18 @@
         "title": "Claude is providing incorrect or misleading responses (Claude Help Center)",
         "url": "https://support.claude.com/en/articles/8525154-claude-is-providing-incorrect-or-misleading-responses-what-s-going-on"
       }
+    },
+    {
+      "id": "2026-11-28-upload-files",
+      "date": "2026-11-28",
+      "station": "data",
+      "title": "Hand Claude your files",
+      "body": "You can give Claude a file to read instead of pasting text. Click the + button in the chat box and choose Add files or photos, or just drag a file into the chat. Claude reads PDFs, Word documents, spreadsheets, plain text and photos. For PDFs up to 100 pages it can also read the charts and pictures inside; for other documents it reads the text only. Files added to a project's Files section stay there for every chat in that project, so you don't have to upload them again.",
+      "tryIt": "Upload a recent utility bill or receipt as a PDF and ask Claude: what are the three most important numbers on this, and is anything unusual?",
+      "source": {
+        "title": "Upload files to Claude (Claude Help Center)",
+        "url": "https://support.claude.com/en/articles/8241126-upload-files-to-claude"
+      }
     }
   ]
 }
